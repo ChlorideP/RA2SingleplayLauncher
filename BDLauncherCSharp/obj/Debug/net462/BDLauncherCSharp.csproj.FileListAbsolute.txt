@@ -1,0 +1,9 @@
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\BDLauncherCSharp.csprojAssemblyReference.cache
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\BDLauncherCSharp.exe.config
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\MainWindow.baml
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\MainWindow.g.cs
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\UserInterface.g.cs
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\App.g.cs
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\GeneratedInternalTypeHelper.g.cs
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\BDLauncherCSharp_MarkupCompile.cache
+D:\UserFile\Desktop\Braindead\BDLauncherCSharp\obj\Debug\net462\BDLauncherCSharp_MarkupCompile.lref

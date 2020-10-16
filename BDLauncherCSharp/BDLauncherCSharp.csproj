@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Allied.png" />
+    <None Remove="Assets\bg.png" />
+    <None Remove="Assets\clienticon.ico" />
+    <None Remove="Assets\Soviet.png" />
+    <None Remove="Assets\Yuri.png" />
+    <None Remove="Assets\单关战役启动器bg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Allied.png" />
+    <Resource Include="Assets\bg.png" />
+    <Resource Include="Assets\clienticon.ico" />
+    <Resource Include="Assets\Soviet.png" />
+    <Resource Include="Assets\Yuri.png" />
+  </ItemGroup>
+
+</Project>

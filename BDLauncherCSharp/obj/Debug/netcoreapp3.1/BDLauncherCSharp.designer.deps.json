@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Shimakaze.Struct.Ini/1.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Shimakaze.Struct.Ini.dll": {
+            "assemblyVersion": "1.0.1.1",
+            "fileVersion": "1.0.1.1"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Shimakaze.Struct.Ini/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m94hlkc/TWqvtfbmNEQ3UmeHpgB7XuSv7Qfa4Br4bCzagKUuOLBVPTqE/uTTbPmiGLpShXuKePjTqC1weCZdpQ==",
+      "path": "shimakaze.struct.ini/1.0.2",
+      "hashPath": "shimakaze.struct.ini.1.0.2.nupkg.sha512"
+    }
+  }
+}

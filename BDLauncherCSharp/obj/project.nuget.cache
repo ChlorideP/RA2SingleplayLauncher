@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pbDKe0viQR/r8ZuBIXHLt4z4MM68b/AcZYgCFjIco5AtvtfdapjgzGlDrozjw8RzlDMCmpyC72ieypevIigySw==",
+  "success": true,
+  "projectFilePath": "D:\\UserFile\\Desktop\\Braindead\\BDLauncherCSharp\\BDLauncherCSharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Caco\\.nuget\\packages\\shimakaze.struct.ini\\1.0.2\\shimakaze.struct.ini.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

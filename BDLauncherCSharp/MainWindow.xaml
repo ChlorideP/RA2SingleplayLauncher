@@ -1,0 +1,147 @@
+﻿<Window
+    x:Class="BDLauncherCSharp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+    Title="Singleplayer Campaign Launcher"
+    Width="656"
+    Height="520"
+    Icon="Assets/ClientIcon.ico"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <!--  背景 图像笔刷  -->
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/bg.png" Stretch="UniformToFill" />
+        </Grid.Background>
+        <!--  分行  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!--  分列  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image
+            Grid.RowSpan="2"
+            Width="130"
+            Height="82"
+            Margin="25,88,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="Assets/allied.png"
+            Stretch="UniformToFill" />
+        <!--  主要文字位置  -->
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <!--  左边的文字  -->
+            <StackPanel Margin="119,25,0,22" HorizontalAlignment="Left">
+                <!--  使用资源来避免TextBlock繁琐  -->
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="Foreground" Value="#FFE6E6E6" />
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text="盟军单关战役 - 脑死"/>
+                <TextBlock Text="Presented By Caco" FontFamily="Microsoft YaHei UI Light" />
+            </StackPanel>
+
+            <!--  右边的文字  -->
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Margin="20,0"
+                HorizontalAlignment="Right">
+                <!--  使用资源来避免TextBlock繁琐  -->
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Foreground" Value="#FF969696" />
+                        <Setter Property="Margin" Value="5" />
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text="Booter Made By:"/>
+                <TextBlock Text="Caco"/>
+                <TextBlock Text="=Star="/>
+                <TextBlock Text="Shimakaze"/>
+                <!--  拿来空行的空文本块  -->
+                <TextBlock />
+                <TextBlock Text="Especially Thanks To:"/>
+                <TextBlock Text="Shimakaze"/>
+            </StackPanel>
+        </Grid>
+
+        <!--  可交互的控件位置  -->
+        <Grid
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="30,278,30,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <!--  第一行  -->
+            <StackPanel
+                Height="13"
+                Margin="10,5"
+                Orientation="Horizontal" FlowDirection="RightToLeft">
+                <CheckBox Name="Debug_Check" Content="记录日志" Height="14" VerticalAlignment="Top" Width="70" FlowDirection="LeftToRight" Foreground="#FFE6E6E6" IsChecked="True"/>
+            </StackPanel>
+            <!--  第二行  -->
+            <DockPanel Grid.Row="1" Margin="10,5">
+                <DockPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </DockPanel.Resources>
+                <TextBlock
+                    Margin="5,0"
+                    VerticalAlignment="Center"
+                    Text="在此处输入英文命令行参数: " />
+                <TextBox
+                    x:Name="TB_Command"
+                    input:InputMethod.IsInputMethodEnabled="False"
+                    Margin="5,0"
+                    VerticalContentAlignment="Center" />
+            </DockPanel>
+            <!--  第三行  -->
+            <StackPanel
+                Grid.Row="2"
+                Height="28"
+                Margin="10,5"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button 
+                    Margin="3,0"
+                    Padding="30 0"
+                    Content="设置"
+                    Click="Btn_UserInterface_Click"/>
+                <Button
+                    Margin="3,0"
+                    Padding="30 0"
+                    Click="Btn_ArchiveLoader_Click"
+                    Content="读档" />
+                <Button
+                    Margin="3,0"
+                    Padding="13 0"
+                    Click="Btn_CommandClear_Click"
+                    Content="清除命令行" />
+                <Button
+                    Margin="3,0"
+                    Padding="16 0"
+                    Click="Btn_GameStart_Click"
+                    Content="启动游戏" />
+            </StackPanel>
+        </Grid>
+        <Border Grid.RowSpan="2" Grid.ColumnSpan="2" x:Name="dialogMask" Background="#6000" Visibility="Collapsed" Opacity="81" />
+    </Grid>
+</Window>
