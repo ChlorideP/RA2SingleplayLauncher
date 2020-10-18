@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace BDLauncherCSharp
 {
@@ -25,6 +26,8 @@ namespace BDLauncherCSharp
 
     public partial class MainWindow
     {
+        public static string LogMode;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,8 +55,16 @@ namespace BDLauncherCSharp
         {
             //Check if Ares function exists
             var MainExePath = Environment.CurrentDirectory;
+            if ((bool)Debug_Check.IsChecked)
+            {
+                LogMode = " -LOG";
+            }
+            else
+            {
+                LogMode = string.Empty;
+            }
             // it seems has another way to optimize the "if"..
-            // get on it tomorrow.
+            // however I didn't understand the way to make it check ONCE only.
             if (!File.Exists(MainExePath + "\\gamemd.exe"))
             {
                 MessageBox.Show("没主程序玩个锤子，爪巴", "「脑死」启动器");
@@ -65,6 +76,13 @@ namespace BDLauncherCSharp
             else if (!File.Exists(MainExePath + "\\Syringe.exe"))
             {
                 MessageBox.Show("Ares扩展逻辑需要Syringe注入方可生效。\n\n请检查您的游戏文件是否包含 Syringe.exe。\n如否，建议重新下载安装。", "「脑死」启动器");
+            }
+            else
+            {
+                //right now it is only necessary to boot it.
+                Process.Start(MainExePath + "\\Syringe.exe", "\"gamemd.exe\" -SPAWN -CD" + LogMode + TB_Command.Text );
+                //and then close itself.
+                Process.GetCurrentProcess().CloseMainWindow();
             }
          }
 
