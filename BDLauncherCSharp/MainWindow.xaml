@@ -94,7 +94,8 @@
                 Height="13"
                 Margin="10,5"
                 Orientation="Horizontal" FlowDirection="RightToLeft">
-                <CheckBox Name="Debug_Check" Content="记录日志" Height="14" VerticalAlignment="Top" Width="70" FlowDirection="LeftToRight" Foreground="#FFE6E6E6" IsChecked="True"/>
+                <CheckBox Name="Debug_Check" Content="记录日志" Height="14" VerticalAlignment="Top" FlowDirection="LeftToRight" Foreground="#FFE6E6E6" IsChecked="True"/>
+                <CheckBox x:Name="Admin_Check" Content="管理员运行" Height="14" VerticalAlignment="Top" FlowDirection="LeftToRight" Foreground="#FFE6E6E6" Margin="10,0"/>
             </StackPanel>
             <!--  第二行  -->
             <DockPanel Grid.Row="1" Margin="10,5">

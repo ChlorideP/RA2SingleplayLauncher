@@ -1,8 +1,12 @@
 ﻿using BDLauncherCSharp.Controls;
+using BDLauncherCSharp.GameEnvironment;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +29,19 @@ namespace BDLauncherCSharp
         public SaveLoaderDialog()
         {
             InitializeComponent();
+        }
+
+        //get Save time
+        public static List<string> GetSaveGameTime()
+        {
+            List<string> time = new List<string>();
+            var a = new DirectoryInfo(CheckGameEnvi.SaveData);
+            foreach (var b in a.GetFiles("*.sav"))
+            {
+                DateTime c = b.LastWriteTime;
+                time.Add(c.ToString());
+            }
+            return time;
         }
 
         //ASYNC Method to get Save name
