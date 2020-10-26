@@ -8,11 +8,13 @@
              mc:Ignorable="d" Background="#8000" BorderBrush="#000" BorderThickness="2"
              Width="600" Height="325">
     <Grid Margin="0 -20 0 0" HorizontalAlignment="Center">
-        <DataGrid x:Name="SaveList" AlternatingRowBackground="LightBlue" Width="500" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Save Name" Width="*"/>
-                <DataGridTextColumn Header="Save Time" Width="150"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView x:Name="SaveList" Width="500" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Save Name" Width="320"/>
+                    <GridViewColumn Header="Save Time" Width="160"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </ctrls:GDialog>
