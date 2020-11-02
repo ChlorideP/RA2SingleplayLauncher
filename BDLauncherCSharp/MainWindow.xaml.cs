@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using BDLauncherCSharp.Controls;
-using BDLauncherCSharp.BootGameLogic; //boot logic is here.
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -32,8 +31,8 @@ namespace BDLauncherCSharp
         public static string BDVol = MainPath.Substring(0, AppDomain.CurrentDomain.BaseDirectory.IndexOf(':'));
         public const string GameMD = "GAMEMD.EXE";
         public const string AresMainFunc = "Ares.DLL";
-        public static bool IsBDFilelist;
         public const string AresInjector = "Syringe.EXE";
+        public static bool IsBDFilelist;
 
         public MainWindow()
         {
@@ -104,16 +103,16 @@ namespace BDLauncherCSharp
                 MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
             else
             {
-                var option = new GameExecuteOptions
+                var option = new Data.GameExecuteOptions
                 {
                     LogMode = Debug_Check.IsChecked ?? false,
                     RunAs = Admin_Check.IsChecked ?? false,
                     Others = TB_Command.Text.Split(' ')
                 };
-                GameExecute.RunGame(option);
-                Environment.Exit(exitCode: 0);
+                Extensions.GameExecute.RunGame(option);
+                Environment.Exit(0);
             }
-         }
+        }
 
         public async Task<GDialogResult> ShowDialog(GDialog dialog)
         {

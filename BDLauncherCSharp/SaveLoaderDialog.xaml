@@ -7,14 +7,19 @@
              xmlns:local="clr-namespace:BDLauncherCSharp"
              mc:Ignorable="d" Background="#8000" BorderBrush="#000" BorderThickness="2"
              Width="600" Height="325">
-    <Grid Margin="0 -20 0 0" HorizontalAlignment="Center">
-        <ListView x:Name="SaveList" Width="500" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Save Name" Width="320"/>
-                    <GridViewColumn Header="Save Time" Width="160"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+    <Grid Margin="0 -20 0 0" HorizontalAlignment="Center" >
+        <DataGrid 
+            x:Name="SaveList" Margin="-10 0"
+            IsReadOnly="true" SelectionMode="Single"
+            AutoGenerateColumns="False"
+            CanUserReorderColumns="False"
+            RowHeaderWidth="0" RowHeight="20" Grid.Row="1"
+            AlternationCount="2" AlternatingRowBackground="#F4F4F4"
+            HeadersVisibility="All" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                    <DataGridTextColumn Header="Save Name" Binding="{Binding Name}" MinWidth="80" Width="*"/>
+                    <DataGridTextColumn Header="Save Time" Binding="{Binding Time}" MinWidth="150"/>
+                </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </ctrls:GDialog>

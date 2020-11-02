@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using static BDLauncherCSharp.Data.OverAll;
+
 namespace BDLauncherCSharp
 {
     /// <summary>
@@ -13,11 +15,11 @@ namespace BDLauncherCSharp
     /// </summary>
     public partial class App : Application
     { 
-        protected override async void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             //GameEnvironment.CheckGameEnvi.CheckSaveDir()
-            await Task.Run(GameEnvironment.CheckGameEnvi.CheckSaveDir);
+            if  (!SavedGameDirectory.Exists) SavedGameDirectory.Create();
         }
     }
 }

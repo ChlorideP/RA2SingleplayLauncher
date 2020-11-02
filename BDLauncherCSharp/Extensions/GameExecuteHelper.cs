@@ -1,23 +1,23 @@
-锘縰sing System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using BDLauncherCSharp.Controls;
+using System.IO;
+using System.Threading;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
-namespace BDLauncherCSharp.BootGameLogic
+namespace BDLauncherCSharp.Extensions
 {
-    public class GameExecuteOptions
+    /// <summary>
+    /// 启动游戏工具类 
+    /// </summary>
+    public static class GameExecute
     {
-        public bool LogMode;
-        public bool RunAs;
-        public string[] Others;
-    }
-
-    public class GameExecute
-    {
-        public static void RunGame(GameExecuteOptions options)
+        public static void RunGame(this Data.GameExecuteOptions options)
         {
             var list = new List<string>();
             list.Add($"\"{MainWindow.GameMD}\"");
