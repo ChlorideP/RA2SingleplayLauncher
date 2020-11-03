@@ -1,4 +1,5 @@
 ﻿using BDLauncherCSharp.Controls;
+using BDLauncherCSharp.Extensions;
 
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace BDLauncherCSharp
         public SaveLoaderDialog()
         {
             InitializeComponent();
+            this.I18NInitialize();
             
             this.SaveList.ItemsSource = new ObservableCollection<Data.SavedGameInfo>(GetSavedGameInfoList(SavedGameDirectory));
 

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnArchive.Content" xml:space="preserve">
+    <value>载入存档</value>
+  </data>
+  <data name="btnCmdClr.Content" xml:space="preserve">
+    <value>清除命令行参数</value>
+  </data>
+  <data name="btnRun.Content" xml:space="preserve">
+    <value>开始游戏</value>
+  </data>
+  <data name="btnSettings.Content" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="cbLog.Content" xml:space="preserve">
+    <value>记录日志</value>
+  </data>
+  <data name="cbRunAs.Content" xml:space="preserve">
+    <value>以管理员身份运行</value>
+  </data>
+  <data name="txtCommandLineTip.Text" xml:space="preserve">
+    <value>命令行参数</value>
+  </data>
+  <data name="cbBackBuffer.Content" xml:space="preserve">
+    <value>后台缓冲区</value>
+  </data>
+  <data name="cbBorderLess.Content" xml:space="preserve">
+    <value>无边距</value>
+  </data>
+  <data name="cbWindowed.Content" xml:space="preserve">
+    <value>有窗口的</value>
+  </data>
+  <data name="dlgSetting.Title" xml:space="preserve">
+    <value>用户设置</value>
+  </data>
+  <data name="txtDifficulty.Text" xml:space="preserve">
+    <value>难度</value>
+  </data>
+  <data name="txtRenderer.Text" xml:space="preserve">
+    <value>呈现器</value>
+  </data>
+  <data name="txtScreenSize.Text" xml:space="preserve">
+    <value>屏幕分辨率 (W*H):</value>
+  </data>
+  <data name="dlgSaveLoader.Title" xml:space="preserve">
+    <value>载入存档</value>
+  </data>
+  <data name="gbDisplay.Header" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Easy" xml:space="preserve">
+    <value>简单</value>
+  </data>
+  <data name="Hard" xml:space="preserve">
+    <value>硬</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+</root>

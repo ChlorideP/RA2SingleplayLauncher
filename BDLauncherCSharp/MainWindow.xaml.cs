@@ -19,6 +19,7 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp
 {
@@ -37,6 +38,7 @@ namespace BDLauncherCSharp
         public MainWindow()
         {
             InitializeComponent();
+            this.I18NInitialize();// I18N 初始化
             App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
         }
 
