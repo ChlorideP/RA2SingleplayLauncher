@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en" target-language="zh-Hans" original="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+  <file datatype="xml" source-language="en" target-language="qps-ploc" original="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
     </header>
@@ -8,27 +8,27 @@
       <group id="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX">
         <trans-unit id="btnArchive.Content" translate="yes" xml:space="preserve">
           <source>Load Archive</source>
-          <target state="final">载入存档</target>
+          <target state="new">Load Archive</target>
         </trans-unit>
         <trans-unit id="btnCmdClr.Content" translate="yes" xml:space="preserve">
           <source>Clear Command Line</source>
-          <target state="translated">清除命令行参数</target>
+          <target state="new">Clear Command Line</target>
         </trans-unit>
         <trans-unit id="btnRun.Content" translate="yes" xml:space="preserve">
           <source>RUN!</source>
-          <target state="final">开始游戏</target>
+          <target state="new">RUN!</target>
         </trans-unit>
         <trans-unit id="btnSettings.Content" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated" state-qualifier="tm-suggestion">设置</target>
+          <target state="new">Settings</target>
         </trans-unit>
         <trans-unit id="cbLog.Content" translate="yes" xml:space="preserve">
           <source>Use Log</source>
-          <target state="translated">记录日志</target>
+          <target state="new">Use Log</target>
         </trans-unit>
         <trans-unit id="cbRunAs.Content" translate="yes" xml:space="preserve">
           <source>Run As Administrator</source>
-          <target state="translated">以管理员身份运行</target>
+          <target state="new">Run As Administrator</target>
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
           <source>Singleplayer Campaign Launcher</source>
@@ -36,7 +36,7 @@
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
           <source>Command Line: </source>
-          <target state="translated">命令行参数</target>
+          <target state="new">Command Line: </target>
         </trans-unit>
       </group>
     </body>

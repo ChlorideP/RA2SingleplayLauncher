@@ -17,9 +17,9 @@ namespace BDLauncherCSharp.Extensions
         public static void I18NInitialize(this ResourceManager resourceMgr)
         {
             if (resourceMgr is null) throw new NullReferenceException($"this {nameof(ResourceManager)} is null");
-            resourceManager = resourceMgr;
-            resourceManager.GetString(string.Empty);
-            names = resourceMgr?.GetResourceSet(CultureInfo.CurrentUICulture, false, true)
+            resourceManager = resourceMgr ?? String.Resource.ResourceManager;
+            //resourceManager.GetString(string.Empty);
+            names = resourceManager.GetResourceSet(new CultureInfo("en"), true, true)
                                ?.Cast<DictionaryEntry>()
                                 .Select(item => item.Key as string);
         }
@@ -39,7 +39,7 @@ namespace BDLauncherCSharp.Extensions
                                       .Select(i => (i.name, i.name.Substring(i.prefx.Length))))
             {
                 var propertyInfo = element.GetType().GetProperty(property);
-                var str = resourceManager.GetString(name, CultureInfo.CurrentUICulture);
+                var str = resourceManager.GetString(name);
                 if (propertyInfo is null || string.IsNullOrWhiteSpace(str)) continue;
                 var constructor = propertyInfo.PropertyType.GetConstructor(new[] { typeof(string) });
                 var method = propertyInfo.PropertyType.GetMethod("Parse", BindingFlags.Static | BindingFlags.Public,
