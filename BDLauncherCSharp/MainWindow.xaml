@@ -8,7 +8,6 @@
     Title="Singleplayer Campaign Launcher"
     Width="656"
     Height="520"
-    Icon="Assets/ClientIcon.ico"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -71,11 +70,11 @@
                 <TextBlock Text="Booter Made By:"/>
                 <TextBlock Text="Caco"/>
                 <TextBlock Text="=Star="/>
-                <TextBlock Text="Shimakaze"/>
+                <TextBlock Text="frg2089"/>
                 <!--  拿来空行的空文本块  -->
                 <TextBlock />
                 <TextBlock Text="Especially Thanks To:"/>
-                <TextBlock Text="Shimakaze"/>
+                <TextBlock Text="frg2089"/>
             </StackPanel>
         </Grid>
 
