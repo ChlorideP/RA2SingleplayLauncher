@@ -47,8 +47,8 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         public static global::System.Globalization.CultureInfo Culture {
@@ -97,6 +97,24 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Back Buffer 的本地化字符串。
+        /// </summary>
+        public static string cbBackBuffer_Content {
+            get {
+                return ResourceManager.GetString("cbBackBuffer.Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Borderless 的本地化字符串。
+        /// </summary>
+        public static string cbBorderLess_Content {
+            get {
+                return ResourceManager.GetString("cbBorderLess.Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Use Log 的本地化字符串。
         /// </summary>
         public static string cbLog_Content {
@@ -115,6 +133,96 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Windowed 的本地化字符串。
+        /// </summary>
+        public static string cbWindowed_Content {
+            get {
+                return ResourceManager.GetString("cbWindowed.Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Primary Button 的本地化字符串。
+        /// </summary>
+        public static string dlgSaveLoader_PrimaryButtonContent {
+            get {
+                return ResourceManager.GetString("dlgSaveLoader.PrimaryButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Second Button 的本地化字符串。
+        /// </summary>
+        public static string dlgSaveLoader_SecondButtonContent {
+            get {
+                return ResourceManager.GetString("dlgSaveLoader.SecondButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Archive Loader 的本地化字符串。
+        /// </summary>
+        public static string dlgSaveLoader_Title {
+            get {
+                return ResourceManager.GetString("dlgSaveLoader.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Primary Button 的本地化字符串。
+        /// </summary>
+        public static string dlgSetting_PrimaryButtonContent {
+            get {
+                return ResourceManager.GetString("dlgSetting.PrimaryButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Second Button 的本地化字符串。
+        /// </summary>
+        public static string dlgSetting_SecondButtonContent {
+            get {
+                return ResourceManager.GetString("dlgSetting.SecondButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User Settings 的本地化字符串。
+        /// </summary>
+        public static string dlgSetting_Title {
+            get {
+                return ResourceManager.GetString("dlgSetting.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Easy 的本地化字符串。
+        /// </summary>
+        public static string Easy {
+            get {
+                return ResourceManager.GetString("Easy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Display 的本地化字符串。
+        /// </summary>
+        public static string gbDisplay_Header {
+            get {
+                return ResourceManager.GetString("gbDisplay.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hard 的本地化字符串。
+        /// </summary>
+        public static string Hard {
+            get {
+                return ResourceManager.GetString("Hard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Singleplayer Campaign Launcher 的本地化字符串。
         /// </summary>
         public static string MainWindow_Title {
@@ -124,11 +232,56 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Normal 的本地化字符串。
+        /// </summary>
+        public static string Normal {
+            get {
+                return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Command Line:  的本地化字符串。
         /// </summary>
         public static string txtCommandLineTip_Text {
             get {
                 return ResourceManager.GetString("txtCommandLineTip.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Difficulty: 的本地化字符串。
+        /// </summary>
+        public static string txtDifficulty_Text {
+            get {
+                return ResourceManager.GetString("txtDifficulty.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Renderer: 的本地化字符串。
+        /// </summary>
+        public static string txtRenderer_Text {
+            get {
+                return ResourceManager.GetString("txtRenderer.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Screen Size (W*H): 的本地化字符串。
+        /// </summary>
+        public static string txtScreenSize_Text {
+            get {
+                return ResourceManager.GetString("txtScreenSize.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CAUTION: Some of the settings may not be available. 的本地化字符串。
+        /// </summary>
+        public static string txtSettingTip_Text {
+            get {
+                return ResourceManager.GetString("txtSettingTip.Text", resourceCulture);
             }
         }
     }

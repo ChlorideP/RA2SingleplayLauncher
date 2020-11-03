@@ -33,4 +33,40 @@
   <data name="txtCommandLineTip.Text" xml:space="preserve">
     <value>命令行参数</value>
   </data>
+  <data name="cbBackBuffer.Content" xml:space="preserve">
+    <value>后台缓冲区</value>
+  </data>
+  <data name="cbBorderLess.Content" xml:space="preserve">
+    <value>无边距</value>
+  </data>
+  <data name="cbWindowed.Content" xml:space="preserve">
+    <value>有窗口的</value>
+  </data>
+  <data name="dlgSetting.Title" xml:space="preserve">
+    <value>用户设置</value>
+  </data>
+  <data name="txtDifficulty.Text" xml:space="preserve">
+    <value>难度</value>
+  </data>
+  <data name="txtRenderer.Text" xml:space="preserve">
+    <value>呈现器</value>
+  </data>
+  <data name="txtScreenSize.Text" xml:space="preserve">
+    <value>屏幕分辨率 (W*H):</value>
+  </data>
+  <data name="dlgSaveLoader.Title" xml:space="preserve">
+    <value>载入存档</value>
+  </data>
+  <data name="gbDisplay.Header" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Easy" xml:space="preserve">
+    <value>简单</value>
+  </data>
+  <data name="Hard" xml:space="preserve">
+    <value>硬</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
 </root>

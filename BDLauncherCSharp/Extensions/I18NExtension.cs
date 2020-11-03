@@ -54,5 +54,7 @@ namespace BDLauncherCSharp.Extensions
                                                    : constructor.Invoke(new object[] { str }));
             }
         }
+
+        public static string I18N(this string key) => resourceManager.GetString(key);
     }
 }

@@ -38,6 +38,74 @@
           <source>Command Line: </source>
           <target state="new">Command Line: </target>
         </trans-unit>
+        <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
+          <source>Back Buffer</source>
+          <target state="new">Back Buffer</target>
+        </trans-unit>
+        <trans-unit id="cbBorderLess.Content" translate="yes" xml:space="preserve">
+          <source>Borderless</source>
+          <target state="new">Borderless</target>
+        </trans-unit>
+        <trans-unit id="cbWindowed.Content" translate="yes" xml:space="preserve">
+          <source>Windowed</source>
+          <target state="new">Windowed</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.Title" translate="yes" xml:space="preserve">
+          <source>User Settings</source>
+          <target state="new">User Settings</target>
+        </trans-unit>
+        <trans-unit id="txtDifficulty.Text" translate="yes" xml:space="preserve">
+          <source>Difficulty:</source>
+          <target state="new">Difficulty:</target>
+        </trans-unit>
+        <trans-unit id="txtRenderer.Text" translate="yes" xml:space="preserve">
+          <source>Renderer:</source>
+          <target state="new">Renderer:</target>
+        </trans-unit>
+        <trans-unit id="txtScreenSize.Text" translate="yes" xml:space="preserve">
+          <source>Screen Size (W*H):</source>
+          <target state="new">Screen Size (W*H):</target>
+        </trans-unit>
+        <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
+          <source>CAUTION: Some of the settings may not be available.</source>
+          <target state="new">CAUTION: Some of the settings may not be available.</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Primary Button</source>
+          <target state="new">Primary Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.SecondButtonContent" translate="yes" xml:space="preserve">
+          <source>Second Button</source>
+          <target state="new">Second Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Primary Button</source>
+          <target state="new">Primary Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.SecondButtonContent" translate="yes" xml:space="preserve">
+          <source>Second Button</source>
+          <target state="new">Second Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
+          <source>Archive Loader</source>
+          <target state="new">Archive Loader</target>
+        </trans-unit>
+        <trans-unit id="gbDisplay.Header" translate="yes" xml:space="preserve">
+          <source>Display</source>
+          <target state="new">Display</target>
+        </trans-unit>
+        <trans-unit id="Easy" translate="yes" xml:space="preserve">
+          <source>Easy</source>
+          <target state="new">Easy</target>
+        </trans-unit>
+        <trans-unit id="Hard" translate="yes" xml:space="preserve">
+          <source>Hard</source>
+          <target state="new">Hard</target>
+        </trans-unit>
+        <trans-unit id="Normal" translate="yes" xml:space="preserve">
+          <source>Normal</source>
+          <target state="new">Normal</target>
+        </trans-unit>
       </group>
     </body>
   </file>

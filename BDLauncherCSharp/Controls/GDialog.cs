@@ -171,7 +171,8 @@ namespace BDLauncherCSharp.Controls
 
                         var secondButton = new Button
                         {
-                            MinWidth = 120
+                            MinWidth = 120,
+                            Margin = new Thickness(10, 0, 10, 0)
                         };
                         secondButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(secondButton.Content)) { Source = secondButton, Converter = cvtr });
                         secondButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.SecondButtonContent)) { Source = this });

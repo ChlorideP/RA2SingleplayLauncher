@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BDLauncherCSharp.Extensions;
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -12,22 +14,23 @@ namespace BDLauncherCSharp.Converters
         {
             if (value is double i)
             {
+#if NET48
                 switch (i)
                 {
-                    case 0: return "Easy";
-                    case 1: return "Normal";
-                    case 2: return "Hard";
+                    case 0: return "Easy".I18N();
+                    case 1: return "Normal".I18N();
+                    case 2: return "Hard".I18N();
                     default: return null;
                 }
-                //C井 8.0写法
-                //因目标框架降级所以不再采用。
-                /* return i switch
+#elif NETCOREAPP3_1
+                return i switch
                 {
-                    0 => "Easy",
-                    1 => "Normal",
-                    2 => "Hard",
+                    0 => "Easy".I18N(),
+                    1 => "Normal".I18N(),
+                    2 => "Hard".I18N(),
                     _ => null,
-                }; */
+                };
+#endif
             }
             else return null;
         }

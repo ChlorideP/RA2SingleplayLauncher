@@ -38,6 +38,74 @@
           <source>Command Line: </source>
           <target state="translated">命令行参数</target>
         </trans-unit>
+        <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
+          <source>Back Buffer</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">后台缓冲区</target>
+        </trans-unit>
+        <trans-unit id="cbBorderLess.Content" translate="yes" xml:space="preserve">
+          <source>Borderless</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">无边距</target>
+        </trans-unit>
+        <trans-unit id="cbWindowed.Content" translate="yes" xml:space="preserve">
+          <source>Windowed</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">有窗口的</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.Title" translate="yes" xml:space="preserve">
+          <source>User Settings</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">用户设置</target>
+        </trans-unit>
+        <trans-unit id="txtDifficulty.Text" translate="yes" xml:space="preserve">
+          <source>Difficulty:</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">难度</target>
+        </trans-unit>
+        <trans-unit id="txtRenderer.Text" translate="yes" xml:space="preserve">
+          <source>Renderer:</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">呈现器</target>
+        </trans-unit>
+        <trans-unit id="txtScreenSize.Text" translate="yes" xml:space="preserve">
+          <source>Screen Size (W*H):</source>
+          <target state="translated">屏幕分辨率 (W*H):</target>
+        </trans-unit>
+        <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
+          <source>CAUTION: Some of the settings may not be available.</source>
+          <target state="new">CAUTION: Some of the settings may not be available.</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Primary Button</source>
+          <target state="new">Primary Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.SecondButtonContent" translate="yes" xml:space="preserve">
+          <source>Second Button</source>
+          <target state="new">Second Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Primary Button</source>
+          <target state="new">Primary Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.SecondButtonContent" translate="yes" xml:space="preserve">
+          <source>Second Button</source>
+          <target state="new">Second Button</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
+          <source>Archive Loader</source>
+          <target state="translated">载入存档</target>
+        </trans-unit>
+        <trans-unit id="gbDisplay.Header" translate="yes" xml:space="preserve">
+          <source>Display</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">显示</target>
+        </trans-unit>
+        <trans-unit id="Easy" translate="yes" xml:space="preserve">
+          <source>Easy</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">简单</target>
+        </trans-unit>
+        <trans-unit id="Hard" translate="yes" xml:space="preserve">
+          <source>Hard</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">硬</target>
+        </trans-unit>
+        <trans-unit id="Normal" translate="yes" xml:space="preserve">
+          <source>Normal</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">正常</target>
+        </trans-unit>
       </group>
     </body>
   </file>

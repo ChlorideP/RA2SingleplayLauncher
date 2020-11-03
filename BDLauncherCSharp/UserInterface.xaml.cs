@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BDLauncherCSharp.Controls;
 using System.Text.RegularExpressions;
+using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp
 {
@@ -25,6 +26,7 @@ namespace BDLauncherCSharp
         public UserInterface()
         {
             InitializeComponent();
+            this.I18NInitialize();
         }
 
         private void cbSize_TextChanged(object sender, KeyEventArgs e)
