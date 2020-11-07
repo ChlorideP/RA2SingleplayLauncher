@@ -2,3 +2,4 @@
 *.ico
 BDLauncherCSharp/bin/Debug/
 BDLauncherCSharp/bin/x86/Debug/
+BDLauncherCSharp/obj/
