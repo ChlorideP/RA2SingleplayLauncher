@@ -5,10 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
-    Title="Singleplayer Campaign Launcher"
+    Title="单人战役启动器: 脑死"
     Width="656"
     Height="520"
-    Icon="Assets/ClientIcon.ico"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -41,15 +40,10 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <!--  左边的文字  -->
             <StackPanel Margin="119,25,0,22" HorizontalAlignment="Left">
-                <!--  使用资源来避免TextBlock繁琐  -->
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="18" />
-                        <Setter Property="Foreground" Value="#FFE6E6E6" />
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Text="盟军单关战役 - 脑死"/>
-                <TextBlock Text="Presented By Caco" FontFamily="Microsoft YaHei UI Light" />
+                <TextBlock FontSize="18" Foreground="#FFECECEC">
+                    <Run Text="盟军单关战役 - 脑死"/><LineBreak/>
+                    <Run Text="Presented By Caco" FontFamily="Microsoft YaHei UI Light"/>
+                </TextBlock>
             </StackPanel>
 
             <!--  右边的文字  -->
@@ -59,23 +53,15 @@
                 Grid.Column="1"
                 Margin="20,0"
                 HorizontalAlignment="Right">
-                <!--  使用资源来避免TextBlock繁琐  -->
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="HorizontalAlignment" Value="Center" />
-                        <Setter Property="FontSize" Value="16" />
-                        <Setter Property="Foreground" Value="#FF969696" />
-                        <Setter Property="Margin" Value="5" />
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Text="Booter Made By:"/>
-                <TextBlock Text="Caco"/>
-                <TextBlock Text="=Star="/>
-                <TextBlock Text="Shimakaze"/>
-                <!--  拿来空行的空文本块  -->
-                <TextBlock />
-                <TextBlock Text="Especially Thanks To:"/>
-                <TextBlock Text="Shimakaze"/>
+                <TextBlock Block.LineHeight="25" Block.TextAlignment="Center" FontSize="16" Foreground="#FF969696" Margin="5">
+                    <Run Text="Launcher Created By:"/><LineBreak/>
+                    <Run Text="Caco"/><LineBreak/>
+                    <Run Text="=Star="/><LineBreak/>
+                    <Run Text="frg2089"/><LineBreak/>
+                    <LineBreak/>
+                    <Run Text="Special Thanks:"/><LineBreak/>
+                    <Run Text="frg2089"/><LineBreak/>
+                </TextBlock> 
             </StackPanel>
         </Grid>
 

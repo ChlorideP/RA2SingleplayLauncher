@@ -7,10 +7,10 @@
              xmlns:local="clr-namespace:BDLauncherCSharp"
              mc:Ignorable="d" Background="#B000" BorderBrush="#000" BorderThickness="2" 
              xmlns:cvtr="clr-namespace:BDLauncherCSharp.Converters"
+             PrimaryButtonContent="应用"
+             CloseButtonContent="取消"
              PrimaryButtonClick="GDialog_PrimaryButtonClick"
-             SecondButtonClick="GDialog_SecondButtonClick"
-             Height="328" Title="User Settings">
-
+             Height="328" Title="用户设置">
     <ctrls:GDialog.Resources>
         <cvtr:DifficultyValueToStringConverter x:Key="DifficultyToStringConverter"/>
     </ctrls:GDialog.Resources>
@@ -33,7 +33,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,29" Grid.RowSpan="2">
-            <GroupBox Header="Display" Foreground="White">
+            <GroupBox Header="显示" Foreground="White">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -44,10 +44,10 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock HorizontalAlignment="Left" Margin="10 2" TextWrapping="Wrap" Text="Screen Size (W*H):"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10 2" TextWrapping="Wrap" Text="窗口大小 (宽*高):"/>
                     <ComboBox KeyDown="cbSize_TextChanged" x:Name="cbSize" Grid.Column="1" Margin="2" IsEditable="True"/>
 
-                    <TextBlock Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" Text="Renderer:" />
+                    <TextBlock Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" Text="渲染器:" />
                     <ComboBox x:Name="cbRenderer" Grid.Row="1" Margin="2" Grid.Column="1" />
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
@@ -56,20 +56,20 @@
                                 <Setter Property="Foreground" Value="White" />
                             </Style>
                         </StackPanel.Resources>
-                        <CheckBox x:Name="cbWindowed" Content="Windowed" Margin="5 2"/>
-                        <CheckBox Content="Borderless" IsEnabled="{Binding IsChecked, ElementName=cbWindowed}" Margin="15 2"/>
-                        <CheckBox Content="Back Buffer" Margin="5 4"/>
+                        <CheckBox x:Name="cbWindowed" Content="窗口化" Margin="5 2"/>
+                        <CheckBox Content="无边框窗口化" IsEnabled="{Binding IsChecked, ElementName=cbWindowed}" Margin="15 2"/>
+                        <CheckBox Content="后台缓存优化 (慎用)" Margin="5 4"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
             <!-- No Label -->
-            <TextBlock Margin="0,5,0,0" Text="CAUTION: Some of the settings may not be available." HorizontalAlignment="Center"/>
+            <TextBlock Margin="0,5,0,0" Text="注意：部分设置可能因渲染补丁而不能起作用。" HorizontalAlignment="Center"/>
             <Grid Margin="10 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Difficulty:"/>
+                <TextBlock Text="任务难度:"/>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>

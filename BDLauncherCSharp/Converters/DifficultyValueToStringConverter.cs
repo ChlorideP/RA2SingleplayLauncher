@@ -14,9 +14,9 @@ namespace BDLauncherCSharp.Converters
             {
                 switch (i)
                 {
-                    case 0: return "Easy";
-                    case 1: return "Normal";
-                    case 2: return "Hard";
+                    case 0: return "简单";
+                    case 1: return "中等";
+                    case 2: return "困难";
                     default: return null;
                 }
                 //C井 8.0写法

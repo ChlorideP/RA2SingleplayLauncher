@@ -17,8 +17,8 @@
             AlternationCount="2" AlternatingRowBackground="#F4F4F4"
             HeadersVisibility="All" GridLinesVisibility="None">
             <DataGrid.Columns>
-                    <DataGridTextColumn Header="Save Name" Binding="{Binding Name}" MinWidth="80" Width="*"/>
-                    <DataGridTextColumn Header="Save Time" Binding="{Binding Time}" MinWidth="150"/>
+                    <DataGridTextColumn Header="存档名" Binding="{Binding Name}" MinWidth="80" Width="*"/>
+                    <DataGridTextColumn Header="存档时间" Binding="{Binding Time}" MinWidth="150"/>
                 </DataGrid.Columns>
         </DataGrid>
     </Grid>
