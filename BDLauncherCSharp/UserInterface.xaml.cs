@@ -38,14 +38,9 @@ namespace BDLauncherCSharp
             (sender as Slider).Value = Math.Ceiling((sender as Slider).Value);
         }
 
-        private void GDialog_SecondButtonClick(Button sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void GDialog_PrimaryButtonClick(Button sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("CNMLGB");
         }
     }
 }
