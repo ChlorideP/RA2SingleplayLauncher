@@ -31,16 +31,16 @@
           <target state="final">以管理员身份运行</target>
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
-          <source>Singleplayer Campaign Launcher</source>
-          <target state="translated">单人战役启动器: 脑死</target>
+          <source>Singleplayer Campaign Launcher for Braindead RL</source>
+          <target state="translated">单人战役启动器 - 脑死 (Release v1.14)</target>
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
-          <source>Command Line: </source>
-          <target state="translated">在此输入纯英文命令行参数:</target>
+          <source>Command line arguments: </source>
+          <target state="translated">输入英文命令行参数:</target>
         </trans-unit>
         <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
           <source>Back Buffer</source>
-          <target state="translated" state-qualifier="tm-suggestion">启用后台缓冲区</target>
+          <target state="translated" state-qualifier="tm-suggestion">后台缓存优化 (慎用)</target>
         </trans-unit>
         <trans-unit id="cbBorderLess.Content" translate="yes" xml:space="preserve">
           <source>Borderless</source>
@@ -68,23 +68,15 @@
         </trans-unit>
         <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
           <source>CAUTION: Some of the settings may not be available.</source>
-          <target state="final">警告：部分设置可能不可用。</target>
+          <target state="final">警告：部分设置可能因渲染补丁的使用而无法起效。</target>
         </trans-unit>
         <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Primary Button</source>
-          <target state="new">Primary Button</target>
-        </trans-unit>
-        <trans-unit id="dlgSetting.SecondButtonContent" translate="yes" xml:space="preserve">
-          <source>Second Button</source>
-          <target state="new">Second Button</target>
+          <source>Apply</source>
+          <target state="translated">应用</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Primary Button</source>
-          <target state="new">Primary Button</target>
-        </trans-unit>
-        <trans-unit id="dlgSaveLoader.SecondButtonContent" translate="yes" xml:space="preserve">
-          <source>Second Button</source>
-          <target state="new">Second Button</target>
+          <source>Load</source>
+          <target state="translated">载入</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
           <source>Archive Loader</source>
@@ -105,6 +97,14 @@
         <trans-unit id="Normal" translate="yes" xml:space="preserve">
           <source>Normal</source>
           <target state="final" state-qualifier="tm-suggestion">正常</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">取消</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">取消</target>
         </trans-unit>
       </group>
     </body>

@@ -144,20 +144,20 @@
   <data name="cbWindowed.Content" xml:space="preserve">
     <value>Windowed</value>
   </data>
-  <data name="dlgSaveLoader.PrimaryButtonContent" xml:space="preserve">
-    <value>Primary Button</value>
+  <data name="dlgSaveLoader.CloseButtonContent" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="dlgSaveLoader.SecondButtonContent" xml:space="preserve">
-    <value>Second Button</value>
+  <data name="dlgSaveLoader.PrimaryButtonContent" xml:space="preserve">
+    <value>Load</value>
   </data>
   <data name="dlgSaveLoader.Title" xml:space="preserve">
     <value>Archive Loader</value>
   </data>
-  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
-    <value>Primary Button</value>
+  <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="dlgSetting.SecondButtonContent" xml:space="preserve">
-    <value>Second Button</value>
+  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
+    <value>Apply</value>
   </data>
   <data name="dlgSetting.Title" xml:space="preserve">
     <value>User Settings</value>
@@ -172,13 +172,13 @@
     <value>Hard</value>
   </data>
   <data name="MainWindow.Title" xml:space="preserve">
-    <value>Singleplayer Campaign Launcher</value>
+    <value>Singleplayer Campaign Launcher for Braindead RL</value>
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="txtCommandLineTip.Text" xml:space="preserve">
-    <value>Command Line: </value>
+    <value>Command line arguments: </value>
   </data>
   <data name="txtDifficulty.Text" xml:space="preserve">
     <value>Difficulty:</value>

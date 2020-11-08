@@ -142,20 +142,20 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Primary Button 的本地化字符串。
+        ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
-        public static string dlgSaveLoader_PrimaryButtonContent {
+        public static string dlgSaveLoader_CloseButtonContent {
             get {
-                return ResourceManager.GetString("dlgSaveLoader.PrimaryButtonContent", resourceCulture);
+                return ResourceManager.GetString("dlgSaveLoader.CloseButtonContent", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Second Button 的本地化字符串。
+        ///   查找类似 Load 的本地化字符串。
         /// </summary>
-        public static string dlgSaveLoader_SecondButtonContent {
+        public static string dlgSaveLoader_PrimaryButtonContent {
             get {
-                return ResourceManager.GetString("dlgSaveLoader.SecondButtonContent", resourceCulture);
+                return ResourceManager.GetString("dlgSaveLoader.PrimaryButtonContent", resourceCulture);
             }
         }
         
@@ -169,20 +169,20 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Primary Button 的本地化字符串。
+        ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
-        public static string dlgSetting_PrimaryButtonContent {
+        public static string dlgSetting_CloseButtonContent {
             get {
-                return ResourceManager.GetString("dlgSetting.PrimaryButtonContent", resourceCulture);
+                return ResourceManager.GetString("dlgSetting.CloseButtonContent", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Second Button 的本地化字符串。
+        ///   查找类似 Apply 的本地化字符串。
         /// </summary>
-        public static string dlgSetting_SecondButtonContent {
+        public static string dlgSetting_PrimaryButtonContent {
             get {
-                return ResourceManager.GetString("dlgSetting.SecondButtonContent", resourceCulture);
+                return ResourceManager.GetString("dlgSetting.PrimaryButtonContent", resourceCulture);
             }
         }
         
@@ -223,7 +223,7 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Singleplayer Campaign Launcher 的本地化字符串。
+        ///   查找类似 Singleplayer Campaign Launcher for Braindead RL 的本地化字符串。
         /// </summary>
         public static string MainWindow_Title {
             get {
@@ -241,7 +241,7 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Command Line:  的本地化字符串。
+        ///   查找类似 Command line arguments:  的本地化字符串。
         /// </summary>
         public static string txtCommandLineTip_Text {
             get {

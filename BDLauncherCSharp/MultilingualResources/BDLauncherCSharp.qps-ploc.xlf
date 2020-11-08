@@ -31,12 +31,12 @@
           <target state="final">Run As Administrator</target>
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
-          <source>Singleplayer Campaign Launcher</source>
-          <target state="final">Singleplayer Campaign Launcher for Braindead RL</target>
+          <source>Singleplayer Campaign Launcher for Braindead RL</source>
+          <target state="translated">Singleplayer Campaign Launcher for Braindead RL</target>
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
-          <source>Command Line: </source>
-          <target state="final">Command line argument: </target>
+          <source>Command line arguments: </source>
+          <target state="translated">Command line arguments: </target>
         </trans-unit>
         <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
           <source>Back Buffer</source>
@@ -71,20 +71,12 @@
           <target state="final">CAUTION: Some of the settings may not be available.</target>
         </trans-unit>
         <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Primary Button</source>
-          <target state="new">Primary Button</target>
-        </trans-unit>
-        <trans-unit id="dlgSetting.SecondButtonContent" translate="yes" xml:space="preserve">
-          <source>Second Button</source>
-          <target state="new">Second Button</target>
+          <source>Apply</source>
+          <target state="translated">Apply</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Primary Button</source>
-          <target state="new">Primary Button</target>
-        </trans-unit>
-        <trans-unit id="dlgSaveLoader.SecondButtonContent" translate="yes" xml:space="preserve">
-          <source>Second Button</source>
-          <target state="new">Second Button</target>
+          <source>Load</source>
+          <target state="translated">Load</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
           <source>Archive Loader</source>
@@ -105,6 +97,14 @@
         <trans-unit id="Normal" translate="yes" xml:space="preserve">
           <source>Normal</source>
           <target state="final">Normal</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Cancel</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Cancel</target>
         </trans-unit>
       </group>
     </body>

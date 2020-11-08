@@ -34,7 +34,7 @@
     <value>Singleplayer Campaign Launcher for Braindead RL</value>
   </data>
   <data name="txtCommandLineTip.Text" xml:space="preserve">
-    <value>Command line argument: </value>
+    <value>Command line arguments: </value>
   </data>
   <data name="cbBackBuffer.Content" xml:space="preserve">
     <value>Back Buffer</value>
@@ -60,6 +60,12 @@
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>CAUTION: Some of the settings may not be available.</value>
   </data>
+  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="dlgSaveLoader.PrimaryButtonContent" xml:space="preserve">
+    <value>Load</value>
+  </data>
   <data name="dlgSaveLoader.Title" xml:space="preserve">
     <value>Archive Loader</value>
   </data>
@@ -74,5 +80,11 @@
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
+  </data>
+  <data name="dlgSaveLoader.CloseButtonContent" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
+    <value>Cancel</value>
   </data>
 </root>
