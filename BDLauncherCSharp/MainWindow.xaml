@@ -35,7 +35,7 @@
             <!--  左边的文字  -->
             <StackPanel Margin="119,25,0,22" HorizontalAlignment="Left">
                 <TextBlock FontSize="18" Foreground="#FFE6E6E6">
-                    <Run Text="盟军单关战役 - 脑死" /><LineBreak />
+                    <Run Text="Operation: Braindead" /><LineBreak />
                     <Run Text="Presented By Caco" />
                 </TextBlock>
             </StackPanel>
@@ -49,12 +49,12 @@
                     Block.LineHeight="24" Block.TextAlignment="Center"
                     FontSize="16" Foreground="#FF969696">
                     <!--  用一个 TextBlock 节省内存  -->
-                    <Run Text="Launcher Create By:" /><LineBreak />
+                    <Run Text="Launcher Created By:" /><LineBreak />
                     <Run Text="Caco" /><LineBreak />
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
                     <LineBreak />
-                    <Run Text="Especially Thanks To:" /><LineBreak />
+                    <Run Text="Special Thanks:" /><LineBreak />
                     <Run Text="frg2089" />
                 </TextBlock>
             </StackPanel>
@@ -71,8 +71,8 @@
             </Grid.RowDefinitions>
             <!--  第一行  -->
             <StackPanel
-                Height="13"
-                Margin="10,5" HorizontalAlignment="Right"
+                Height="15"
+                Margin="10,3" HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <CheckBox x:Uid="cbLog" Name="Debug_Check"
                     Foreground="#FFE6E6E6" IsChecked="True" />
@@ -97,7 +97,7 @@
             <StackPanel
                 Grid.Row="2"
                 Height="28"
-                Margin="10,5" HorizontalAlignment="Right"
+                Margin="14,5" HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <Button x:Uid="btnSettings"
                     Margin="3,0" Padding="30,0"

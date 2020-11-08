@@ -8,67 +8,67 @@
       <group id="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX">
         <trans-unit id="btnArchive.Content" translate="yes" xml:space="preserve">
           <source>Load Archive</source>
-          <target state="new">Load Archive</target>
+          <target state="final">Load Archive</target>
         </trans-unit>
         <trans-unit id="btnCmdClr.Content" translate="yes" xml:space="preserve">
           <source>Clear Command Line</source>
-          <target state="new">Clear Command Line</target>
+          <target state="final">Clear Command Line</target>
         </trans-unit>
         <trans-unit id="btnRun.Content" translate="yes" xml:space="preserve">
           <source>RUN!</source>
-          <target state="new">RUN!</target>
+          <target state="final">RUN!</target>
         </trans-unit>
         <trans-unit id="btnSettings.Content" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="final">Settings</target>
         </trans-unit>
         <trans-unit id="cbLog.Content" translate="yes" xml:space="preserve">
           <source>Use Log</source>
-          <target state="new">Use Log</target>
+          <target state="final">Use Log</target>
         </trans-unit>
         <trans-unit id="cbRunAs.Content" translate="yes" xml:space="preserve">
           <source>Run As Administrator</source>
-          <target state="new">Run As Administrator</target>
+          <target state="final">Run As Administrator</target>
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
           <source>Singleplayer Campaign Launcher</source>
-          <target state="new">Singleplayer Campaign Launcher</target>
+          <target state="final">Singleplayer Campaign Launcher for Braindead RL</target>
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
           <source>Command Line: </source>
-          <target state="new">Command Line: </target>
+          <target state="final">Command line argument: </target>
         </trans-unit>
         <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
           <source>Back Buffer</source>
-          <target state="new">Back Buffer</target>
+          <target state="final">Back Buffer</target>
         </trans-unit>
         <trans-unit id="cbBorderLess.Content" translate="yes" xml:space="preserve">
           <source>Borderless</source>
-          <target state="new">Borderless</target>
+          <target state="final">Borderless</target>
         </trans-unit>
         <trans-unit id="cbWindowed.Content" translate="yes" xml:space="preserve">
           <source>Windowed</source>
-          <target state="new">Windowed</target>
+          <target state="final">Windowed</target>
         </trans-unit>
         <trans-unit id="dlgSetting.Title" translate="yes" xml:space="preserve">
           <source>User Settings</source>
-          <target state="new">User Settings</target>
+          <target state="final">User Settings</target>
         </trans-unit>
         <trans-unit id="txtDifficulty.Text" translate="yes" xml:space="preserve">
           <source>Difficulty:</source>
-          <target state="new">Difficulty:</target>
+          <target state="final">Difficulty:</target>
         </trans-unit>
         <trans-unit id="txtRenderer.Text" translate="yes" xml:space="preserve">
           <source>Renderer:</source>
-          <target state="new">Renderer:</target>
+          <target state="final">Renderer:</target>
         </trans-unit>
         <trans-unit id="txtScreenSize.Text" translate="yes" xml:space="preserve">
           <source>Screen Size (W*H):</source>
-          <target state="new">Screen Size (W*H):</target>
+          <target state="final">Screen Size (W*H):</target>
         </trans-unit>
         <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
           <source>CAUTION: Some of the settings may not be available.</source>
-          <target state="new">CAUTION: Some of the settings may not be available.</target>
+          <target state="final">CAUTION: Some of the settings may not be available.</target>
         </trans-unit>
         <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
           <source>Primary Button</source>
@@ -88,23 +88,23 @@
         </trans-unit>
         <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
           <source>Archive Loader</source>
-          <target state="new">Archive Loader</target>
+          <target state="final">Archive Loader</target>
         </trans-unit>
         <trans-unit id="gbDisplay.Header" translate="yes" xml:space="preserve">
           <source>Display</source>
-          <target state="new">Display</target>
+          <target state="final">Display</target>
         </trans-unit>
         <trans-unit id="Easy" translate="yes" xml:space="preserve">
           <source>Easy</source>
-          <target state="new">Easy</target>
+          <target state="final">Easy</target>
         </trans-unit>
         <trans-unit id="Hard" translate="yes" xml:space="preserve">
           <source>Hard</source>
-          <target state="new">Hard</target>
+          <target state="final">Hard</target>
         </trans-unit>
         <trans-unit id="Normal" translate="yes" xml:space="preserve">
           <source>Normal</source>
-          <target state="new">Normal</target>
+          <target state="final">Normal</target>
         </trans-unit>
       </group>
     </body>
