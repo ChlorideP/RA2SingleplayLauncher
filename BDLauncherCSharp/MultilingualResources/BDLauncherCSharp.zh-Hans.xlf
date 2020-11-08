@@ -32,7 +32,7 @@
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
           <source>Singleplayer Campaign Launcher</source>
-          <target state="translated">单关单人战役启动器: 脑死</target>
+          <target state="translated">单人战役启动器: 脑死</target>
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
           <source>Command Line: </source>

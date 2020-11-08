@@ -34,7 +34,7 @@
     <value>Singleplayer Campaign Launcher for Braindead RL</value>
   </data>
   <data name="txtCommandLineTip.Text" xml:space="preserve">
-    <value>Command Line: </value>
+    <value>Command line argument: </value>
   </data>
   <data name="cbBackBuffer.Content" xml:space="preserve">
     <value>Back Buffer</value>
