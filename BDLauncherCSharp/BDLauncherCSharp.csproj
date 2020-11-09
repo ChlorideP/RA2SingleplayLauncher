@@ -11,7 +11,7 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
-    <ApplicationIcon>Assets\clienticon.ico</ApplicationIcon>
+    <ApplicationIcon>clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
