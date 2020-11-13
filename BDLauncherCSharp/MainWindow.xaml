@@ -34,9 +34,9 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <!--  左边的文字  -->
             <StackPanel Margin="119 25 0 22" HorizontalAlignment="Left">
-                <TextBlock FontSize="18" Foreground="#FFE6E6E6">
-                    <Run Text="Operation: Braindead" /><LineBreak />
-                    <Run Text="Presented By Caco" />
+                <TextBlock  Foreground="#FFE6E6E6">
+                    <Run FontSize="18" Text="{i18n:L10N txtMisName}" /><LineBreak />
+                    <Run FontSize="15" Text="{i18n:L10N txtMisAuthor}" />
                 </TextBlock>
             </StackPanel>
 

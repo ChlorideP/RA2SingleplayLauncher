@@ -286,6 +286,24 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Presented by Caco 的本地化字符串。
+        /// </summary>
+        public static string txtMisAuthor {
+            get {
+                return ResourceManager.GetString("txtMisAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Operation: Braindead 的本地化字符串。
+        /// </summary>
+        public static string txtMisName {
+            get {
+                return ResourceManager.GetString("txtMisName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Renderer: 的本地化字符串。
         /// </summary>
         public static string txtRenderer_Text {

@@ -99,4 +99,10 @@
   <data name="SLArchiveTime" xml:space="preserve">
     <value>存档时间</value>
   </data>
+  <data name="txtMisAuthor" xml:space="preserve">
+    <value>由 CacoNyan 制作.</value>
+  </data>
+  <data name="txtMisName" xml:space="preserve">
+    <value>军事行动：脑死</value>
+  </data>
 </root>

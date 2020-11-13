@@ -122,6 +122,14 @@
           <source>Archive Time</source>
           <target state="translated">存档时间</target>
         </trans-unit>
+        <trans-unit id="txtMisAuthor" translate="yes" xml:space="preserve">
+          <source>Presented by Caco</source>
+          <target state="translated">由 CacoNyan 制作.</target>
+        </trans-unit>
+        <trans-unit id="txtMisName" translate="yes" xml:space="preserve">
+          <source>Operation: Braindead</source>
+          <target state="translated">军事行动：脑死</target>
+        </trans-unit>
       </group>
     </body>
   </file>
