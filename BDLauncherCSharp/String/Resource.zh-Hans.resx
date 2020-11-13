@@ -87,4 +87,7 @@
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="txtAppAuthor" xml:space="preserve">
+    <value>游戏启动前贡献者:</value>
+  </data>
 </root>

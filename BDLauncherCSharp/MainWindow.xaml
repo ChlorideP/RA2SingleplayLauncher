@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+    xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="656" Height="520"
-    ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <!--  背景 图像笔刷  -->
@@ -27,13 +27,13 @@
         <Image
             Grid.RowSpan="2"
             Width="130" Height="82"
-            Margin="25,88,0,0" HorizontalAlignment="Left"
+            Margin="25 88 0 0" HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Source="Assets/allied.png" Stretch="UniformToFill" />
         <!--  主要文字位置  -->
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <!--  左边的文字  -->
-            <StackPanel Margin="119,25,0,22" HorizontalAlignment="Left">
+            <StackPanel Margin="119 25 0 22" HorizontalAlignment="Left">
                 <TextBlock FontSize="18" Foreground="#FFE6E6E6">
                     <Run Text="Operation: Braindead" /><LineBreak />
                     <Run Text="Presented By Caco" />
@@ -43,13 +43,13 @@
             <!--  右边的文字  -->
             <StackPanel
                 Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"
-                Margin="20,0" HorizontalAlignment="Right">
+                Margin="20 0" HorizontalAlignment="Right">
                 <TextBlock
                     HorizontalAlignment="Center"
                     Block.LineHeight="24" Block.TextAlignment="Center"
                     FontSize="16" Foreground="#FF969696">
                     <!--  用一个 TextBlock 节省内存  -->
-                    <Run Text="Launcher Created By:" /><LineBreak />
+                    <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak /><!--Launcher Created By:-->
                     <Run Text="Caco" /><LineBreak />
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
@@ -63,7 +63,7 @@
         <!--  可交互的控件位置  -->
         <Grid
             Grid.Row="1" Grid.ColumnSpan="2"
-            Margin="30,278,30,5">
+            Margin="30 278 30 5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -72,44 +72,45 @@
             <!--  第一行  -->
             <StackPanel
                 Height="15"
-                Margin="10,3" HorizontalAlignment="Right"
+                Margin="10 3" HorizontalAlignment="Right"
                 Orientation="Horizontal">
-                <CheckBox x:Uid="cbLog" Name="Debug_Check"
+                <CheckBox x:Uid="cbLog"
+                    Name="Debug_Check"
                     Foreground="#FFE6E6E6" IsChecked="True" />
                 <CheckBox x:Name="Admin_Check" x:Uid="cbRunAs"
-                    Margin="10,0"
+                    Margin="10 0"
                     Foreground="#FFE6E6E6" />
             </StackPanel>
             <!--  第二行  -->
-            <DockPanel Grid.Row="1" Margin="10,5">
+            <DockPanel Grid.Row="1" Margin="10 5">
                 <DockPanel.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="White" />
                     </Style>
                 </DockPanel.Resources>
                 <TextBlock x:Uid="txtCommandLineTip"
-                    Margin="5,0" VerticalAlignment="Center" />
+                    Margin="5 0" VerticalAlignment="Center" />
                 <TextBox x:Name="TB_Command"
-                    Margin="5,0" VerticalContentAlignment="Center"
+                    Margin="5 0" VerticalContentAlignment="Center"
                     input:InputMethod.IsInputMethodEnabled="False" />
             </DockPanel>
             <!--  第三行  -->
             <StackPanel
                 Grid.Row="2"
                 Height="28"
-                Margin="14,5" HorizontalAlignment="Right"
+                Margin="14 5" HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <Button x:Uid="btnSettings"
-                    Margin="3,0" Padding="30,0"
+                    Margin="3 0" Padding="30 0"
                     Click="Btn_UserInterface_Click" />
                 <Button x:Uid="btnArchive"
-                    Margin="3,0" Padding="30,0"
+                    Margin="3 0" Padding="30 0"
                     Click="Btn_ArchiveLoader_Click" />
                 <Button x:Uid="btnCmdClr"
-                    Margin="3,0" Padding="13,0"
+                    Margin="3 0" Padding="13 0"
                     Click="Btn_CommandClear_Click" />
                 <Button x:Uid="btnRun"
-                    Margin="3,0" Padding="16,0"
+                    Margin="3 0" Padding="16 0"
                     Click="Btn_GameStart_Click" />
             </StackPanel>
         </Grid>

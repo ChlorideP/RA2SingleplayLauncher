@@ -177,6 +177,9 @@
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="txtAppAuthor" xml:space="preserve">
+    <value>Launcher Created By:</value>
+  </data>
   <data name="txtCommandLineTip.Text" xml:space="preserve">
     <value>Command line arguments: </value>
   </data>

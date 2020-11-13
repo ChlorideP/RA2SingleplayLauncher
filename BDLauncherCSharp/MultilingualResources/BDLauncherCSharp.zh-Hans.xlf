@@ -106,6 +106,10 @@
           <source>Cancel</source>
           <target state="translated">取消</target>
         </trans-unit>
+        <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
+          <source>Launcher Created By:</source>
+          <target state="translated">游戏启动前贡献者:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

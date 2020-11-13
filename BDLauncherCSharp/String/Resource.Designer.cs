@@ -241,6 +241,15 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Launcher Created By: 的本地化字符串。
+        /// </summary>
+        public static string txtAppAuthor {
+            get {
+                return ResourceManager.GetString("txtAppAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Command line arguments:  的本地化字符串。
         /// </summary>
         public static string txtCommandLineTip_Text {
