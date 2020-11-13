@@ -108,7 +108,19 @@
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
-          <target state="translated">游戏启动前贡献者:</target>
+          <target state="translated">启动器贡献者:</target>
+        </trans-unit>
+        <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
+          <source>Special Thanks:</source>
+          <target state="translated">鸣谢:</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveName" translate="yes" xml:space="preserve">
+          <source>Archive Name</source>
+          <target state="translated">存档名</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveTime" translate="yes" xml:space="preserve">
+          <source>Archive Time</source>
+          <target state="translated">存档时间</target>
         </trans-unit>
       </group>
     </body>

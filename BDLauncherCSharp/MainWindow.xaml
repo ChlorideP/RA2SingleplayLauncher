@@ -7,7 +7,7 @@
     xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="656" Height="520"
-    mc:Ignorable="d">
+    mc:Ignorable="d" >
     <Grid>
         <!--  背景 图像笔刷  -->
         <Grid.Background>
@@ -43,7 +43,7 @@
             <!--  右边的文字  -->
             <StackPanel
                 Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"
-                Margin="20 0" HorizontalAlignment="Right">
+                Margin="40 0" HorizontalAlignment="Right">
                 <TextBlock
                     HorizontalAlignment="Center"
                     Block.LineHeight="24" Block.TextAlignment="Center"
@@ -54,7 +54,7 @@
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
                     <LineBreak />
-                    <Run Text="Special Thanks:" /><LineBreak />
+                    <Run Text="{i18n:L10N txtThanks}" /><LineBreak />
                     <Run Text="frg2089" />
                 </TextBlock>
             </StackPanel>

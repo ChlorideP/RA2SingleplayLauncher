@@ -177,6 +177,12 @@
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="SLArchiveName" xml:space="preserve">
+    <value>Archive Name</value>
+  </data>
+  <data name="SLArchiveTime" xml:space="preserve">
+    <value>Archive Time</value>
+  </data>
   <data name="txtAppAuthor" xml:space="preserve">
     <value>Launcher Created By:</value>
   </data>
@@ -194,5 +200,8 @@
   </data>
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>CAUTION: Some of the settings may not be available.</value>
+  </data>
+  <data name="txtThanks" xml:space="preserve">
+    <value>Special Thanks:</value>
   </data>
 </root>

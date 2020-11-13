@@ -241,6 +241,24 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Archive Name 的本地化字符串。
+        /// </summary>
+        public static string SLArchiveName {
+            get {
+                return ResourceManager.GetString("SLArchiveName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Archive Time 的本地化字符串。
+        /// </summary>
+        public static string SLArchiveTime {
+            get {
+                return ResourceManager.GetString("SLArchiveTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Launcher Created By: 的本地化字符串。
         /// </summary>
         public static string txtAppAuthor {
@@ -291,6 +309,15 @@ namespace BDLauncherCSharp.String {
         public static string txtSettingTip_Text {
             get {
                 return ResourceManager.GetString("txtSettingTip.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Special Thanks: 的本地化字符串。
+        /// </summary>
+        public static string txtThanks {
+            get {
+                return ResourceManager.GetString("txtThanks", resourceCulture);
             }
         }
     }

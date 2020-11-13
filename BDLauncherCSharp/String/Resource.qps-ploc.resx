@@ -87,4 +87,16 @@
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="txtAppAuthor" xml:space="preserve">
+    <value>Launcher Created By:</value>
+  </data>
+  <data name="txtThanks" xml:space="preserve">
+    <value>Special Thanks:</value>
+  </data>
+  <data name="SLArchiveName" xml:space="preserve">
+    <value>Archive Name</value>
+  </data>
+  <data name="SLArchiveTime" xml:space="preserve">
+    <value>Archive Time</value>
+  </data>
 </root>

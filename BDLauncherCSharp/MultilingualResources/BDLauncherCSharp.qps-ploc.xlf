@@ -108,7 +108,19 @@
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
-          <target state="new">Launcher Created By:</target>
+          <target state="translated">Launcher Created By:</target>
+        </trans-unit>
+        <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
+          <source>Special Thanks:</source>
+          <target state="translated">Special Thanks:</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveName" translate="yes" xml:space="preserve">
+          <source>Archive Name</source>
+          <target state="final">Archive Name</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveTime" translate="yes" xml:space="preserve">
+          <source>Archive Time</source>
+          <target state="final">Archive Time</target>
         </trans-unit>
       </group>
     </body>
