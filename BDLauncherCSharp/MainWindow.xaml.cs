@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using BDLauncherCSharp.Controls;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +18,7 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using BDLauncherCSharp.Controls;
 using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp
@@ -77,8 +77,8 @@ namespace BDLauncherCSharp
             IsBDFilelist = false;
 
             // hash calculate
-            var k = new DirectoryInfo(MainPath);
             var sha512 = new SHA512CryptoServiceProvider();
+            var k = new DirectoryInfo(MainPath);
             foreach (var l in k.GetFiles("*.dll"))
             {
                 byte[] hashCodeRaw = sha512.ComputeHash(l.OpenRead());
@@ -91,18 +91,15 @@ namespace BDLauncherCSharp
             }
 
             // Combine path
-            var p = Path.Combine(MainPath, GameMD);
-            var q = Path.Combine(MainPath, AresMainFunc);
-            var r = Path.Combine(MainPath, AresInjector);
+            var p = Path.Combine(MainPath, AresMainFunc);
+            var q = Path.Combine(MainPath, AresInjector);
 
             // Check critical pe files.            
-            if (!File.Exists(p)) MessageBox.Show("没主程序玩个锤子，爪巴", "「脑死」启动器"); 
-            else if (!File.Exists(q))
+            if (!IsBDFilelist) MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
+            else if (!File.Exists(p))
                 MessageBox.Show("此任务需要Ares扩展平台支持。\n\n请检查您的游戏文件是否包含 Ares.dll。\n如否，建议重新下载安装。", "「脑死」启动器");
-            else if (!File.Exists(r))
+            else if (!File.Exists(q))
                 MessageBox.Show("Ares需要Syringe注入方可生效。\n\n请检查您的游戏文件是否包含 Syringe.exe。\n如否，建议重新下载安装。", "「脑死」启动器");
-            else if (!IsBDFilelist)
-                MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
             else
             {
                 var option = new Data.GameExecuteOptions
@@ -111,7 +108,7 @@ namespace BDLauncherCSharp
                     RunAs = Admin_Check.IsChecked ?? false,
                     Others = TB_Command.Text.Split(' ')
                 };
-                Extensions.GameExecute.RunGame(option);
+                GameExecute.RunGame(option);
                 Environment.Exit(0);
             }
         }
