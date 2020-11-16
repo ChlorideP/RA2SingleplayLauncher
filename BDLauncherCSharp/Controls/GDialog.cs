@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -92,21 +89,21 @@ namespace BDLauncherCSharp.Controls
         public event DialogButtonRoutedEventHandler PrimaryButtonClick;
 
         public event DialogButtonRoutedEventHandler SecondButtonClick;
-        private void closeButton_Click(object sender, RoutedEventArgs e)
+        protected virtual void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             Result = GDialogResult.CloseButton;
             CloseButtonClick?.Invoke(sender as Button, e);
         }
 
-        private void primaryButton_Click(object sender, RoutedEventArgs e)
+        protected virtual void PrimaryButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             Result = GDialogResult.PrimaryButton;
             PrimaryButtonClick?.Invoke(sender as Button, e);
         }
 
-        private void secondButton_Click(object sender, RoutedEventArgs e)
+        protected virtual void SecondButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             Result = GDialogResult.SecondButton;
@@ -167,7 +164,7 @@ namespace BDLauncherCSharp.Controls
                         };
                         primaryButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(primaryButton.Content)) { Source = primaryButton, Converter = cvtr });
                         primaryButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.PrimaryButtonContent)) { Source = this });
-                        primaryButton.Click += primaryButton_Click;
+                        primaryButton.Click += PrimaryButton_Click;
 
                         var secondButton = new Button
                         {
@@ -176,7 +173,7 @@ namespace BDLauncherCSharp.Controls
                         };
                         secondButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(secondButton.Content)) { Source = secondButton, Converter = cvtr });
                         secondButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.SecondButtonContent)) { Source = this });
-                        secondButton.Click += secondButton_Click;
+                        secondButton.Click += SecondButton_Click;
 
                         var closeButton = new Button
                         {
@@ -184,7 +181,7 @@ namespace BDLauncherCSharp.Controls
                         };
                         closeButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(closeButton.Content)) { Source = closeButton, Converter = cvtr });
                         closeButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.CloseButtonContent)) { Source = this });
-                        closeButton.Click += closeButton_Click;
+                        closeButton.Click += CloseButton_Click;
 
                         buttonPanel.Children.Add(primaryButton);
                         buttonPanel.Children.Add(secondButton);

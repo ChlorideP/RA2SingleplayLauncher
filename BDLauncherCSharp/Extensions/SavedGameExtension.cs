@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BDLauncherCSharp
 {
@@ -25,7 +19,8 @@ namespace BDLauncherCSharp
         public static Data.SavedGameInfo GetSavedGameInfo(this FileInfo file) => new Data.SavedGameInfo
         {
             Name = file.GetGameSavedName(),
-            Time = file.LastWriteTime
+            Time = file.LastWriteTime,
+            RealFile = file
         };
     }
 }

@@ -1,11 +1,9 @@
-﻿using Shimakaze.Struct.Ini;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
+
+using Shimakaze.Struct.Ini;
 
 namespace BDLauncherCSharp.ViewModels
 {
@@ -30,7 +28,7 @@ namespace BDLauncherCSharp.ViewModels
                 _ini = await IniDocument.ParseAsync(fs);
                 var value = _ini["Section"]["Key"];
             }
-                
+
         }
         /// <summary>
         /// 保存方法

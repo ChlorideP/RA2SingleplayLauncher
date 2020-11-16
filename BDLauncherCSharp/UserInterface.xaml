@@ -9,8 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Height="328"
     Background="#B000" BorderBrush="#000" BorderThickness="2"
-    PrimaryButtonClick="GDialog_PrimaryButtonClick"
-    SecondButtonClick="GDialog_SecondButtonClick"
     mc:Ignorable="d">
 
     <ctrls:GDialog.Resources>

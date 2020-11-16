@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace BDLauncherCSharp.Data
 {
@@ -6,5 +7,6 @@ namespace BDLauncherCSharp.Data
     {
         public string Name { get; set; }
         public DateTime Time { get; set; }
+        public FileInfo RealFile { get; set; }
     }
 }

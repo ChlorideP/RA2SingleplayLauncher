@@ -1,24 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Threading;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 //using System.Windows.Shapes;
 using System.Threading;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
-using System.Security.Cryptography;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
+
 using BDLauncherCSharp.Controls;
+using BDLauncherCSharp.Data;
 using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp
@@ -28,12 +17,7 @@ namespace BDLauncherCSharp
     /// </summary>
     public partial class MainWindow
     {
-        public static string MainPath = Environment.CurrentDirectory;
-        public static string BDVol = MainPath.Substring(0, AppDomain.CurrentDomain.BaseDirectory.IndexOf(':'));
-        public const string GameMD = "GAMEMD.EXE";
-        public const string AresMainFunc = "Ares.DLL";
-        public const string AresInjector = "Syringe.EXE";
-        public static bool IsBDFilelist;
+        public static string BDVol = OverAll.MainPath.Substring(0, AppDomain.CurrentDomain.BaseDirectory.IndexOf(':'));
 
         public MainWindow()
         {
@@ -73,36 +57,13 @@ namespace BDLauncherCSharp
 
         private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
         {
-            // preset a default val for the bool below
-            IsBDFilelist = false;
-
-            // hash calculate
-            var sha512 = new SHA512CryptoServiceProvider();
-            var k = new DirectoryInfo(MainPath);
-            foreach (var l in k.GetFiles("*.dll"))
-            {
-                byte[] hashCodeRaw = sha512.ComputeHash(l.OpenRead());
-                string hashCode = BitConverter.ToString(hashCodeRaw).Replace("-", string.Empty);
-                if (hashCode == "EC1C3976697D3C7755259A31E33B8D1E072FE1DD07D4B24251458EDC858C410C4A43AC3AB9C75F295D19ADE94C278BCB1FB20FD309A09C051610F895806D6503")
-                {
-                    IsBDFilelist = true;
-                    break;
-                }
-            }
-
-            // Combine path
-            var p = Path.Combine(MainPath, AresMainFunc);
-            var q = Path.Combine(MainPath, AresInjector);
-
-            // Check critical pe files.            
-            if (!IsBDFilelist) MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
-            else if (!File.Exists(p))
-                MessageBox.Show("此任务需要Ares扩展平台支持。\n\n请检查您的游戏文件是否包含 Ares.dll。\n如否，建议重新下载安装。", "「脑死」启动器");
-            else if (!File.Exists(q))
-                MessageBox.Show("Ares需要Syringe注入方可生效。\n\n请检查您的游戏文件是否包含 Syringe.exe。\n如否，建议重新下载安装。", "「脑死」启动器");
+            CriticalPEIdentify.SpawnerHash(OverAll.MainPath);
+            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
+            else if (!CriticalPEIdentify.IsThereAres)
+                MessageBox.Show("此任务需要 Ares 扩展平台支持。\n\n请检查您的游戏文件是否含 Ares.dll 和 Syringe.exe。\n如找不到，建议重新下载安装。", "「脑死」启动器");
             else
             {
-                var option = new Data.GameExecuteOptions
+                var option = new GameExecuteOptions
                 {
                     LogMode = Debug_Check.IsChecked ?? false,
                     RunAs = Admin_Check.IsChecked ?? false,

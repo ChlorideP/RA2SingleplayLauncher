@@ -1,14 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using BDLauncherCSharp.Controls;
-using System.IO;
-using System.Threading;
-using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.IO;
+
+using static BDLauncherCSharp.Data.OverAll;
 
 namespace BDLauncherCSharp.Extensions
 {
@@ -20,11 +14,11 @@ namespace BDLauncherCSharp.Extensions
         public static void RunGame(this Data.GameExecuteOptions options)
         {
             var list = new List<string>();
-            list.Add($"\"{MainWindow.GameMD}\"");
+            list.Add($"\"{GameMD}\"");
             list.Add("-SPAWN");
 
             var proc = new Process();
-            proc.StartInfo.FileName = Path.Combine(MainWindow.MainPath, MainWindow.AresInjector);
+            proc.StartInfo.FileName = Path.Combine(MainPath, AresInjector);
             if (options.RunAs)
                 proc.StartInfo.Verb = "runas";
             if (options.LogMode)

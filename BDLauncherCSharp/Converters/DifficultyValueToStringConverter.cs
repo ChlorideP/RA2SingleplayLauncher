@@ -1,10 +1,8 @@
-﻿using BDLauncherCSharp.Extensions;
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.Text;
 using System.Windows.Data;
+
+using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp.Converters
 {

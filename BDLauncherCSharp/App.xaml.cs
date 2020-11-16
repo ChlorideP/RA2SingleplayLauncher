@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
 
 using BDLauncherCSharp.Extensions;
@@ -16,13 +11,14 @@ namespace BDLauncherCSharp
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
-    { 
+    {
         protected override void OnStartup(StartupEventArgs e)
         {
             String.Resource.ResourceManager.I18NInitialize();// I18N 初始化
             base.OnStartup(e);
             //GameEnvironment.CheckGameEnvi.CheckSaveDir()
-            if  (!SavedGameDirectory.Exists) SavedGameDirectory.Create();
+            if (!SavedGameDirectory.Exists) SavedGameDirectory.Create();
+            if (File.Exists(SpawnIni)) File.Delete(SpawnIni);
         }
     }
 }

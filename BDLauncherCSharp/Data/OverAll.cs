@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using static BDLauncherCSharp.MainWindow;
 
 namespace BDLauncherCSharp.Data
 {
@@ -13,10 +8,11 @@ namespace BDLauncherCSharp.Data
     /// </summary>
     public static class OverAll
     {
-        /// <summary>
-        /// 游戏存档目录 
-        /// </summary>
+        public static string MainPath = Environment.CurrentDirectory;
+        public static string SpawnIni = Path.Combine(MainPath, "spawn.ini");
         public static DirectoryInfo SavedGameDirectory { get; } = new DirectoryInfo(Path.Combine(MainPath, "SaveData"));
-
+        public const string GameMD = "GAMEMD.EXE";
+        public const string AresMainFunc = "Ares.DLL";
+        public const string AresInjector = "Syringe.EXE";
     }
 }
