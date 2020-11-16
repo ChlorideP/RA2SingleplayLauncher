@@ -6,7 +6,7 @@
     xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
     xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="656" Height="520"
+    Width="656" Height="520" ResizeMode="NoResize"
     mc:Ignorable="d" >
     <Grid>
         <!--  背景 图像笔刷  -->
