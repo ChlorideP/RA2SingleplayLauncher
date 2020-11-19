@@ -138,6 +138,12 @@
   <data name="cbLog.Content" xml:space="preserve">
     <value>Use Log</value>
   </data>
+  <data name="cbRenderer.CNCDDraw" xml:space="preserve">
+    <value>CNC-DDraw (recommended)</value>
+  </data>
+  <data name="cbRenderer.None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="cbRunAs.Content" xml:space="preserve">
     <value>Run As Administrator</value>
   </data>
@@ -173,6 +179,30 @@
   </data>
   <data name="MainWindow.Title" xml:space="preserve">
     <value>Singleplayer Campaign Launcher for Braindead RL</value>
+  </data>
+  <data name="msgAresNotFoundError" xml:space="preserve">
+    <value>This mission is ONLY supported with Ares platform.
+
+You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+
+It is advised to download again if the files above cannot be found.</value>
+  </data>
+  <data name="msgCaptain" xml:space="preserve">
+    <value>Braindead Launcher</value>
+  </data>
+  <data name="msgNoSaveLoadedError" xml:space="preserve">
+    <value>Unable to load with no save files selected.</value>
+  </data>
+  <data name="msgSizeNotValidError" xml:space="preserve">
+    <value>Your value isn't match the form the dialog given.
+
+Please try again or go to an oculist.</value>
+  </data>
+  <data name="msgSizeTooLargeError" xml:space="preserve">
+    <value>Is your game screen shot with a door lock?</value>
+  </data>
+  <data name="msgSpawnerInvalidError" xml:space="preserve">
+    <value>Unable to load the spawner for Braindead!</value>
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>

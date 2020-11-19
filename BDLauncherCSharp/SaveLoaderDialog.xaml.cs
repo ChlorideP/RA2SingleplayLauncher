@@ -44,17 +44,20 @@ namespace BDLauncherCSharp
                 sw.WriteLine("Firestorm=No");
                 sw.WriteLine("GameSpeed=2");
                 sw.Flush();
+                base.PrimaryButton_Click(sender, e);
             }
-            else MessageBox.Show("无法载入，因为没有选中任何存档。", "「脑死」启动器: 运行时错误");
-            base.PrimaryButton_Click(sender, e);
+            else
+            {
+                MessageBox.Show(I18NExtension.I18N("msgNoSaveLoadedError"), I18NExtension.I18N("msgCaptain"));
+            }
         }
 
         private void GDialog_PrimaryButtonClick(object sender, RoutedEventArgs e)
         {
             CriticalPEIdentify.SpawnerHash(OverAll.MainPath);
-            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
+            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
             else if (!CriticalPEIdentify.IsThereAres)
-                MessageBox.Show("此任务需要 Ares 扩展平台支持。\n\n请检查您的游戏文件是否含 Ares.dll 和 Syringe.exe。\n如找不到，建议重新下载安装。", "「脑死」启动器");
+                MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
             {
                 var ita = new MainWindow();

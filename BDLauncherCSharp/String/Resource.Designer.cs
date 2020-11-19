@@ -124,6 +124,24 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 CNC-DDraw (recommended) 的本地化字符串。
+        /// </summary>
+        public static string cbRenderer_CNCDDraw {
+            get {
+                return ResourceManager.GetString("cbRenderer.CNCDDraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 None 的本地化字符串。
+        /// </summary>
+        public static string cbRenderer_None {
+            get {
+                return ResourceManager.GetString("cbRenderer.None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Run As Administrator 的本地化字符串。
         /// </summary>
         public static string cbRunAs_Content {
@@ -228,6 +246,66 @@ namespace BDLauncherCSharp.String {
         public static string MainWindow_Title {
             get {
                 return ResourceManager.GetString("MainWindow.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This mission is ONLY supported with Ares platform.
+        ///
+        ///You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+        ///
+        ///It is advised to download again if the files above cannot be found. 的本地化字符串。
+        /// </summary>
+        public static string msgAresNotFoundError {
+            get {
+                return ResourceManager.GetString("msgAresNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Braindead Launcher 的本地化字符串。
+        /// </summary>
+        public static string msgCaptain {
+            get {
+                return ResourceManager.GetString("msgCaptain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unable to load with no save files selected. 的本地化字符串。
+        /// </summary>
+        public static string msgNoSaveLoadedError {
+            get {
+                return ResourceManager.GetString("msgNoSaveLoadedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Your value isn&apos;t match the form the dialog given.
+        ///
+        ///Please try again or go to an oculist. 的本地化字符串。
+        /// </summary>
+        public static string msgSizeNotValidError {
+            get {
+                return ResourceManager.GetString("msgSizeNotValidError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
+        /// </summary>
+        public static string msgSizeTooLargeError {
+            get {
+                return ResourceManager.GetString("msgSizeTooLargeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unable to load the spawner for Braindead! 的本地化字符串。
+        /// </summary>
+        public static string msgSpawnerInvalidError {
+            get {
+                return ResourceManager.GetString("msgSpawnerInvalidError", resourceCulture);
             }
         }
         

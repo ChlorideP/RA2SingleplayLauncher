@@ -32,11 +32,11 @@
         </trans-unit>
         <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
           <source>Singleplayer Campaign Launcher for Braindead RL</source>
-          <target state="translated">Singleplayer Campaign Launcher for Braindead RL</target>
+          <target state="final">Singleplayer Campaign Launcher for Braindead RL</target>
         </trans-unit>
         <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
           <source>Command line arguments: </source>
-          <target state="translated">Command line arguments: </target>
+          <target state="final">Command line arguments: </target>
         </trans-unit>
         <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
           <source>Back Buffer</source>
@@ -72,11 +72,11 @@
         </trans-unit>
         <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
           <source>Apply</source>
-          <target state="translated">Apply</target>
+          <target state="final">Apply</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
           <source>Load</source>
-          <target state="translated">Load</target>
+          <target state="final">Load</target>
         </trans-unit>
         <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
           <source>Archive Loader</source>
@@ -100,19 +100,19 @@
         </trans-unit>
         <trans-unit id="dlgSaveLoader.CloseButtonContent" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="translated">Cancel</target>
+          <target state="final">Cancel</target>
         </trans-unit>
         <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="translated">Cancel</target>
+          <target state="final">Cancel</target>
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
-          <target state="translated">Launcher Created By:</target>
+          <target state="final">Launcher Created By:</target>
         </trans-unit>
         <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
           <source>Special Thanks:</source>
-          <target state="translated">Special Thanks:</target>
+          <target state="final">Special Thanks:</target>
         </trans-unit>
         <trans-unit id="SLArchiveName" translate="yes" xml:space="preserve">
           <source>Archive Name</source>
@@ -129,6 +129,50 @@
         <trans-unit id="txtMisName" translate="yes" xml:space="preserve">
           <source>Operation: Braindead</source>
           <target state="final">Operation: Braindead</target>
+        </trans-unit>
+        <trans-unit id="msgCaptain" translate="yes" xml:space="preserve">
+          <source>Braindead Launcher</source>
+          <target state="final">Braindead Launcher</target>
+        </trans-unit>
+        <trans-unit id="msgSizeNotValidError" translate="yes" xml:space="preserve">
+          <source>Your value isn't match the form the dialog given.
+
+Please try again or go to an oculist.</source>
+          <target state="final">Your value isn't match the form the dialog given.
+
+Please try again or go to an oculist.</target>
+        </trans-unit>
+        <trans-unit id="cbRenderer.CNCDDraw" translate="yes" xml:space="preserve">
+          <source>CNC-DDraw (recommended)</source>
+          <target state="final">CNC-DDraw (recommended)</target>
+        </trans-unit>
+        <trans-unit id="cbRenderer.None" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="final">None</target>
+        </trans-unit>
+        <trans-unit id="msgSizeTooLargeError" translate="yes" xml:space="preserve">
+          <source>Is your game screen shot with a door lock?</source>
+          <target state="final">Is your game screen shot with a door lock?</target>
+        </trans-unit>
+        <trans-unit id="msgAresNotFoundError" translate="yes" xml:space="preserve">
+          <source>This mission is ONLY supported with Ares platform.
+
+You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+
+It is advised to download again if the files above cannot be found.</source>
+          <target state="final">This mission is ONLY supported with Ares platform.
+
+You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+
+It is advised to download again if the files above cannot be found.</target>
+        </trans-unit>
+        <trans-unit id="msgNoSaveLoadedError" translate="yes" xml:space="preserve">
+          <source>Unable to load with no save files selected.</source>
+          <target state="final">Unable to load with no save files selected.</target>
+        </trans-unit>
+        <trans-unit id="msgSpawnerInvalidError" translate="yes" xml:space="preserve">
+          <source>Unable to load the spawner for Braindead!</source>
+          <target state="final">Unable to load the spawner for Braindead!</target>
         </trans-unit>
       </group>
     </body>

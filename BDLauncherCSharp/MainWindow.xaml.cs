@@ -58,9 +58,8 @@ namespace BDLauncherCSharp
         private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
         {
             CriticalPEIdentify.SpawnerHash(OverAll.MainPath);
-            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show("无法加载「脑死」文件列表！", "「脑死」启动器");
-            else if (!CriticalPEIdentify.IsThereAres)
-                MessageBox.Show("此任务需要 Ares 扩展平台支持。\n\n请检查您的游戏文件是否含 Ares.dll 和 Syringe.exe。\n如找不到，建议重新下载安装。", "「脑死」启动器");
+            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
+            else if (!CriticalPEIdentify.IsThereAres) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
             {
                 var option = new GameExecuteOptions
