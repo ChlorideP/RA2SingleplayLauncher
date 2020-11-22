@@ -41,6 +41,7 @@ namespace BDLauncherCSharp
         {
             InitializeComponent();
             this.I18NInitialize();
+            cbSize.SelectedValue = ScreenSize_Full();
             cbSize.ItemsSource = ScreeSize_ListAll();
             cbRenderer.ItemsSource = Renderers_ListAll();
         }

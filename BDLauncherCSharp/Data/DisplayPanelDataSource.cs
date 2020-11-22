@@ -12,6 +12,14 @@ namespace BDLauncherCSharp.Data
 {
     public class DisplayPanelDataSource
     {
+        public static string ScreenSize_Full()
+        {
+            int SH = Screen.PrimaryScreen.Bounds.Height;
+            int SW = Screen.PrimaryScreen.Bounds.Width;
+            var CurSize = SW.ToString() + "*" + SH.ToString();
+            return CurSize;
+        }
+
         public static IEnumerable<string> ScreeSize_ListAll()
         {
             var list = new HashSet<string>();

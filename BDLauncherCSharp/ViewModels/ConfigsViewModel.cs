@@ -19,8 +19,7 @@ namespace BDLauncherCSharp.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        // 私有 通常只有创建对象的时候才会读取文件
-        // TODO：未完成
+
         private async Task LoadConfigs()
         {
             using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -35,11 +34,6 @@ namespace BDLauncherCSharp.ViewModels
         /// </summary>
         public async Task SaveConfigures()
         {
-            /// 8.0写法：
-            /// using var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read)
-            /// using var sw = new StreamWriter(fs)
-            /// 然后也不需要搞啥花括号（第二句using底下嵌套的都可以直接搬到外面）
-
             using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (var sw = new StreamWriter(fs))
             {
