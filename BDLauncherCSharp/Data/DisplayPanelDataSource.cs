@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 
 using BDLauncherCSharp.Extensions;
 
@@ -14,9 +14,9 @@ namespace BDLauncherCSharp.Data
     {
         public static string ScreenSize_Full()
         {
-            int SH = Screen.PrimaryScreen.Bounds.Height;
-            int SW = Screen.PrimaryScreen.Bounds.Width;
-            var CurSize = SW.ToString() + "*" + SH.ToString();
+            int x = GetSystemMetrics(0);
+            int y = GetSystemMetrics(1);
+            var CurSize = x + "*" + y;
             return CurSize;
         }
 
@@ -51,7 +51,7 @@ namespace BDLauncherCSharp.Data
             public int dmFields;
             public int dmPositionX;
             public int dmPositionY;
-            public ScreenOrientation dmDisplayOrientation;
+            public int dmDisplayOrientation;
             public int dmDisplayFixedOutput;
             public short dmColor;
             public short dmDuplex;
@@ -78,5 +78,8 @@ namespace BDLauncherCSharp.Data
 
         [DllImport("user32.dll")]
         public static extern bool EnumDisplaySettings(string deviceName, int modeNum, out DEVMODE devMode);
+
+        [DllImport("user32.dll")]
+        public static extern int GetSystemMetrics(int index);
     }
 }

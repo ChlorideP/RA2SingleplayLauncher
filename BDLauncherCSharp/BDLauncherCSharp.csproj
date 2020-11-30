@@ -50,8 +50,4 @@
   <ItemGroup>
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Design" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
 </Project>
