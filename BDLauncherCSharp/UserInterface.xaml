@@ -4,19 +4,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ctrls="clr-namespace:BDLauncherCSharp.Controls"
     xmlns:cvtr="clr-namespace:BDLauncherCSharp.Converters"
-    xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="clr-namespace:BDLauncherCSharp.Data"
+    xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:local="clr-namespace:BDLauncherCSharp"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="clr-namespace:BDLauncherCSharp.Data"
-               Height="328"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:BDLauncherCSharp.ViewModels"
+    Height="328"
+    d:DataContext="{d:DesignData Type={x:Type vm:ConfigsViewModel},
+                                 IsDesignTimeCreatable=False}"
     Background="#B000" BorderBrush="#000" BorderThickness="2"
     mc:Ignorable="d">
-
+    <!-- MVVM 因为是实时保存的所以应用按钮完全没有必要 -->
     <ctrls:GDialog.Resources>
         <cvtr:DifficultyValueToStringConverter x:Key="DifficultyToStringConverter" />
     </ctrls:GDialog.Resources>
-  
-    <Grid Width="450" Margin="0,0,0,-10">
+
+    <Grid Width="450" Margin="0 0 0 -10">
         <Grid.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="White" />
@@ -32,8 +36,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel
-            Grid.RowSpan="2" Grid.ColumnSpan="2"
-            Margin="0,0,0,29">
+            Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0 0 0 29">
             <GroupBox x:Uid="gbDisplay" Foreground="White">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -46,19 +49,19 @@
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Uid="txtScreenSize"
-                        Margin="10,2" HorizontalAlignment="Left"
-                        TextWrapping="Wrap" />
+                        Margin="10 2" HorizontalAlignment="Left" TextWrapping="Wrap" />
                     <ComboBox x:Name="cbSize"
-                        Grid.Column="1"
-                        Margin="2"
-                        IsEditable="True" LostFocus="ScreenSize_CheckValidVal" />
+                        Grid.Column="1" Margin="2" IsEditable="True"
+                        ItemsSource="{Binding ScreeSize_Source}"
+                        LostFocus="ScreenSize_CheckValidVal"
+                        Text="{Binding ScreenSize}" />
 
                     <TextBlock x:Uid="txtRenderer"
-                        Grid.Row="1"
-                        Margin="10,2" HorizontalAlignment="Left" />
+                        Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" />
                     <ComboBox x:Name="cbRenderer"
-                        Grid.Row="1" Grid.Column="1"
-                        Margin="2" SelectedValue="{i18n:L10N cbRenderer.None}"/>
+                        Grid.Row="1" Grid.Column="1" Margin="2"
+                        ItemsSource="{Binding Renderers_Source}"
+                        Text="{Binding Renderer}" />
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
                         <StackPanel.Resources>
@@ -67,18 +70,22 @@
                             </Style>
                         </StackPanel.Resources>
                         <CheckBox x:Name="cbWindowed" x:Uid="cbWindowed"
-                            Margin="5,2" />
+                            Margin="5 2"
+                            IsChecked="{Binding Windowed}" />
                         <CheckBox x:Uid="cbBorderLess"
-                            Margin="15,2"
+                            Margin="15 2"
+                            IsChecked="{Binding NoBorder}"
                             IsEnabled="{Binding IsChecked, ElementName=cbWindowed}" />
-                        <CheckBox x:Uid="cbBackBuffer" Margin="5,4" />
+                        <CheckBox x:Uid="cbBackBuffer"
+                            Margin="5 4"
+                            IsChecked="{Binding UseBuffer}" />
                     </StackPanel>
                 </Grid>
             </GroupBox>
             <!--  No Label  -->
             <TextBlock x:Uid="txtSettingTip"
-                Margin="0,5,0,0" HorizontalAlignment="Center" />
-            <Grid Margin="10,5">
+                Margin="0 5 0 0" HorizontalAlignment="Center" />
+            <Grid Margin="10 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="4*" />
@@ -90,13 +97,11 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <Slider x:Name="sldDifficulty"
-                        Margin="10,0"
-                        Maximum="2" Minimum="0"
+                        Margin="10 0" Maximum="2" Minimum="0"
                         ValueChanged="Difficulty_ValueChanged"
-                        Value="1" />
+                        Value="{Binding Difficult}" />
                     <TextBlock
-                        Grid.Row="1"
-                        HorizontalAlignment="Center"
+                        Grid.Row="1" HorizontalAlignment="Center"
                         Text="{Binding Value, ElementName=sldDifficulty, Converter={StaticResource DifficultyToStringConverter}}" />
                 </Grid>
             </Grid>

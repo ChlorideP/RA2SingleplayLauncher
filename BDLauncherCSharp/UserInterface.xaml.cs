@@ -7,8 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using BDLauncherCSharp.Controls;
-using static BDLauncherCSharp.Data.DisplayPanelDataSource;
+using static BDLauncherCSharp.Data.User32;
 using BDLauncherCSharp.Extensions;
+using System.Threading.Tasks;
 
 namespace BDLauncherCSharp
 {
@@ -41,9 +42,16 @@ namespace BDLauncherCSharp
         {
             InitializeComponent();
             this.I18NInitialize();
-            cbSize.SelectedValue = ScreenSize_Full();
-            cbSize.ItemsSource = ScreeSize_ListAll();
-            cbRenderer.ItemsSource = Renderers_ListAll();
+            _ = InitView();
+        }
+
+        private async Task InitView()
+        {
+            var task = Data.GameConfigManager.InitGameConfig();
+            var vm = new ViewModels.ConfigsViewModel();
+            await task;
+            DataContext = vm;
+            cbRenderer.SelectedIndex = 0;
         }
 
         /// <Summary>
@@ -53,7 +61,7 @@ namespace BDLauncherCSharp
         {
             if (string.IsNullOrEmpty(cbSize.Text))
                 return;
-            
+
             if (!Regex.IsMatch(cbSize.Text, @"\d+\*\d+"))
             {
                 MessageBox.Show(I18NExtension.I18N("msgSizeNotValidError"), I18NExtension.I18N("msgCaptain"));
@@ -74,11 +82,5 @@ namespace BDLauncherCSharp
         {
             (sender as Slider).Value = Math.Ceiling((sender as Slider).Value);
         }
-
-        protected override void PrimaryButton_Click(object sender, RoutedEventArgs e)
-        {
-            base.PrimaryButton_Click(sender, e);
-        }
-
     }
 }
