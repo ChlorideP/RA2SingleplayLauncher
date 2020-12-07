@@ -47,7 +47,8 @@ namespace BDLauncherCSharp
         private async void Btn_ArchiveLoader_Click(object sender, RoutedEventArgs e)
         {
             var SL = new SaveLoaderDialog();
-            await ShowDialog(SL);
+            var IsAttached = await ShowDialog(SL);
+            if (IsAttached == 0) Btn_GameStart_Click(null, null);
         }
 
         private void Btn_CommandClear_Click(object sender, RoutedEventArgs e)
@@ -57,9 +58,8 @@ namespace BDLauncherCSharp
 
         private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
         {
-            CriticalPEIdentify.SpawnerHash(OverAll.MainPath);
-            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
-            else if (!CriticalPEIdentify.IsThereAres) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
+            if (!CriticalPE.IsBDSpawner) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
+            else if (!CriticalPE.AresExistence) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
             {
                 var option = new GameExecuteOptions

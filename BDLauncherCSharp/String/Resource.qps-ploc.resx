@@ -60,9 +60,6 @@
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>CAUTION: Some of the settings may not be available.</value>
   </data>
-  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
-    <value>Apply</value>
-  </data>
   <data name="dlgSaveLoader.PrimaryButtonContent" xml:space="preserve">
     <value>Load</value>
   </data>
@@ -85,7 +82,7 @@
     <value>Cancel</value>
   </data>
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Close</value>
   </data>
   <data name="txtAppAuthor" xml:space="preserve">
     <value>Launcher Created By:</value>
@@ -133,6 +130,6 @@ It is advised to download again if the files above cannot be found.</value>
     <value>Unable to load with no save files selected.</value>
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
-    <value>Unable to load the spawner for Braindead!</value>
+    <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
   </data>
 </root>

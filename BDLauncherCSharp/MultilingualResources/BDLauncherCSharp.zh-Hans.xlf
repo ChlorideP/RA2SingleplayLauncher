@@ -70,10 +70,6 @@
           <source>CAUTION: Some of the settings may not be available.</source>
           <target state="final">警告：部分设置可能因渲染补丁的使用而无法起效。</target>
         </trans-unit>
-        <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Apply</source>
-          <target state="final">应用</target>
-        </trans-unit>
         <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
           <source>Load</source>
           <target state="final">载入</target>
@@ -103,8 +99,8 @@
           <target state="final">取消</target>
         </trans-unit>
         <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="final">取消</target>
+          <source>Close</source>
+          <target state="final">关闭</target>
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
@@ -171,8 +167,8 @@ It is advised to download again if the files above cannot be found.</source>
           <target state="final">无法载入，因为没有选中任何存档。</target>
         </trans-unit>
         <trans-unit id="msgSpawnerInvalidError" translate="yes" xml:space="preserve">
-          <source>Unable to load the spawner for Braindead!</source>
-          <target state="final">无法载入「脑死」文件列表！</target>
+          <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>
+          <target state="translated">找不到或并非「脑死」读图器 (cncnet5.dll)！</target>
         </trans-unit>
       </group>
     </body>

@@ -12,7 +12,7 @@ namespace BDLauncherCSharp.Data
     public class GameConfigManager
     {
         public static IIniDocument Configs { get; private set; } = null;
-        public static FileInfo File { get; set; } = new FileInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ra2md.ini"));
+        public static FileInfo File { get; set; } = new FileInfo(Path.Combine(OverAll.MainPath, "ra2md.ini"));
         public static async Task<IIniDocument> LoadGameConfig() => Configs = File.Exists ? await IniDocumentHelper.ParseAsync(File.OpenRead()) : IniDocumentHelper.Create();
 
         public static async Task<IIniDocument> InitGameConfig() => Configs ?? await LoadGameConfig();
