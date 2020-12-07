@@ -160,10 +160,7 @@
     <value>Archive Loader</value>
   </data>
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
-    <value>Apply</value>
+    <value>Close</value>
   </data>
   <data name="dlgSetting.Title" xml:space="preserve">
     <value>User Settings</value>
@@ -202,7 +199,7 @@ Please try again or go to an oculist.</value>
     <value>Is your game screen shot with a door lock?</value>
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
-    <value>Unable to load the spawner for Braindead!</value>
+    <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>

@@ -20,12 +20,11 @@ namespace BDLauncherCSharp
         public SaveLoaderDialog()
         {
             InitializeComponent();
-            PrimaryButtonClick += GDialog_PrimaryButtonClick;
             this.I18NInitialize();
-            this.SaveList.ItemsSource = new ObservableCollection<SavedGameInfo>(GetSavedGameInfoList(OverAll.SavedGameDirectory));
+            SaveList.ItemsSource = new ObservableCollection<SavedGameInfo>(GetSavedGameInfoList(OverAll.SavedGameDirectory));
         }
 
-        private static IEnumerable<Data.SavedGameInfo> GetSavedGameInfoList(DirectoryInfo dir)
+        private static IEnumerable<SavedGameInfo> GetSavedGameInfoList(DirectoryInfo dir)
             => dir.GetFiles("*.sav").Select(SavedGameExtension.GetSavedGameInfo);
 
         protected override void PrimaryButton_Click(object sender, RoutedEventArgs e)
@@ -49,26 +48,6 @@ namespace BDLauncherCSharp
             else
             {
                 MessageBox.Show(I18NExtension.I18N("msgNoSaveLoadedError"), I18NExtension.I18N("msgCaptain"));
-            }
-        }
-
-        private void GDialog_PrimaryButtonClick(object sender, RoutedEventArgs e)
-        {
-            CriticalPEIdentify.SpawnerHash(OverAll.MainPath);
-            if (!CriticalPEIdentify.IsBDFilelist) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
-            else if (!CriticalPEIdentify.IsThereAres)
-                MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
-            else
-            {
-                var ita = new MainWindow();
-                var option = new GameExecuteOptions
-                {
-                    LogMode = ita.Debug_Check.IsChecked ?? false,
-                    RunAs = ita.Admin_Check.IsChecked ?? false,
-                    Others = ita.TB_Command.Text.Split(' ')
-                };
-                GameExecute.RunGame(option);
-                Environment.Exit(0);
             }
         }
     }

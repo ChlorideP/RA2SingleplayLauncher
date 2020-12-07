@@ -47,8 +47,8 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         public static global::System.Globalization.CultureInfo Culture {
@@ -187,20 +187,11 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Cancel 的本地化字符串。
+        ///   查找类似 Close 的本地化字符串。
         /// </summary>
         public static string dlgSetting_CloseButtonContent {
             get {
                 return ResourceManager.GetString("dlgSetting.CloseButtonContent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Apply 的本地化字符串。
-        /// </summary>
-        public static string dlgSetting_PrimaryButtonContent {
-            get {
-                return ResourceManager.GetString("dlgSetting.PrimaryButtonContent", resourceCulture);
             }
         }
         
@@ -301,7 +292,7 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Unable to load the spawner for Braindead! 的本地化字符串。
+        ///   查找类似 Missing or invalid map loader &apos;cncnet5.dll&apos; in your game directory! 的本地化字符串。
         /// </summary>
         public static string msgSpawnerInvalidError {
             get {

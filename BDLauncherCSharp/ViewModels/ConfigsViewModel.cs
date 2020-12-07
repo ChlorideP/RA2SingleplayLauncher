@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
+using BDLauncherCSharp.Data;
 using BDLauncherCSharp.Extensions;
-
-using Shimakaze.Struct.Ini;
 
 namespace BDLauncherCSharp.ViewModels
 {
@@ -17,7 +14,7 @@ namespace BDLauncherCSharp.ViewModels
         private static string[] _lazy_renderers = null;
 
         private static HashSet<string> _lazy_screenSize = null;
-        private string _renderer;
+        private string _renderer; // = UserCustoms.DDrawApply;
 
 
         private static HashSet<string> InitScreeSizeSource()
@@ -53,28 +50,26 @@ namespace BDLauncherCSharp.ViewModels
 
         public string Renderer
         {
-            get => _renderer; set
+            get => _renderer ?? UserCustoms.CurRenderer; set
             {
                 _renderer = value;
                 OnPropertyChanged();
             }
         }
 
-        public string[] Renderers_Source => _lazy_renderers ?? (_lazy_renderers = new[] { "None", "CNC-DDRaw" });
+        public string[] Renderers_Source => _lazy_renderers ?? (_lazy_renderers = new[] { I18NExtension.I18N("cbRenderer.None"), I18NExtension.I18N("cbRenderer.CNCDDraw") });
 
         public string ScreenSize
         {
             get => string.Join("*",
-                Data.GameConfigManager.Configs["Video"]["ScreenWidth"]?.Value ?? (Data.GameConfigManager.Configs["Video"]["ScreenWidth"].Value = Data.User32.GetSystemMetrics(0)),
+                Data.GameConfigManager.Configs["Video"]["ScreenWidth"]?.Value ?? (Data.GameConfigManager.Configs["Video"]["ScreenWidth"].Value = Data.User32.GetSystemMetrics(0)), 
                 Data.GameConfigManager.Configs["Video"]["ScreenHeight"]?.Value ?? (Data.GameConfigManager.Configs["Video"]["ScreenHeight"].Value = Data.User32.GetSystemMetrics(1)));
             set
             {
                 if (string.IsNullOrEmpty(value))
                     return;
-                    //throw new FormatException("Cannot be Empty !");
                 if (!value.Contains("*"))
                     return;
-                //throw new FormatException("msgSizeNotValidError".I18N());
                 else
                 {
                     string[] size = value.Split('*');
@@ -98,8 +93,8 @@ namespace BDLauncherCSharp.ViewModels
         {
             get => (bool)Data.GameConfigManager.Configs["Video"]["Video.Windowed"].Value; set
             {
-                if (!(bool)(Data.GameConfigManager.Configs["Video"]["Video.Windowed"].Value = value))// 取消窗口化
-                    NoBorder = false;// 顺便取消无边框
+                if (!(bool)(Data.GameConfigManager.Configs["Video"]["Video.Windowed"].Value = value))
+                    NoBorder = false;
                 OnPropertyChanged();
             }
         }

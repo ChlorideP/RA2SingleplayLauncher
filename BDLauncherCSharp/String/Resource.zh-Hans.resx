@@ -60,9 +60,6 @@
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>警告：部分设置可能因渲染补丁的使用而无法起效。</value>
   </data>
-  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
-    <value>应用</value>
-  </data>
   <data name="dlgSaveLoader.PrimaryButtonContent" xml:space="preserve">
     <value>载入</value>
   </data>
@@ -85,7 +82,7 @@
     <value>取消</value>
   </data>
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
-    <value>取消</value>
+    <value>关闭</value>
   </data>
   <data name="txtAppAuthor" xml:space="preserve">
     <value>启动器贡献者:</value>
@@ -133,6 +130,6 @@
     <value>无法载入，因为没有选中任何存档。</value>
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
-    <value>无法载入「脑死」文件列表！</value>
+    <value>找不到或并非「脑死」读图器 (cncnet5.dll)！</value>
   </data>
 </root>

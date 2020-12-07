@@ -70,10 +70,6 @@
           <source>CAUTION: Some of the settings may not be available.</source>
           <target state="final">CAUTION: Some of the settings may not be available.</target>
         </trans-unit>
-        <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
-          <source>Apply</source>
-          <target state="final">Apply</target>
-        </trans-unit>
         <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
           <source>Load</source>
           <target state="final">Load</target>
@@ -103,8 +99,8 @@
           <target state="final">Cancel</target>
         </trans-unit>
         <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="final">Cancel</target>
+          <source>Close</source>
+          <target state="final">Close</target>
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
@@ -171,8 +167,8 @@ It is advised to download again if the files above cannot be found.</target>
           <target state="final">Unable to load with no save files selected.</target>
         </trans-unit>
         <trans-unit id="msgSpawnerInvalidError" translate="yes" xml:space="preserve">
-          <source>Unable to load the spawner for Braindead!</source>
-          <target state="final">Unable to load the spawner for Braindead!</target>
+          <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>
+          <target state="final">Missing or invalid map loader 'cncnet5.dll' in your game directory!</target>
         </trans-unit>
       </group>
     </body>
