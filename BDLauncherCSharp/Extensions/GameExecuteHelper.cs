@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
+using BDLauncherCSharp.Data.Model;
+
 using static BDLauncherCSharp.Data.OverAll;
 
 namespace BDLauncherCSharp.Extensions
@@ -11,14 +13,14 @@ namespace BDLauncherCSharp.Extensions
     /// </summary>
     public static class GameExecute
     {
-        public static void RunGame(this Data.GameExecuteOptions options)
+        public static void RunGame(this GameExecuteOptions options)
         {
             var list = new List<string>();
             list.Add($"\"{GameMD}\"");
             list.Add("-SPAWN");
 
             var proc = new Process();
-            proc.StartInfo.FileName = Path.Combine(MainPath, AresInjector);
+            proc.StartInfo.FileName =  AresInjector.FullName;
             if (options.RunAs)
                 proc.StartInfo.Verb = "runas";
             if (options.LogMode)

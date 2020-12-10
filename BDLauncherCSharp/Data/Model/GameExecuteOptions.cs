@@ -1,4 +1,4 @@
-namespace BDLauncherCSharp.Data
+namespace BDLauncherCSharp.Data.Model
 {
     public class GameExecuteOptions
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 //using System.Windows.Shapes;
 using System.Threading;
@@ -8,7 +9,10 @@ using System.Windows.Threading;
 
 using BDLauncherCSharp.Controls;
 using BDLauncherCSharp.Data;
+using BDLauncherCSharp.Data.Model;
 using BDLauncherCSharp.Extensions;
+
+using static BDLauncherCSharp.Data.OverAll;
 
 namespace BDLauncherCSharp
 {
@@ -17,8 +21,6 @@ namespace BDLauncherCSharp
     /// </summary>
     public partial class MainWindow
     {
-        public static string BDVol = OverAll.MainPath.Substring(0, AppDomain.CurrentDomain.BaseDirectory.IndexOf(':'));
-
         public MainWindow()
         {
             InitializeComponent();
@@ -29,13 +31,22 @@ namespace BDLauncherCSharp
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-            Admin_Check.IsChecked = BDVol == "C";
-            Admin_Check.IsEnabled = BDVol != "C";
+
+            Admin_Check.IsEnabled = (bool)(Admin_Check.IsChecked = WorkDir.Root.FullName == Path.GetPathRoot(Environment.SystemDirectory));
         }
 
         private void Current_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            File.WriteAllText($"LauncherExcept.{DateTime.Now.ToString("o").Replace('/', '-').Replace(':', '-')}.log", e.Exception.ToString());
+            switch (e.Exception)
+            {
+                case DirectoryNotFoundException ex:
+                    e.Handled = true;
+                    MessageBox.Show(ex.Message);
+                    break;
+                default:
+                    File.WriteAllText($"LauncherExcept.{DateTime.Now.ToString("o").Replace('/', '-').Replace(':', '-')}.log", e.Exception.ToString());
+                    break;
+            }
         }
 
         private async void Btn_UserInterface_Click(object sender, RoutedEventArgs e)
@@ -58,8 +69,8 @@ namespace BDLauncherCSharp
 
         private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
         {
-            if (!CriticalPE.IsBDSpawner) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
-            else if (!CriticalPE.AresExistence) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
+            if (!SHA512Verify(CNCNET5DLL, CNCNET5)) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
+            else if (!AresExistence) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
             {
                 var option = new GameExecuteOptions
@@ -83,6 +94,11 @@ namespace BDLauncherCSharp
             dialogMask.Visibility = Visibility.Collapsed;
             dialogMask.Child = null;
             return dialog.Result;
+        }
+
+        private void Btn_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }

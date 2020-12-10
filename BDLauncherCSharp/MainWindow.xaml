@@ -3,11 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
     xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
+    xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+    xmlns:local="clr-namespace:BDLauncherCSharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="656" Height="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d" >
+    Width="660" Height="520" ResizeMode="NoResize"
+        WindowStyle="None"
+    WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="24"/>
+    </WindowChrome.WindowChrome>
     <Grid>
         <!--  背景 图像笔刷  -->
         <Grid.Background>
@@ -15,6 +20,7 @@
         </Grid.Background>
         <!--  分行  -->
         <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
@@ -24,17 +30,21 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid>
+            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" 
+                       Foreground="#fff" FontWeight="Bold" Padding="5" FontSize="16"
+                       HorizontalAlignment="Center"/>
+        </Grid>
+
         <Image
-            Grid.RowSpan="2"
-            Width="130" Height="82"
-            Margin="25 88 0 0" HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            Grid.RowSpan="3" Width="130" Height="82" Margin="25 88 0 0"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
             Source="Assets/allied.png" Stretch="UniformToFill" />
         <!--  主要文字位置  -->
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <!--  左边的文字  -->
             <StackPanel Margin="119 25 0 22" HorizontalAlignment="Left">
-                <TextBlock  Foreground="#FFE6E6E6">
+                <TextBlock Foreground="#FFE6E6E6">
                     <Run FontSize="18" Text="{i18n:L10N txtMisName}" /><LineBreak />
                     <Run FontSize="15" Text="{i18n:L10N txtMisAuthor}" />
                 </TextBlock>
@@ -42,14 +52,15 @@
 
             <!--  右边的文字  -->
             <StackPanel
-                Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"
-                Margin="40 0" HorizontalAlignment="Right">
+                Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="40 0"
+                HorizontalAlignment="Right">
                 <TextBlock
-                    HorizontalAlignment="Center"
-                    Block.LineHeight="24" Block.TextAlignment="Center"
-                    FontSize="16" Foreground="#FF969696">
+                    HorizontalAlignment="Center" Block.LineHeight="24"
+                    Block.TextAlignment="Center" FontSize="16"
+                    Foreground="#FF969696">
                     <!--  用一个 TextBlock 节省内存  -->
-                    <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak /><!--Launcher Created By:-->
+                    <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak />
+                    <!--  Launcher Created By:  -->
                     <Run Text="Caco" /><LineBreak />
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
@@ -62,8 +73,7 @@
 
         <!--  可交互的控件位置  -->
         <Grid
-            Grid.Row="1" Grid.ColumnSpan="2"
-            Margin="30 278 30 5">
+            Grid.Row="2" Grid.ColumnSpan="2" Margin="30 278 30 5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -71,15 +81,12 @@
             </Grid.RowDefinitions>
             <!--  第一行  -->
             <StackPanel
-                Height="15"
-                Margin="10 3" HorizontalAlignment="Right"
+                Height="15" Margin="10 3" HorizontalAlignment="Right"
                 Orientation="Horizontal">
-                <CheckBox x:Uid="cbLog"
-                    Name="Debug_Check"
+                <CheckBox Name="Debug_Check" x:Uid="cbLog"
                     Foreground="#FFE6E6E6" IsChecked="True" />
                 <CheckBox x:Name="Admin_Check" x:Uid="cbRunAs"
-                    Margin="10 0"
-                    Foreground="#FFE6E6E6" />
+                    Margin="10 0" Foreground="#FFE6E6E6" />
             </StackPanel>
             <!--  第二行  -->
             <DockPanel Grid.Row="1" Margin="10 5">
@@ -96,26 +103,22 @@
             </DockPanel>
             <!--  第三行  -->
             <StackPanel
-                Grid.Row="2"
-                Height="28"
-                Margin="14 5" HorizontalAlignment="Right"
-                Orientation="Horizontal">
+                Grid.Row="2" Height="28" Margin="14 5"
+                HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Uid="btnSettings"
-                    Margin="3 0" Padding="30 0"
-                    Click="Btn_UserInterface_Click" />
+                    Margin="3 0" Padding="30 0" Click="Btn_UserInterface_Click" />
                 <Button x:Uid="btnArchive"
-                    Margin="3 0" Padding="30 0"
-                    Click="Btn_ArchiveLoader_Click" />
+                    Margin="3 0" Padding="30 0" Click="Btn_ArchiveLoader_Click" />
                 <Button x:Uid="btnCmdClr"
-                    Margin="3 0" Padding="13 0"
-                    Click="Btn_CommandClear_Click" />
+                    Margin="3 0" Padding="13 0" Click="Btn_CommandClear_Click" />
                 <Button x:Uid="btnRun"
-                    Margin="3 0" Padding="16 0"
-                    Click="Btn_GameStart_Click" />
+                    Margin="3 0" Padding="16 0" Click="Btn_GameStart_Click" />
+                <Button x:Uid="btnExit"
+                    Margin="3 0" Padding="16 0" Click="Btn_Exit_Click" />
             </StackPanel>
         </Grid>
         <Border x:Name="dialogMask"
-            Grid.RowSpan="2" Grid.ColumnSpan="2"
-            Background="#6000" Opacity="81" Visibility="Collapsed" />
+            Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#6000"
+            Opacity="81" Visibility="Collapsed" />
     </Grid>
 </Window>
