@@ -13,7 +13,8 @@
                                  IsDesignTimeCreatable=False}"
     Background="#B000" BorderBrush="#000" BorderThickness="2"
     mc:Ignorable="d">
-    <!-- MVVM 因为是实时保存的所以应用按钮完全没有必要 -->
+    <!--  MVVM 因为是实时保存的所以应用按钮完全没有必要  -->
+    <!--  有必要 因为MVVM是写到内存中的Model的 应用按钮是将改动写到文件的  -->
     <ctrls:GDialog.Resources>
         <cvtr:DifficultyValueToStringConverter x:Key="DifficultyToStringConverter" />
     </ctrls:GDialog.Resources>
@@ -59,8 +60,8 @@
                     <ComboBox x:Name="cbRenderer"
                         Grid.Row="1" Grid.Column="1" Margin="2"
                         ItemsSource="{Binding Renderers_Source}"
-                        SelectedItem="{Binding Renderer}"
-                        LostFocus="cbRenderer_Apply" />
+                        LostFocus="cbRenderer_Apply"
+                        SelectedItem="{Binding Renderer}" />
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
                         <StackPanel.Resources>

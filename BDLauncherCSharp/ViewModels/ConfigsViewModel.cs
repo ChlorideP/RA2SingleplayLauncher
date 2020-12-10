@@ -4,101 +4,133 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using BDLauncherCSharp.Data;
+using BDLauncherCSharp.Data.Model;
+using BDLauncherCSharp.Data.Native;
 using BDLauncherCSharp.Extensions;
 
 namespace BDLauncherCSharp.ViewModels
 {
     public class ConfigsViewModel : INotifyPropertyChanged
     {
-        // Lazy Load
-        private static string[] _lazy_renderers = null;
 
-        private static HashSet<string> _lazy_screenSize = null;
-        private string _renderer; // = UserCustoms.DDrawApply;
+        private string _renderer;
 
+        private byte difficult;
 
-        private static HashSet<string> InitScreeSizeSource()
-        {
-            var list = new HashSet<string>();
-            for (var i = 0; Data.User32.EnumDisplaySettings(null, i, out var vDevMode); i++)
-                list.Add(vDevMode.dmPelsWidth + "*" + vDevMode.dmPelsHeight);
-            return list;
-        }
+        private bool noBorder;
+
+        private string screenSize;
+
+        private bool windowed;
+
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
                     => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        public bool useBuffer;
+
         public byte Difficult
         {
-            get => (byte)Data.GameConfigManager.Configs["[Options]"]["Difficulty"].Value; set
+            get => difficult; set
             {
                 // 数据验证
                 if (value > 2) return;
-                Data.GameConfigManager.Configs["[Options]"]["Difficulty"].Value = value;
+                difficult = value;
                 OnPropertyChanged();
             }
         }
 
         public bool NoBorder
         {
-            get => (bool)Data.GameConfigManager.Configs["Video"]["NoWindowFrame"].Value; set
+            get => noBorder; set
             {
-                Data.GameConfigManager.Configs["Video"]["NoWindowFrame"].Value = value;
+                noBorder = value;
                 OnPropertyChanged();
             }
         }
 
         public string Renderer
         {
-            get => _renderer ?? UserCustoms.CurRenderer; set
+            get => _renderer ?? OverAll.CurRenderer; set
             {
                 _renderer = value;
                 OnPropertyChanged();
             }
         }
 
-        public string[] Renderers_Source => _lazy_renderers ?? (_lazy_renderers = new[] { I18NExtension.I18N("cbRenderer.None"), I18NExtension.I18N("cbRenderer.CNCDDraw") });
+        public string[] Renderers_Source { get; }
 
         public string ScreenSize
         {
-            get => string.Join("*",
-                Data.GameConfigManager.Configs["Video"]["ScreenWidth"]?.Value ?? (Data.GameConfigManager.Configs["Video"]["ScreenWidth"].Value = Data.User32.GetSystemMetrics(0)), 
-                Data.GameConfigManager.Configs["Video"]["ScreenHeight"]?.Value ?? (Data.GameConfigManager.Configs["Video"]["ScreenHeight"].Value = Data.User32.GetSystemMetrics(1)));
+            get => screenSize;
             set
             {
                 if (string.IsNullOrEmpty(value))
                     return;
                 if (!value.Contains("*"))
                     return;
-                else
-                {
-                    string[] size = value.Split('*');
-                    Data.GameConfigManager.Configs["Video"]["ScreenWidth"].Value = uint.TryParse(size[0], out var width) ? width : throw new FormatException("宽度设置不正确");
-                    Data.GameConfigManager.Configs["Video"]["ScreenHeight"].Value = uint.TryParse(size[1], out var height) ? height : throw new FormatException("高度设置不正确");
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public HashSet<string> ScreeSize_Source => _lazy_screenSize ?? (_lazy_screenSize = InitScreeSizeSource());
 
-        public bool UseBuffer
-        {
-            get => (bool)Data.GameConfigManager.Configs["Video"]["VideoBackBuffer"].Value; set
-            {
-                Data.GameConfigManager.Configs["Video"]["VideoBackBuffer"].Value = value;
+                screenSize = value;
                 OnPropertyChanged();
             }
         }
+
+        public HashSet<string> ScreeSize_Source { get; }
+
+        public bool UseBuffer
+        {
+            get => useBuffer; set
+            {
+                useBuffer = value;
+                OnPropertyChanged();
+            }
+        }
+
         public bool Windowed
         {
-            get => (bool)Data.GameConfigManager.Configs["Video"]["Video.Windowed"].Value; set
+            get => windowed; set
             {
-                if (!(bool)(Data.GameConfigManager.Configs["Video"]["Video.Windowed"].Value = value))
+                if (!(windowed = value))
                     NoBorder = false;
                 OnPropertyChanged();
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ConfigsViewModel(GameConfigure configure)
+        {
+            Difficult = (byte)configure.Difficult;
+            UseBuffer = configure.BackBuffer;
+            NoBorder = configure.NoBorder;
+            Windowed = configure.IsWindowed;
+
+            ScreenSize = string.Join("*", configure.ScreenWidth, configure.ScreenHeight);
+
+
+            ScreeSize_Source = new HashSet<string>();
+            for (var i = 0; User32.EnumDisplaySettings(null, i, out var vDevMode); i++)
+                ScreeSize_Source.Add(string.Join("*", vDevMode.dmPelsWidth, vDevMode.dmPelsHeight));
+
+            Renderers_Source = new[] {
+                I18NExtension.I18N("cbRenderer.None"),
+                I18NExtension.I18N("cbRenderer.CNCDDraw")
+            };
+        }
+        public GameConfigure ToModel()
+        {
+            var result = new GameConfigure
+            {
+                BackBuffer = UseBuffer,
+                NoBorder = NoBorder,
+                IsWindowed = Windowed,
+                Difficult = (Difficult)Enum.Parse(typeof(Difficult), Difficult.ToString())
+            };
+
+            var tmp = ScreenSize.Split('*');
+            result.ScreenWidth = ushort.Parse(tmp[0]);
+            result.ScreenWidth = ushort.Parse(tmp[1]);
+            return result;
+        }
     }
 }

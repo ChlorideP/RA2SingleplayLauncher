@@ -1,8 +1,7 @@
 ﻿using System.Runtime.InteropServices;
-//using System.Windows.Forms;
 
 
-namespace BDLauncherCSharp.Data
+namespace BDLauncherCSharp.Data.Native
 {
     //Thanks to yirol
     [StructLayout(LayoutKind.Sequential)]

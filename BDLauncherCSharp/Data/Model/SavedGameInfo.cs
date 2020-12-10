@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace BDLauncherCSharp.Data
+namespace BDLauncherCSharp.Data.Model
 {
     public class SavedGameInfo
     {

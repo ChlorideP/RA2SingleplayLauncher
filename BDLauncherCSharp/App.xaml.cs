@@ -18,7 +18,7 @@ namespace BDLauncherCSharp
             base.OnStartup(e);
             //GameEnvironment.CheckGameEnvi.CheckSaveDir()
             if (!SavedGameDirectory.Exists) SavedGameDirectory.Create();
-            if (File.Exists(SpawnIni)) File.Delete(SpawnIni);
+            if (SpawnIni.Exists) SpawnIni.Delete();
         }
     }
 }
