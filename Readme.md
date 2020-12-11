@@ -16,5 +16,5 @@
 - 不支持XP, Windows XP操作系统最高仅支持 .NET Framework 4.0 版本
 - 低耦合, <span style="color: #000; background-color: #000">我是有叫caco分层写的, 所以应该...大概...</span>可以只通过少量修改即可将启动器移植到您自己的项目中去
 
-# 特殊鸣谢
+# 特别鸣谢
 - **=Star=**
