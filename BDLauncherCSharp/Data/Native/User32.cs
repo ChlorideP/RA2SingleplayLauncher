@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 using BDLauncherCSharp.Extensions;
 
-namespace BDLauncherCSharp.Data
+namespace BDLauncherCSharp.Data.Native
 {
     public class User32
     {
 
         [DllImport("user32.dll")]
         public static extern bool EnumDisplaySettings(string deviceName, int modeNum, out DEVMODE devMode);
-
-        [DllImport("user32.dll")]
-        public static extern int GetSystemMetrics(int index);
     }
 }

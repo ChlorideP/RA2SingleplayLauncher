@@ -1,6 +1,8 @@
 using System.IO;
 using System.Text;
 
+using BDLauncherCSharp.Data.Model;
+
 namespace BDLauncherCSharp
 {
     public static class SavedGameExtension// ¹æ·¶ÃüÃû
@@ -16,7 +18,7 @@ namespace BDLauncherCSharp
             return sb.ToString();
         }
 
-        public static Data.SavedGameInfo GetSavedGameInfo(this FileInfo file) => new Data.SavedGameInfo
+        public static SavedGameInfo GetSavedGameInfo(this FileInfo file) => new SavedGameInfo
         {
             Name = file.GetGameSavedName(),
             Time = file.LastWriteTime,

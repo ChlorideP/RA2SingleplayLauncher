@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Linq;
 
+using static BDLauncherCSharp.Data.OverAll;
+
 namespace BDLauncherCSharp
 {
     /// <summary>
@@ -29,9 +31,7 @@ namespace BDLauncherCSharp
 
         private async Task InitView()
         {
-            var task = GameConfigManager.InitGameConfig();
-            var vm = new ViewModels.ConfigsViewModel();
-            await task;
+            var vm = new ViewModels.ConfigsViewModel(await ConfigureIO.GetConfigure());
             DataContext = vm;
             cbRenderer.SelectedIndex = 0;
         }
@@ -67,21 +67,21 @@ namespace BDLauncherCSharp
 
         private void cbRenderer_Apply(object sender, RoutedEventArgs e)
         {
-            var rmCD = new DirectoryInfo(OverAll.MainPath).GetFiles("ddraw.*");
-            var rmRD = new DirectoryInfo(Path.Combine(OverAll.MainPath, "Renderer")).GetFiles("cnc-ddraw.*");
-            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.None") && UserCustoms.IsCNCDDraw)
+            var rmCD = new DirectoryInfo(WorkDir.FullName).GetFiles("ddraw.*");
+            var rmRD = new DirectoryInfo(Path.Combine(WorkDir.FullName, "Renderer")).GetFiles("cnc-ddraw.*");
+            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.None") && IsCNCDDraw)
             {
                 foreach (FileInfo file in rmCD) file.Delete();
                 return;
             }
-            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.CNCDDraw") && UserCustoms.IsCNCDDraw) return;
-            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.None") && !UserCustoms.IsCNCDDraw) return;
-            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.CNCDDraw") && !UserCustoms.IsCNCDDraw)
+            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.CNCDDraw") && IsCNCDDraw) return;
+            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.None") && !IsCNCDDraw) return;
+            if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.CNCDDraw") && !IsCNCDDraw)
             {
-                foreach (FileInfo source in rmRD) 
+                foreach (FileInfo source in rmRD)
                 {
                     var filetype = Path.GetExtension(source.FullName);
-                    source.CopyTo(Path.Combine(OverAll.MainPath, "ddraw" + filetype), true);
+                    source.CopyTo(Path.Combine(WorkDir.FullName, "ddraw" + filetype), true);
                 }
                 return;
             }
