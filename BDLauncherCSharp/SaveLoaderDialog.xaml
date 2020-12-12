@@ -8,13 +8,13 @@
     xmlns:local="clr-namespace:BDLauncherCSharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="600" Height="325"
-    Background="#8000" BorderBrush="#000" BorderThickness="2"
+    Background="#B000" BorderBrush="#000" BorderThickness="2"
     mc:Ignorable="d">
     <Grid HorizontalAlignment="Center">
         <DataGrid x:Name="SaveList"
             Grid.Row="1"
             Margin="-10,0"
-            AlternatingRowBackground="#F4F4F4" AlternationCount="2"
+            AlternationCount="2"
             AutoGenerateColumns="False" CanUserReorderColumns="False"
             GridLinesVisibility="None" HeadersVisibility="All"
             IsReadOnly="true" RowHeaderWidth="0" RowHeight="20"
