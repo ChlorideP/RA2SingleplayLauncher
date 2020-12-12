@@ -7,11 +7,11 @@
     xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
     xmlns:local="clr-namespace:BDLauncherCSharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="660" Height="520" ResizeMode="NoResize"
-        WindowStyle="None"
-    WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+    Width="640" Height="480" ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen" WindowStyle="None"
+    mc:Ignorable="d">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="24"/>
+        <WindowChrome CaptionHeight="36" ResizeBorderThickness="4" />
     </WindowChrome.WindowChrome>
     <Grid>
         <!--  背景 图像笔刷  -->
@@ -20,8 +20,8 @@
         </Grid.Background>
         <!--  分行  -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="24" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
@@ -30,10 +30,12 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid>
-            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" 
-                       Foreground="#fff" FontWeight="Bold" Padding="5" FontSize="16"
-                       HorizontalAlignment="Center"/>
+        <Grid
+            Grid.ColumnSpan="2" Margin="6" Background="#9f000000">
+            <TextBlock
+                Padding="5" HorizontalAlignment="Center" FontSize="16"
+                FontWeight="Bold" Foreground="#fff"
+                Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" />
         </Grid>
 
         <Image
@@ -52,7 +54,7 @@
 
             <!--  右边的文字  -->
             <StackPanel
-                Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="40 0"
+                Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="80 0"
                 HorizontalAlignment="Right">
                 <TextBlock
                     HorizontalAlignment="Center" Block.LineHeight="24"
@@ -81,44 +83,45 @@
             </Grid.RowDefinitions>
             <!--  第一行  -->
             <StackPanel
-                Height="15" Margin="10 3" HorizontalAlignment="Right"
+                Margin="10 3" HorizontalAlignment="Right"
                 Orientation="Horizontal">
-                <CheckBox Name="Debug_Check" x:Uid="cbLog"
-                    Foreground="#FFE6E6E6" IsChecked="True" />
+                <CheckBox x:Name="Debug_Check" x:Uid="cbLog"
+                    IsChecked="True" />
                 <CheckBox x:Name="Admin_Check" x:Uid="cbRunAs"
-                    Margin="10 0" Foreground="#FFE6E6E6" />
+                    Margin="10 0" />
             </StackPanel>
             <!--  第二行  -->
-            <DockPanel Grid.Row="1" Margin="10 5">
-                <DockPanel.Resources>
+            <Grid Grid.Row="1" Margin="10 5">
+                <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="White" />
                     </Style>
-                </DockPanel.Resources>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <TextBlock x:Uid="txtCommandLineTip"
                     Margin="5 0" VerticalAlignment="Center" />
                 <TextBox x:Name="TB_Command"
-                    Margin="5 0" VerticalContentAlignment="Center"
+                    Grid.Column="1"
                     input:InputMethod.IsInputMethodEnabled="False" />
-            </DockPanel>
+            </Grid>
             <!--  第三行  -->
             <StackPanel
-                Grid.Row="2" Height="28" Margin="14 5"
-                HorizontalAlignment="Right" Orientation="Horizontal">
+                Grid.Row="2" Margin="14 5" HorizontalAlignment="Right"
+                Orientation="Horizontal">
                 <Button x:Uid="btnSettings"
                     Margin="3 0" Padding="30 0" Click="Btn_UserInterface_Click" />
                 <Button x:Uid="btnArchive"
                     Margin="3 0" Padding="30 0" Click="Btn_ArchiveLoader_Click" />
-                <Button x:Uid="btnCmdClr"
-                    Margin="3 0" Padding="13 0" Click="Btn_CommandClear_Click" />
-                <Button x:Uid="btnRun"
-                    Margin="3 0" Padding="16 0" Click="Btn_GameStart_Click" />
-                <Button x:Uid="btnExit"
-                    Margin="3 0" Padding="16 0" Click="Btn_Exit_Click" />
+                <Button x:Uid="btnCmdClr" Click="Btn_CommandClear_Click" />
+                <Button x:Uid="btnRun" Click="Btn_GameStart_Click" />
+                <Button x:Uid="btnExit" Click="Btn_Exit_Click" />
             </StackPanel>
         </Grid>
         <Border x:Name="dialogMask"
-            Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#6000"
+            Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#6000"
             Opacity="81" Visibility="Collapsed" />
     </Grid>
 </Window>

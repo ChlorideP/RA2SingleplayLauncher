@@ -32,7 +32,7 @@ namespace BDLauncherCSharp
         {
             base.OnInitialized(e);
 
-            Admin_Check.IsEnabled = (bool)(Admin_Check.IsChecked = WorkDir.Root.FullName == IsAdministrator());
+            Admin_Check.IsEnabled = !(bool)(Admin_Check.IsChecked = IsAdministrator());
         }
 
         private void Current_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
