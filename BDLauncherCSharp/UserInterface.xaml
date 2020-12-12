@@ -64,11 +64,6 @@
                         SelectedItem="{Binding Renderer}" />
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
-                        <StackPanel.Resources>
-                            <Style TargetType="CheckBox">
-                                <Setter Property="Foreground" Value="White" />
-                            </Style>
-                        </StackPanel.Resources>
                         <CheckBox x:Name="cbWindowed" x:Uid="cbWindowed"
                             Margin="5 2"
                             IsChecked="{Binding Windowed}" />

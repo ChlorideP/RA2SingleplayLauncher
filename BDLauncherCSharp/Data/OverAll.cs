@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Security.Principal;
 
 using BDLauncherCSharp.Data.Configures;
 using BDLauncherCSharp.Extensions;
@@ -53,9 +54,8 @@ namespace BDLauncherCSharp.Data
 
         public static bool IsAdministrator()
         {
-            WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new WindowsPrincipal(identity);
-            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            using (var identity = WindowsIdentity.GetCurrent())
+                return new WindowsPrincipal(identity).IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         public static bool SHA512Verify(FileInfo file, string CorCode)
