@@ -97,7 +97,7 @@
     <value>存档时间</value>
   </data>
   <data name="txtMisAuthor" xml:space="preserve">
-    <value>由 CacoNyan 制作.</value>
+    <value>由 CacoNyan Studio 出品.</value>
   </data>
   <data name="txtMisName" xml:space="preserve">
     <value>军事行动：脑死</value>
@@ -131,5 +131,8 @@
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
     <value>找不到或并非「脑死」读图器 (cncnet5.dll)！</value>
+  </data>
+  <data name="btnExit.Content" xml:space="preserve">
+    <value>退出游戏</value>
   </data>
 </root>

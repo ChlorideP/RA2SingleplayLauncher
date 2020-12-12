@@ -119,8 +119,8 @@
           <target state="final">Archive Time</target>
         </trans-unit>
         <trans-unit id="txtMisAuthor" translate="yes" xml:space="preserve">
-          <source>Presented by Caco</source>
-          <target state="final">Presented by Caco</target>
+          <source>Presented by CacoNyan Studio</source>
+          <target state="final">Presented by CacoNyan Studio</target>
         </trans-unit>
         <trans-unit id="txtMisName" translate="yes" xml:space="preserve">
           <source>Operation: Braindead</source>
@@ -169,6 +169,10 @@ It is advised to download again if the files above cannot be found.</target>
         <trans-unit id="msgSpawnerInvalidError" translate="yes" xml:space="preserve">
           <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>
           <target state="final">Missing or invalid map loader 'cncnet5.dll' in your game directory!</target>
+        </trans-unit>
+        <trans-unit id="btnExit.Content" translate="yes" xml:space="preserve">
+          <source>Quit</source>
+          <target state="final">Quit</target>
         </trans-unit>
       </group>
     </body>

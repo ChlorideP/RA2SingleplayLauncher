@@ -97,7 +97,7 @@
     <value>Archive Time</value>
   </data>
   <data name="txtMisAuthor" xml:space="preserve">
-    <value>Presented by Caco</value>
+    <value>Presented by CacoNyan Studio</value>
   </data>
   <data name="txtMisName" xml:space="preserve">
     <value>Operation: Braindead</value>
@@ -131,5 +131,8 @@ It is advised to download again if the files above cannot be found.</value>
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
     <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
+  </data>
+  <data name="btnExit.Content" xml:space="preserve">
+    <value>Quit</value>
   </data>
 </root>

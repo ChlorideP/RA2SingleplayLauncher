@@ -79,6 +79,15 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Quit 的本地化字符串。
+        /// </summary>
+        public static string btnExit_Content {
+            get {
+                return ResourceManager.GetString("btnExit.Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 RUN! 的本地化字符串。
         /// </summary>
         public static string btnRun_Content {
@@ -355,7 +364,7 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Presented by Caco 的本地化字符串。
+        ///   查找类似 Presented by CacoNyan Studio 的本地化字符串。
         /// </summary>
         public static string txtMisAuthor {
             get {

@@ -123,6 +123,9 @@
   <data name="btnCmdClr.Content" xml:space="preserve">
     <value>Clear Command Line</value>
   </data>
+  <data name="btnExit.Content" xml:space="preserve">
+    <value>Quit</value>
+  </data>
   <data name="btnRun.Content" xml:space="preserve">
     <value>RUN!</value>
   </data>
@@ -220,7 +223,7 @@ Please try again or go to an oculist.</value>
     <value>Difficulty:</value>
   </data>
   <data name="txtMisAuthor" xml:space="preserve">
-    <value>Presented by Caco</value>
+    <value>Presented by CacoNyan Studio</value>
   </data>
   <data name="txtMisName" xml:space="preserve">
     <value>Operation: Braindead</value>
