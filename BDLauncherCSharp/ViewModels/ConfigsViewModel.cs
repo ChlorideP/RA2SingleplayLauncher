@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 using BDLauncherCSharp.Data;
 using BDLauncherCSharp.Data.Model;
@@ -12,22 +13,15 @@ namespace BDLauncherCSharp.ViewModels
 {
     public class ConfigsViewModel : INotifyPropertyChanged
     {
-
         private string _renderer;
-
         private byte difficult;
-
         private bool noBorder;
-
         private string screenSize;
-
         private bool windowed;
-
+        public bool useBuffer;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
                     => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        public bool useBuffer;
 
         public byte Difficult
         {
@@ -124,12 +118,13 @@ namespace BDLauncherCSharp.ViewModels
                 BackBuffer = UseBuffer,
                 NoBorder = NoBorder,
                 IsWindowed = Windowed,
+                IsFullScreen = !Windowed,
                 Difficult = (Difficult)Enum.Parse(typeof(Difficult), Difficult.ToString())
             };
 
             var tmp = ScreenSize.Split('*');
             result.ScreenWidth = ushort.Parse(tmp[0]);
-            result.ScreenWidth = ushort.Parse(tmp[1]);
+            result.ScreenHeight = ushort.Parse(tmp[1]);
             return result;
         }
     }

@@ -14,6 +14,8 @@ using System.IO;
 using System.Linq;
 
 using static BDLauncherCSharp.Data.OverAll;
+//using BDLauncherCSharp.ViewModels;
+using BDLauncherCSharp.Data.Model;
 
 namespace BDLauncherCSharp
 {
@@ -34,6 +36,12 @@ namespace BDLauncherCSharp
             var vm = new ViewModels.ConfigsViewModel(await ConfigureIO.GetConfigure());
             DataContext = vm;
             cbRenderer.SelectedIndex = 0;
+        }
+
+        protected override void PrimaryButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: value check, ini output
+            //var TempCfg = new GameConfigure();
         }
 
         private void Difficulty_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

@@ -193,8 +193,13 @@ It is advised to download again if the files above cannot be found.</value>
   <data name="msgCaptain" xml:space="preserve">
     <value>Braindead Launcher</value>
   </data>
-  <data name="msgNoSaveLoadedError" xml:space="preserve">
-    <value>Unable to load with no save files selected.</value>
+  <data name="msgGameWndCorruptionError" xml:space="preserve">
+    <value>Is your game screen shot with a door lock?</value>
+  </data>
+  <data name="msgSizeFormInvalidError" xml:space="preserve">
+    <value>Your screen size assigned isn't match the form this dialog given.
+
+It's advised to go to an oculist if you've seen this message for several times.</value>
   </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
     <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>

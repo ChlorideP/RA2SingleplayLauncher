@@ -281,11 +281,22 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Unable to load with no save files selected. 的本地化字符串。
+        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
         /// </summary>
-        public static string msgNoSaveLoadedError {
+        public static string msgGameWndCorruptionError {
             get {
-                return ResourceManager.GetString("msgNoSaveLoadedError", resourceCulture);
+                return ResourceManager.GetString("msgGameWndCorruptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Your screen size assigned isn&apos;t match the form this dialog given.
+        ///
+        ///It&apos;s advised to go to an oculist if you&apos;ve seen this message for several times. 的本地化字符串。
+        /// </summary>
+        public static string msgSizeFormInvalidError {
+            get {
+                return ResourceManager.GetString("msgSizeFormInvalidError", resourceCulture);
             }
         }
         
