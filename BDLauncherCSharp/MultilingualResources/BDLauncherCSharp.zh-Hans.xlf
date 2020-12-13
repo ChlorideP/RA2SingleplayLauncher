@@ -130,14 +130,6 @@
           <source>Braindead Launcher</source>
           <target state="final">「脑死」启动器</target>
         </trans-unit>
-        <trans-unit id="msgSizeNotValidError" translate="yes" xml:space="preserve">
-          <source>Your value isn't match the form the dialog given.
-
-Please try again or go to an oculist.</source>
-          <target state="final">值与格式不匹配。
-
-如果多次遇到这个提示，建议去看看眼科。</target>
-        </trans-unit>
         <trans-unit id="cbRenderer.CNCDDraw" translate="yes" xml:space="preserve">
           <source>CNC-DDraw (recommended)</source>
           <target state="final">CNC-DDraw (推荐)</target>
@@ -145,10 +137,6 @@ Please try again or go to an oculist.</source>
         <trans-unit id="cbRenderer.None" translate="yes" xml:space="preserve">
           <source>None</source>
           <target state="final">不使用</target>
-        </trans-unit>
-        <trans-unit id="msgSizeTooLargeError" translate="yes" xml:space="preserve">
-          <source>Is your game screen shot with a door lock?</source>
-          <target state="final">你的游戏画面是用门锁拍的呐？</target>
         </trans-unit>
         <trans-unit id="msgAresNotFoundError" translate="yes" xml:space="preserve">
           <source>This mission is ONLY supported with Ares platform.

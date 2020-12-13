@@ -196,14 +196,6 @@ It is advised to download again if the files above cannot be found.</value>
   <data name="msgNoSaveLoadedError" xml:space="preserve">
     <value>Unable to load with no save files selected.</value>
   </data>
-  <data name="msgSizeNotValidError" xml:space="preserve">
-    <value>Your value isn't match the form the dialog given.
-
-Please try again or go to an oculist.</value>
-  </data>
-  <data name="msgSizeTooLargeError" xml:space="preserve">
-    <value>Is your game screen shot with a door lock?</value>
-  </data>
   <data name="msgSpawnerInvalidError" xml:space="preserve">
     <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
   </data>

@@ -36,30 +36,6 @@ namespace BDLauncherCSharp
             cbRenderer.SelectedIndex = 0;
         }
 
-        /// <Summary>
-        /// 数据验证逻辑
-        /// </Summary>
-        private void ScreenSize_CheckValidVal(object sender, RoutedEventArgs e)
-        {/*
-            if (string.IsNullOrEmpty(cbSize.Text))
-                return;
-
-            if (!Regex.IsMatch(cbSize.Text, @"\d+\*\d+"))
-            {
-                MessageBox.Show(I18NExtension.I18N("msgSizeNotValidError"), I18NExtension.I18N("msgCaptain"));
-                cbSize.Text = string.Empty;
-                return;
-            }
-
-            string[] size = cbSize.Text.Split('*');
-            if (int.Parse(size[0]) > 2560 || int.Parse(size[1]) > 1440) //2k only
-            {
-                MessageBox.Show(I18NExtension.I18N("msgSizeTooLargeError"), I18NExtension.I18N("msgCaptain"));
-                cbSize.Text = string.Empty;
-                return;
-            }*/
-        }
-
         private void Difficulty_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             (sender as Slider).Value = Math.Ceiling((sender as Slider).Value);

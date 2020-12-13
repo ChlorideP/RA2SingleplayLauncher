@@ -54,7 +54,6 @@
                         Grid.Column="1" Margin="2" Foreground="#ffffff"
                         IsEditable="True"
                         ItemsSource="{Binding ScreeSize_Source}"
-                        LostFocus="ScreenSize_CheckValidVal"
                         Text="{Binding ScreenSize}" />
 
                     <TextBlock x:Uid="txtRenderer"

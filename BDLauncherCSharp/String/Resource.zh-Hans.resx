@@ -105,19 +105,11 @@
   <data name="msgCaptain" xml:space="preserve">
     <value>「脑死」启动器</value>
   </data>
-  <data name="msgSizeNotValidError" xml:space="preserve">
-    <value>值与格式不匹配。
-
-如果多次遇到这个提示，建议去看看眼科。</value>
-  </data>
   <data name="cbRenderer.CNCDDraw" xml:space="preserve">
     <value>CNC-DDraw (推荐)</value>
   </data>
   <data name="cbRenderer.None" xml:space="preserve">
     <value>不使用</value>
-  </data>
-  <data name="msgSizeTooLargeError" xml:space="preserve">
-    <value>你的游戏画面是用门锁拍的呐？</value>
   </data>
   <data name="msgAresNotFoundError" xml:space="preserve">
     <value>此任务需要 Ares 扩展平台支持。

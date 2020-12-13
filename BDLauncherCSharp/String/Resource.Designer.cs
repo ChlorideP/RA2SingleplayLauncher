@@ -290,26 +290,6 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Your value isn&apos;t match the form the dialog given.
-        ///
-        ///Please try again or go to an oculist. 的本地化字符串。
-        /// </summary>
-        public static string msgSizeNotValidError {
-            get {
-                return ResourceManager.GetString("msgSizeNotValidError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
-        /// </summary>
-        public static string msgSizeTooLargeError {
-            get {
-                return ResourceManager.GetString("msgSizeTooLargeError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Missing or invalid map loader &apos;cncnet5.dll&apos; in your game directory! 的本地化字符串。
         /// </summary>
         public static string msgSpawnerInvalidError {
