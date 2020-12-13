@@ -30,13 +30,6 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid
-            Grid.ColumnSpan="2" Margin="6" Background="#9f000000">
-            <TextBlock
-                Padding="5" HorizontalAlignment="Center" FontSize="16"
-                FontWeight="Bold"
-                Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" />
-        </Grid>
 
         <Image
             Grid.RowSpan="3" Width="130" Height="82" Margin="25 82 0 0"
