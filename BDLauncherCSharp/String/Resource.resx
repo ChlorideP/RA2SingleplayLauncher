@@ -163,7 +163,7 @@
     <value>Archive Loader</value>
   </data>
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
-    <value>Close</value>
+    <value>Cancel</value>
   </data>
   <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
     <value>Apply</value>

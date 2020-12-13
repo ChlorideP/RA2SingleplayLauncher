@@ -196,7 +196,7 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Close 的本地化字符串。
+        ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
         public static string dlgSetting_CloseButtonContent {
             get {

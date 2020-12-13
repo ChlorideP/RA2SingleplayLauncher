@@ -31,22 +31,39 @@ namespace BDLauncherCSharp.Data.Configures
         public async Task<GameConfigure> GetConfigure()
         {
             if (!file.Exists)
-                throw new FileNotFoundException($"Cannot found file\"{file.FullName}\".");
-
-
-            var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
-
-            return new GameConfigure
             {
-                ScreenWidth = iniDocuments["Video"]["ScreenWidth"]?.Value is IniValue width ? (ushort)width : (ushort)SystemParameters.PrimaryScreenWidth,// 这不是有获取分辨率的属性嘛
-                ScreenHeight = iniDocuments["Video"]["ScreenHeight"]?.Value is IniValue height ? (ushort)height : (ushort)SystemParameters.PrimaryScreenHeight,
+                // 没有必要
+                //throw new FileNotFoundException($"Cannot found file\"{file.FullName}\".");
+                return new GameConfigure
+                {
+                    // use following default value.
+                    ScreenWidth = (ushort)SystemParameters.PrimaryScreenWidth,
+                    ScreenHeight = (ushort)SystemParameters.PrimaryScreenHeight,
+                    IsFullScreen = true,
+                    IsWindowed = false,
+                    NoBorder = false,
+                    BackBuffer = false,
+                    Difficult = Difficult.NORMAL
+                };
+            }
+            else
+            {
+                var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
+                return new GameConfigure
+                {
+                    //assign default vals when ini is empty or missing settings needed.
+                    ScreenWidth = iniDocuments["Video"]["ScreenWidth"]?.Value is IniValue width ? (ushort)width : (ushort)SystemParameters.PrimaryScreenWidth,// 这不是有获取分辨率的属性嘛
+                    ScreenHeight = iniDocuments["Video"]["ScreenHeight"]?.Value is IniValue height ? (ushort)height : (ushort)SystemParameters.PrimaryScreenHeight,
 
-                IsWindowed = iniDocuments["Video"]["Video.Windowed"]?.Value is IniValue windowed && (bool)windowed,
-                NoBorder = iniDocuments["Video"]["NoWindowFrame"]?.Value is IniValue noborder && (bool)noborder,
-                BackBuffer = iniDocuments["Video"]["VideoBackBuffer"]?.Value is IniValue buffer && (bool)buffer,
+                    //compatibility of ddraw.
+                    IsFullScreen = true,
+                    IsWindowed = iniDocuments["Video"]["Video.Windowed"]?.Value is IniValue windowed && (bool)windowed,
+                    NoBorder = iniDocuments["Video"]["NoWindowFrame"]?.Value is IniValue noborder && (bool)noborder,
+                    BackBuffer = iniDocuments["Video"]["VideoBackBuffer"]?.Value is IniValue buffer && (bool)buffer,
 
-                Difficult = iniDocuments["Options"]["Difficulty"]?.Value is IniValue difficult ? (Difficult)Enum.Parse(typeof(Difficult), difficult, true) : Difficult.EASY
-            };
+                    Difficult = iniDocuments["Options"]["Difficulty"]?.Value is IniValue difficult ? (Difficult)Enum.Parse(typeof(Difficult), difficult, true) : Difficult.EASY
+                };
+            }
         }
         /// <summary>
         /// 将改动写入到文件

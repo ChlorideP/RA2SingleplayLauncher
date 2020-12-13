@@ -19,6 +19,7 @@ namespace BDLauncherCSharp.Data
 
         public static FileInfo AresMainFunc { get; }
 
+        public static DDrawIO DDrawIO { get; }
         public static ConfigureIO ConfigureIO { get; }
 
         public static FileInfo GameMD { get; }
@@ -30,7 +31,6 @@ namespace BDLauncherCSharp.Data
         public static FileInfo CNCNET5DLL { get; }
         public static FileInfo DDRAWDLL { get; }
         public static bool AresExistence => OverAll.AresMainFunc.Exists & OverAll.AresInjector.Exists;
-
 
         public static bool IsCNCDDraw => SHA512Verify(DDRAWDLL, CNCD);
         public static string CurRenderer => IsCNCDDraw ? I18NExtension.I18N("cbRenderer.CNCDDraw") : I18NExtension.I18N("cbRenderer.None");
@@ -48,7 +48,7 @@ namespace BDLauncherCSharp.Data
             AresMainFunc = new FileInfo(Path.Combine(WorkDir.FullName, "Ares.DLL"));
             AresInjector = new FileInfo(Path.Combine(WorkDir.FullName, "Syringe.EXE"));
 
-
+            DDrawIO = new DDrawIO(DDRAWDLL);
             ConfigureIO = new ConfigureIO(new FileInfo(Path.Combine(WorkDir.FullName, "ra2md.ini")));
         }
 

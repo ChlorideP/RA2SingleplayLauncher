@@ -11,6 +11,7 @@ namespace BDLauncherCSharp.Data.Model
         public ushort ScreenWidth { get; set; }
         public ushort ScreenHeight { get; set; }
 
+        public bool IsFullScreen { get; set; }
         public bool IsWindowed { get; set; }
         public bool NoBorder { get; set; }
         public bool BackBuffer { get; set; }

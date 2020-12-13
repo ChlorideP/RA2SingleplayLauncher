@@ -82,7 +82,7 @@
     <value>取消</value>
   </data>
   <data name="dlgSetting.CloseButtonContent" xml:space="preserve">
-    <value>关闭</value>
+    <value>取消</value>
   </data>
   <data name="txtAppAuthor" xml:space="preserve">
     <value>启动器贡献者:</value>

@@ -99,8 +99,8 @@
           <target state="final">取消</target>
         </trans-unit>
         <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
-          <source>Close</source>
-          <target state="final">关闭</target>
+          <source>Cancel</source>
+          <target state="final">取消</target>
         </trans-unit>
         <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
           <source>Launcher Created By:</source>
