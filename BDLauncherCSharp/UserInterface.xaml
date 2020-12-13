@@ -20,11 +20,6 @@
     </ctrls:GDialog.Resources>
 
     <Grid Width="450" Margin="0 0 0 -10">
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="Foreground" Value="White" />
-            </Style>
-        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*" />
             <ColumnDefinition Width="85*" />

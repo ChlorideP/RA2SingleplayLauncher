@@ -168,6 +168,9 @@
   <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
     <value>Apply</value>
   </data>
+  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="dlgSetting.Title" xml:space="preserve">
     <value>User Settings</value>
   </data>
@@ -221,6 +224,9 @@ It's advised to go to an oculist if you've seen this message for several times.<
   </data>
   <data name="txtDifficulty.Text" xml:space="preserve">
     <value>Difficulty:</value>
+  </data>
+  <data name="txtError" xml:space="preserve">
+    <value>ERROR</value>
   </data>
   <data name="txtMisAuthor" xml:space="preserve">
     <value>Presented by CacoNyan Studio</value>

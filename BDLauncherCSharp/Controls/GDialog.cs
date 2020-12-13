@@ -12,7 +12,7 @@ namespace BDLauncherCSharp.Controls
 {
     public enum GDialogResult
     {
-        PrimaryButton, SecondButton, CloseButton
+        PrimaryButton, SecondButton, CloseButton, FaildOpen
     }
 
     [ContentProperty(nameof(Content))]

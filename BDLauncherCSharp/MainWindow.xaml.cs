@@ -23,6 +23,7 @@ namespace BDLauncherCSharp
     {
         public MainWindow()
         {
+            MessageBox.MainWindow = this;
             InitializeComponent();
             this.I18NInitialize();// I18N 初始化
             App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
@@ -41,7 +42,11 @@ namespace BDLauncherCSharp
             {
                 case DirectoryNotFoundException ex:
                     e.Handled = true;
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "txtError".I18N());
+                    break;
+                case IOException ex:
+                    e.Handled = true;
+                    MessageBox.Show(ex.Message, "txtError".I18N());
                     break;
                 default:
                     File.WriteAllText($"LauncherExcept.{DateTime.Now.ToString("o").Replace('/', '-').Replace(':', '-')}.log", e.Exception.ToString());
@@ -51,8 +56,20 @@ namespace BDLauncherCSharp
 
         private async void Btn_UserInterface_Click(object sender, RoutedEventArgs e)
         {
-            var UI = new UserInterface();
-            await ShowDialog(UI);
+            var ui = new UserInterface();
+            switch (await ShowDialog(ui))
+            {
+                case GDialogResult.PrimaryButton:
+                    switch (ui.DataContext)
+                    {
+                        case ViewModels.ConfigsViewModel cvm:
+                            await ConfigureIO.SetConfigure(cvm.ToModel());
+                            break;
+                    }
+                    break;
+                case GDialogResult.CloseButton:
+                    break;
+            }
         }
 
         private async void Btn_ArchiveLoader_Click(object sender, RoutedEventArgs e)
@@ -83,17 +100,39 @@ namespace BDLauncherCSharp
                 Environment.Exit(0);
             }
         }
-
+        private Mutex _dialogMutex = new Mutex();
         public async Task<GDialogResult> ShowDialog(GDialog dialog)
         {
+            GDialogResult result = GDialogResult.FaildOpen;
+            if (_dialogMutex.WaitOne(500))
+            {
+                try
+                {
+                    var pause = new ManualResetEvent(false);
+                    dialogMask.Child = dialog;
+                    dialogMask.Visibility = Visibility.Visible;
+                    dialog.Show(pause);
+                    await Task.Run(pause.WaitOne);
+                    dialogMask.Visibility = Visibility.Collapsed;
+                    dialogMask.Child = null;
+                    result = dialog.Result;
+                }
+                finally
+                {
+                    _dialogMutex.ReleaseMutex();
+                }
+            }
+            return result;
+        }
+        public async Task ShowMessageDialog(GDialog dialog)
+        {
             var pause = new ManualResetEvent(false);
-            dialogMask.Child = dialog;
-            dialogMask.Visibility = Visibility.Visible;
+            msgDialogMask.Child = dialog;
+            msgDialogMask.Visibility = Visibility.Visible;
             dialog.Show(pause);
             await Task.Run(pause.WaitOne);
-            dialogMask.Visibility = Visibility.Collapsed;
-            dialogMask.Child = null;
-            return dialog.Result;
+            msgDialogMask.Visibility = Visibility.Collapsed;
+            msgDialogMask.Child = null;
         }
 
         private void Btn_Exit_Click(object sender, RoutedEventArgs e)

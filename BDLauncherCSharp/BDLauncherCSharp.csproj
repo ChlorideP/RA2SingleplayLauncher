@@ -32,7 +32,7 @@
     <Resource Include="Assets\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview2.3" />
+    <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.3" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="String\Resource.Designer.cs">
