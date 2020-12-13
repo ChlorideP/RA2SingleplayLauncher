@@ -168,9 +168,6 @@
   <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
     <value>Apply</value>
   </data>
-  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
-    <value>Apply</value>
-  </data>
   <data name="dlgSetting.Title" xml:space="preserve">
     <value>User Settings</value>
   </data>

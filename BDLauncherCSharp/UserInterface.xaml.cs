@@ -51,6 +51,7 @@ namespace BDLauncherCSharp
 
         private void cbRenderer_Apply(object sender, RoutedEventArgs e)
         {
+            DDRAWDLL.Refresh(); //fxxk
             var rmCD = new DirectoryInfo(WorkDir.FullName).GetFiles("ddraw.*");
             var rmRD = new DirectoryInfo(Path.Combine(WorkDir.FullName, "Renderer")).GetFiles("cnc-ddraw.*");
             if ((string)cbRenderer.SelectedItem == I18NExtension.I18N("cbRenderer.None") && IsCNCDDraw)

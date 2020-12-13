@@ -25,21 +25,34 @@ namespace BDLauncherCSharp.Data.Configures
         public async Task<GameConfigure> GetConfigure()
         {
             if (!file.Exists)
-                throw new FileNotFoundException($"Cannot found file\"{file.FullName}\".");
-
-            var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
-
-            return new GameConfigure
             {
-                ScreenWidth = (ushort)iniDocuments.TryGet("Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth),// 这不是有获取分辨率的属性嘛
-                ScreenHeight = (ushort)iniDocuments.TryGet("Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight),
+                //default val
+                return new GameConfigure
+                {
+                    ScreenWidth = (ushort)SystemParameters.PrimaryScreenWidth,
+                    ScreenHeight = (ushort)SystemParameters.PrimaryScreenHeight,
+                    IsWindowed = false,
+                    NoBorder = false,
+                    BackBuffer = false,
+                    Difficult = Difficult.NORMAL
+                };
+            }
+            else
+            {
+                var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
 
-                IsWindowed = (bool)iniDocuments.TryGet("Video", "Video.Windowed"),
-                NoBorder = (bool)iniDocuments.TryGet("Video", "NoWindowFrame"),
-                BackBuffer = (bool)iniDocuments.TryGet("Video", "VideoBackBuffer"),
+                return new GameConfigure
+                {
+                    ScreenWidth = (ushort)iniDocuments.TryGet("Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth),
+                    ScreenHeight = (ushort)iniDocuments.TryGet("Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight),
 
-                Difficult = (Difficult)Enum.Parse(typeof(Difficult), iniDocuments.TryGet("Options", "Difficulty", 0), true)
-            };
+                    IsWindowed = (bool)iniDocuments.TryGet("Video", "Video.Windowed"),
+                    NoBorder = (bool)iniDocuments.TryGet("Video", "NoWindowFrame"),
+                    BackBuffer = (bool)iniDocuments.TryGet("Video", "VideoBackBuffer"),
+
+                    Difficult = (Difficult)Enum.Parse(typeof(Difficult), iniDocuments.TryGet("Options", "Difficulty", 0), true)
+                };
+            }
         }
         /// <summary>
         /// 将改动写入到文件

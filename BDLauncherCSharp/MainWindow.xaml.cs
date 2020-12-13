@@ -86,6 +86,12 @@ namespace BDLauncherCSharp
 
         private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
         {
+            //反而比直接new对象麻烦
+            AresMainFunc.Refresh();
+            AresInjector.Refresh();
+            CNCNET5DLL.Refresh();
+
+            //这才是流程
             if (!SHA512Verify(CNCNET5DLL, CNCNET5)) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
             else if (!AresExistence) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
@@ -97,7 +103,7 @@ namespace BDLauncherCSharp
                     Others = TB_Command.Text.Split(' ')
                 };
                 GameExecute.RunGame(option);
-                Environment.Exit(0);
+                App.Current.Shutdown();
             }
         }
         private Mutex _dialogMutex = new Mutex();

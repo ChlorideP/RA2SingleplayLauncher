@@ -30,7 +30,8 @@ namespace BDLauncherCSharp.Data
         public static FileInfo SpawnIni { get; }
         public static FileInfo CNCNET5DLL { get; }
         public static FileInfo DDRAWDLL { get; }
-        public static bool AresExistence => OverAll.AresMainFunc.Exists & OverAll.AresInjector.Exists;
+
+        public static bool AresExistence => AresMainFunc.Exists & AresInjector.Exists;
 
         public static bool IsCNCDDraw => SHA512Verify(DDRAWDLL, CNCD);
         public static string CurRenderer => IsCNCDDraw ? I18NExtension.I18N("cbRenderer.CNCDDraw") : I18NExtension.I18N("cbRenderer.None");
