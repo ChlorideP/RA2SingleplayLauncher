@@ -205,6 +205,15 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Apply 的本地化字符串。
+        /// </summary>
+        public static string dlgSetting_PrimaryButtonContent {
+            get {
+                return ResourceManager.GetString("dlgSetting.PrimaryButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 User Settings 的本地化字符串。
         /// </summary>
         public static string dlgSetting_Title {

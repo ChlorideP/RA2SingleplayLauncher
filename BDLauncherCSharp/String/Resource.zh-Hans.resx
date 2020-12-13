@@ -135,4 +135,7 @@
   <data name="btnExit.Content" xml:space="preserve">
     <value>退出游戏</value>
   </data>
+  <data name="dlgSetting.PrimaryButtonContent" xml:space="preserve">
+    <value>应用</value>
+  </data>
 </root>
