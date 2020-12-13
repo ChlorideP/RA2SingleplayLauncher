@@ -364,7 +364,16 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Presented by CacoNyan Studio 的本地化字符串。
+        ///   查找类似 ERROR 的本地化字符串。
+        /// </summary>
+        public static string txtError {
+            get {
+                return ResourceManager.GetString("txtError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Presented by Caco 的本地化字符串。
         /// </summary>
         public static string txtMisAuthor {
             get {

@@ -4,6 +4,10 @@
     xmlns:ctrls="clr-namespace:BDLauncherCSharp.Controls"
     xmlns:local="clr-namespace:BDLauncherCSharp">
 
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
     <Style x:Key="Slider_RepeatButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="Template">
             <Setter.Value>

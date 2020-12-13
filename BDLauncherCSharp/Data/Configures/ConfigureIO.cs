@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -18,10 +15,7 @@ namespace BDLauncherCSharp.Data.Configures
     public class ConfigureIO
     {
         private readonly FileInfo file;
-        public ConfigureIO(FileInfo file)
-        {
-            this.file = file;
-        }
+        public ConfigureIO(FileInfo file) => this.file = file;
 
         /// <summary>
         /// 从文件中加载所需配置到内存
@@ -31,61 +25,42 @@ namespace BDLauncherCSharp.Data.Configures
         public async Task<GameConfigure> GetConfigure()
         {
             if (!file.Exists)
-            {
-                // 没有必要
-                //throw new FileNotFoundException($"Cannot found file\"{file.FullName}\".");
-                return new GameConfigure
-                {
-                    // use following default value.
-                    ScreenWidth = (ushort)SystemParameters.PrimaryScreenWidth,
-                    ScreenHeight = (ushort)SystemParameters.PrimaryScreenHeight,
-                    IsFullScreen = true,
-                    IsWindowed = false,
-                    NoBorder = false,
-                    BackBuffer = false,
-                    Difficult = Difficult.NORMAL
-                };
-            }
-            else
-            {
-                var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
-                return new GameConfigure
-                {
-                    //assign default vals when ini is empty or missing settings needed.
-                    ScreenWidth = iniDocuments["Video"]["ScreenWidth"]?.Value is IniValue width ? (ushort)width : (ushort)SystemParameters.PrimaryScreenWidth,// 这不是有获取分辨率的属性嘛
-                    ScreenHeight = iniDocuments["Video"]["ScreenHeight"]?.Value is IniValue height ? (ushort)height : (ushort)SystemParameters.PrimaryScreenHeight,
+                throw new FileNotFoundException($"Cannot found file\"{file.FullName}\".");
 
-                    //compatibility of ddraw.
-                    IsFullScreen = true,
-                    IsWindowed = iniDocuments["Video"]["Video.Windowed"]?.Value is IniValue windowed && (bool)windowed,
-                    NoBorder = iniDocuments["Video"]["NoWindowFrame"]?.Value is IniValue noborder && (bool)noborder,
-                    BackBuffer = iniDocuments["Video"]["VideoBackBuffer"]?.Value is IniValue buffer && (bool)buffer,
+            var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
 
-                    Difficult = iniDocuments["Options"]["Difficulty"]?.Value is IniValue difficult ? (Difficult)Enum.Parse(typeof(Difficult), difficult, true) : Difficult.EASY
-                };
-            }
+            return new GameConfigure
+            {
+                ScreenWidth = (ushort)iniDocuments.TryGet("Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth),// 这不是有获取分辨率的属性嘛
+                ScreenHeight = (ushort)iniDocuments.TryGet("Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight),
+
+                IsWindowed = (bool)iniDocuments.TryGet("Video", "Video.Windowed"),
+                NoBorder = (bool)iniDocuments.TryGet("Video", "NoWindowFrame"),
+                BackBuffer = (bool)iniDocuments.TryGet("Video", "VideoBackBuffer"),
+
+                Difficult = (Difficult)Enum.Parse(typeof(Difficult), iniDocuments.TryGet("Options", "Difficulty", 0), true)
+            };
         }
         /// <summary>
         /// 将改动写入到文件
         /// </summary>
         public async Task SetConfigure(GameConfigure configure)
         {
-            using (var fs = file.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
-            {
-                var iniDocuments = await IniDocumentHelper.ParseAsync(fs);
-                iniDocuments["Video"]["ScreenWidth"].Value = configure.ScreenWidth;
-                iniDocuments["Video"]["ScreenHeight"].Value = configure.ScreenHeight;
+            IIniDocument iniDocuments;
+            using (var fs = file.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
+                iniDocuments = await IniDocumentHelper.ParseAsync(fs);
+            iniDocuments.Put("Video", "ScreenWidth", configure.ScreenWidth);
+            iniDocuments.Put("Video", "ScreenHeight", configure.ScreenHeight);
 
-                iniDocuments["Video"]["Video.Windowed"].Value = configure.IsWindowed;
-                iniDocuments["Video"]["NoWindowFrame"].Value = configure.NoBorder;
-                iniDocuments["Video"]["VideoBackBuffer"].Value = configure.BackBuffer;
+            iniDocuments.Put("Video", "Video.Windowed", configure.IsWindowed);
+            iniDocuments.Put("Video", "NoWindowFrame", configure.NoBorder);
+            iniDocuments.Put("Video", "VideoBackBuffer", configure.BackBuffer);
 
-                iniDocuments["Options"]["Difficulty"].Value = (byte)configure.Difficult;
+            iniDocuments.Put("Options", "Difficulty", (byte)configure.Difficult);
 
-                fs.Seek(0, SeekOrigin.Begin);
-                await iniDocuments.DeparseAsync(fs);
-            }
+            file.Delete();
+            using (var fs = file.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
+                await iniDocuments.DeparseAsync(fs);            
         }
-
     }
 }

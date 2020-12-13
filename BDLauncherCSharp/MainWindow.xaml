@@ -30,6 +30,13 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid
+            Grid.ColumnSpan="2" Margin="6" Background="#9f000000">
+            <TextBlock
+                Padding="5" HorizontalAlignment="Center" FontSize="16"
+                FontWeight="Bold"
+                Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" />
+        </Grid>
 
         <Image
             Grid.RowSpan="3" Width="130" Height="82" Margin="25 82 0 0"
@@ -85,11 +92,6 @@
             </StackPanel>
             <!--  第二行  -->
             <Grid Grid.Row="1" Margin="10 5">
-                <Grid.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Foreground" Value="White" />
-                    </Style>
-                </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition />
@@ -113,8 +115,11 @@
                 <Button x:Uid="btnExit" Click="Btn_Exit_Click" />
             </StackPanel>
         </Grid>
-        <Border x:Name="dialogMask"
-            Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#6000"
-            Opacity="81" Visibility="Collapsed" />
+        <Grid Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <Border x:Name="dialogMask"
+                Background="#6000" Opacity="81" Visibility="Collapsed" />
+            <Border x:Name="msgDialogMask"
+                Background="#6000" Opacity="81" Visibility="Collapsed" />
+        </Grid>
     </Grid>
 </Window>
