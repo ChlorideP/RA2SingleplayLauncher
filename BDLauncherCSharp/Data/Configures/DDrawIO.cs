@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 
 using BDLauncherCSharp.Data.Model;
@@ -14,10 +10,7 @@ namespace BDLauncherCSharp.Data.Configures
     public class DDrawIO
     {
         private readonly FileInfo file;
-        public DDrawIO(FileInfo file)
-        {
-            this.file = file;
-        }
+        public DDrawIO(FileInfo file) => this.file = file;
 
         /// <summary>
         /// 从文件中加载所需配置到内存

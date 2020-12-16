@@ -2,19 +2,21 @@
     x:Class="BDLauncherCSharp.UserInterface"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cmds="clr-namespace:BDLauncherCSharp.Commands"
     xmlns:ctrls="clr-namespace:BDLauncherCSharp.Controls"
     xmlns:cvtr="clr-namespace:BDLauncherCSharp.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:BDLauncherCSharp.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:BDLauncherCSharp.ViewModels"
-    Height="380"
+    Height="380" Background="#B000" BorderBrush="#000"
+    BorderThickness="2"
+    CloseButtonCommand="{x:Static cmds:DialogRoutedCommands.CloseCommand}"
+    PrimaryButtonCommand="{x:Static cmds:GameSettingsRoutedCommands.ApplyCommand}"
+    PrimaryButtonCommandParameter="{Binding}"
+    mc:Ignorable="d"
     d:DataContext="{d:DesignData Type={x:Type vm:ConfigsViewModel},
-                                 IsDesignTimeCreatable=False}"
-    Background="#B000" BorderBrush="#000" BorderThickness="2"
-    mc:Ignorable="d">
-    <!--  MVVM 因为是实时保存的所以应用按钮完全没有必要  -->
-    <!--  有必要 因为MVVM是写到内存中的Model的 应用按钮是将改动写到文件的  -->
+                                 IsDesignTimeCreatable=False}">
     <ctrls:GDialog.Resources>
         <cvtr:DifficultyValueToStringConverter x:Key="DifficultyToStringConverter" />
     </ctrls:GDialog.Resources>

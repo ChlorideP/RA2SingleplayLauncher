@@ -22,12 +22,14 @@
   <ItemGroup>
     <None Remove="Assets\Allied.png" />
     <None Remove="Assets\bg.png" />
+    <None Remove="Assets\SegMDL2.ttf" />
     <None Remove="Assets\Soviet.png" />
     <None Remove="Assets\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Allied.png" />
     <Resource Include="Assets\bg.png" />
+    <Resource Include="Assets\SegMDL2.ttf" />
     <Resource Include="Assets\Soviet.png" />
     <Resource Include="Assets\Yuri.png" />
   </ItemGroup>
@@ -35,6 +37,11 @@
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.3" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="String\Error.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Error.resx</DependentUpon>
+    </Compile>
     <Compile Update="String\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -42,6 +49,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="String\Error.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Error.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="String\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>

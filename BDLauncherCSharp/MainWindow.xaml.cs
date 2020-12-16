@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
+using System.Text;
 //using System.Windows.Shapes;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 using BDLauncherCSharp.Controls;
-using BDLauncherCSharp.Data;
 using BDLauncherCSharp.Data.Model;
+using BDLauncherCSharp.Exceptions;
 using BDLauncherCSharp.Extensions;
 
 using static BDLauncherCSharp.Data.OverAll;
@@ -21,95 +23,102 @@ namespace BDLauncherCSharp
     /// </summary>
     public partial class MainWindow
     {
-        public MainWindow()
-        {
-            MessageBox.MainWindow = this;
-            InitializeComponent();
-            this.I18NInitialize();// I18N 初始化
-            App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
-        }
+        private readonly Mutex _dialogMutex = new Mutex();
 
-        protected override void OnInitialized(EventArgs e)
+        private async void ApplySetting(object sender, ExecutedRoutedEventArgs e)
         {
-            base.OnInitialized(e);
-
-            Admin_Check.IsEnabled = !(bool)(Admin_Check.IsChecked = IsAdministrator());
-        }
-
-        private void Current_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            switch (e.Exception)
+            switch (e.Parameter)
             {
-                case DirectoryNotFoundException ex:
-                    e.Handled = true;
-                    MessageBox.Show(ex.Message, "txtError".I18N());
-                    break;
-                case IOException ex:
-                    e.Handled = true;
-                    MessageBox.Show(ex.Message, "txtError".I18N());
+                case ViewModels.ConfigsViewModel cvm:
+                    await ConfigureIO.SetConfigure(cvm.ToModel());
                     break;
                 default:
+                    break;
+            }
+            Commands.DialogRoutedCommands.CloseCommand.Execute(null, e.Source as IInputElement);
+        }
+
+        private void CanClearCommandLine(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = !string.IsNullOrEmpty((e.Source as TextBox)?.Text);
+
+        private void ClearCommandLine(object sender, ExecutedRoutedEventArgs e) => (e.Source as TextBox).Text = string.Empty;
+
+        private void CloseDialog(object sender, ExecutedRoutedEventArgs e) => (e.Source as GDialog).Hide();
+
+        private async void Current_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            switch (e.Exception)
+            {
+                case SpawnerInvalidException _:
+                    await MessageBox.Show("txtSpawnerInvalidError".I18N(), "txtCaptain".I18N());
+                    break;
+                case AresNotFoundException _:
+                    await MessageBox.Show("txtAresNotFoundError".I18N(), "txtCaptain".I18N());
+                    break;
+                case NoSaveLoadedException _:
+                    await MessageBox.Show("txtNoSaveLoadedError".I18N(), "txtCaptain".I18N());
+                    break;
+                case DirectoryNotFoundException ex:
+                    await MessageBox.Show(ex.Message, "txtError".I18N());
+                    break;
+                case IOException ex:
+                    await MessageBox.Show(ex.Message, "txtError".I18N());
+                    break;
+                default:
+                    e.Handled = false;
+                    await MessageBox.Show(e.Exception.Message, "txtFatal".I18N());
                     File.WriteAllText($"LauncherExcept.{DateTime.Now.ToString("o").Replace('/', '-').Replace(':', '-')}.log", e.Exception.ToString());
                     break;
             }
         }
 
-        private async void Btn_UserInterface_Click(object sender, RoutedEventArgs e)
+        private void Exit(object sender, ExecutedRoutedEventArgs e) => Close();
+
+        private async void LoadGame(object sender, ExecutedRoutedEventArgs e)
         {
-            var ui = new UserInterface();
-            switch (await ShowDialog(ui))
+            if (e.Parameter is ViewModels.SavedGameViewModel vm)
             {
-                case GDialogResult.PrimaryButton:
-                    switch (ui.DataContext)
-                    {
-                        case ViewModels.ConfigsViewModel cvm:
-                            await ConfigureIO.SetConfigure(cvm.ToModel());
-                            break;
-                    }
-                    break;
-                case GDialogResult.CloseButton:
-                    break;
+                await vm.WriteSpawnAsync();
+                Commands.MainWindowRoutedCommands.RunGameCommand.Execute(null, this);
             }
-        }
-
-        private async void Btn_ArchiveLoader_Click(object sender, RoutedEventArgs e)
-        {
-            var SL = new SaveLoaderDialog();
-            var IsAttached = await ShowDialog(SL);
-            if (IsAttached == 0) Btn_GameStart_Click(null, null);
-        }
-
-        private void Btn_CommandClear_Click(object sender, RoutedEventArgs e)
-        {
-            TB_Command.Text = string.Empty;
-        }
-
-        private void Btn_GameStart_Click(object sender, RoutedEventArgs e)
-        {
-            //反而比直接new对象麻烦
-            AresMainFunc.Refresh();
-            AresInjector.Refresh();
-            CNCNET5DLL.Refresh();
-
-            //这才是流程
-            if (!SHA512Verify(CNCNET5DLL, CNCNET5)) MessageBox.Show(I18NExtension.I18N("msgSpawnerInvalidError"), I18NExtension.I18N("msgCaptain"));
-            else if (!AresExistence) MessageBox.Show(I18NExtension.I18N("msgAresNotFoundError"), I18NExtension.I18N("msgCaptain"));
             else
-            {
-                var option = new GameExecuteOptions
-                {
-                    LogMode = Debug_Check.IsChecked ?? false,
-                    RunAs = Admin_Check.IsChecked ?? false,
-                    Others = TB_Command.Text.Split(' ')
-                };
-                GameExecute.RunGame(option);
-                App.Current.Shutdown();
-            }
+                throw new NoSaveLoadedException();
         }
-        private Mutex _dialogMutex = new Mutex();
+
+        private async void OpenArchiveLoader(object sender, ExecutedRoutedEventArgs e) => await ShowDialog(new SaveLoaderDialog());
+
+        private async void OpenGameSettings(object sender, ExecutedRoutedEventArgs e) => await ShowDialog(new UserInterface());
+
+        private void RunGame(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (!SHA512Verify(CNCNET5DLL, CNCNET5))
+                throw new SpawnerInvalidException();
+            if (!AresExistence)
+                throw new AresNotFoundException();
+
+            new GameExecuteOptions
+            {
+                LogMode = cbDebug_Check.IsChecked ?? false,
+                RunAs = cbAdmin_Check.IsChecked ?? false,
+                Others = tbCommand.Text.Split(' ')
+            }.RunGame();
+
+            Close();
+        }
+
+        public MainWindow()
+        {
+            MessageBox.MainWindow = this;
+            InitializeComponent();
+            this.I18NInitialize();// I18N 初始化
+
+            cbAdmin_Check.IsEnabled = !(bool)(cbAdmin_Check.IsChecked = IsAdministrator());
+
+            App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
+        }
         public async Task<GDialogResult> ShowDialog(GDialog dialog)
         {
-            GDialogResult result = GDialogResult.FaildOpen;
+            var result = GDialogResult.FaildOpen;
             if (_dialogMutex.WaitOne(500))
             {
                 try
@@ -130,6 +139,7 @@ namespace BDLauncherCSharp
             }
             return result;
         }
+
         public async Task ShowMessageDialog(GDialog dialog)
         {
             var pause = new ManualResetEvent(false);
@@ -139,11 +149,6 @@ namespace BDLauncherCSharp
             await Task.Run(pause.WaitOne);
             msgDialogMask.Visibility = Visibility.Collapsed;
             msgDialogMask.Child = null;
-        }
-
-        private void Btn_Exit_Click(object sender, RoutedEventArgs e)
-        {
-            App.Current.Shutdown();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace BDLauncherCSharp.Data.Configures
 
             file.Delete();
             using (var fs = file.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
-                await iniDocuments.DeparseAsync(fs);            
+                await iniDocuments.DeparseAsync(fs);
         }
     }
 }

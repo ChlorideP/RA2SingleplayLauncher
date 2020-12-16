@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 
-namespace BDLauncherCSharp.Data.Model
+namespace BDLauncherCSharp.ViewModels
 {
-    public class SavedGameInfo
+    public class SavedGameViewModel
     {
         public string Name { get; set; }
         public DateTime Time { get; set; }

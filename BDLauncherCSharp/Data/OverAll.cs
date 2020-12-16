@@ -31,7 +31,15 @@ namespace BDLauncherCSharp.Data
         public static FileInfo CNCNET5DLL { get; }
         public static FileInfo DDRAWDLL { get; }
 
-        public static bool AresExistence => AresMainFunc.Exists & AresInjector.Exists;
+        public static bool AresExistence
+        {
+            get
+            {
+                AresMainFunc.Refresh();
+                AresInjector.Refresh();
+                return AresMainFunc.Exists & AresInjector.Exists;
+            }
+        }
 
         public static bool IsCNCDDraw => SHA512Verify(DDRAWDLL, CNCD);
         public static string CurRenderer => IsCNCDDraw ? I18NExtension.I18N("cbRenderer.CNCDDraw") : I18NExtension.I18N("cbRenderer.None");
@@ -61,16 +69,20 @@ namespace BDLauncherCSharp.Data
 
         public static bool SHA512Verify(FileInfo file, string CorCode)
         {
+            file.Refresh();
             if (file.Exists)
             {
                 using (var sha512 = SHA512.Create())
-                using (FileStream fs = file.OpenRead())
+                using (var fs = file.OpenRead())
                 {
                     var buffer = sha512.ComputeHash(fs);
                     return BitConverter.ToString(buffer).Replace("-", string.Empty) == CorCode;
                 }
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
     }
 }

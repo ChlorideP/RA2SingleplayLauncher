@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BDLauncherCSharp.Data.Model
+﻿namespace BDLauncherCSharp.Data.Model
 {
     public sealed class GameConfigure
     {

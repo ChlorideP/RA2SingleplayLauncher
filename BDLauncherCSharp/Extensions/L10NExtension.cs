@@ -22,8 +22,8 @@ namespace BDLauncherCSharp.Extensions
         /// 获取本地化资源
         /// </summary>
         /// <param name="key">资源键</param>
-        public L10NExtension(string key) : this() => this.Key = key;
+        public L10NExtension(string key) : this() => Key = key;
 
-        public override object ProvideValue(IServiceProvider serviceProvider) => this.Key.I18N();
+        public override object ProvideValue(IServiceProvider serviceProvider) => Key.I18N();
     }
 }

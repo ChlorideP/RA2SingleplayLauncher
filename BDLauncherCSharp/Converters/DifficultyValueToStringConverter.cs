@@ -15,9 +15,9 @@ namespace BDLauncherCSharp.Converters
 #if NET48
                 switch (i)
                 {
-                    case 0: return "Easy".I18N();
-                    case 1: return "Normal".I18N();
-                    case 2: return "Hard".I18N();
+                    case 0: return "txtEasy".I18N();
+                    case 1: return "txtNormal".I18N();
+                    case 2: return "txtHard".I18N();
                     default: return null;
                 }
 #elif NETCOREAPP3_1
@@ -30,7 +30,10 @@ namespace BDLauncherCSharp.Converters
                 };
 #endif
             }
-            else return null;
+            else
+            {
+                return null;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
