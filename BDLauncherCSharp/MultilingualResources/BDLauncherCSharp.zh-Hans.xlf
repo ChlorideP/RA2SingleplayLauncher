@@ -176,7 +176,11 @@ It's advised to go to an oculist if you've seen this message for several times.<
         </trans-unit>
         <trans-unit id="txtError" translate="yes" xml:space="preserve">
           <source>ERROR</source>
-          <target state="new">ERROR</target>
+          <target state="final">错误</target>
+        </trans-unit>
+        <trans-unit id="dlgMsgbox.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="final">确认</target>
         </trans-unit>
       </group>
     </body>

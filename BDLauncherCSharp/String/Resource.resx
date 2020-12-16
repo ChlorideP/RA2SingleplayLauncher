@@ -153,6 +153,9 @@
   <data name="cbWindowed.Content" xml:space="preserve">
     <value>Windowed</value>
   </data>
+  <data name="dlgMsgbox.CloseButtonContent" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="dlgSaveLoader.CloseButtonContent" xml:space="preserve">
     <value>Cancel</value>
   </data>

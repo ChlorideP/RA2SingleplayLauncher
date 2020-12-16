@@ -169,6 +169,15 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 OK 的本地化字符串。
+        /// </summary>
+        public static string dlgMsgbox_CloseButtonContent {
+            get {
+                return ResourceManager.GetString("dlgMsgbox.CloseButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
         public static string dlgSaveLoader_CloseButtonContent {

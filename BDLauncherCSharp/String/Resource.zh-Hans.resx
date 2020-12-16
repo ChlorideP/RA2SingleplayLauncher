@@ -135,4 +135,10 @@
           
 如多次见到这个提示，建议去看看眼科。</value>
   </data>
+  <data name="txtError" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="dlgMsgbox.CloseButtonContent" xml:space="preserve">
+    <value>确认</value>
+  </data>
 </root>

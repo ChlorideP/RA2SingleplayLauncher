@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using BDLauncherCSharp.Extensions;
+
 namespace BDLauncherCSharp
 {
     /// <summary>
@@ -27,6 +29,7 @@ namespace BDLauncherCSharp
         public MessageBox()
         {
             InitializeComponent();
+            this.I18NInitialize();
         }
         private MessageBox(string msg) : this()
         {
