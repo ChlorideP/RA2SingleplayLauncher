@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -14,30 +13,61 @@ namespace BDLauncherCSharp.Extensions
     /// </summary>
     public static class I18NExtension
     {
-        private static IEnumerable<string> names;
-        private static ResourceManager resourceManager;
+        private const string DEFAULT = "Resource";
+        private static readonly List<string> names = new List<string>();
+        private static readonly Dictionary<string, ResourceManager> resource;
 
         /// <summary>
         /// 对应用进行初始化
         /// </summary>
-        /// <param name="resourceMgr">资源管理</param>
-        public static void I18NInitialize(this ResourceManager resourceMgr)
+        /// <param name="resourceMgr"> 资源管理 </param>
+        static I18NExtension()
         {
-            if (resourceMgr is null) throw new NullReferenceException($"this {nameof(ResourceManager)} is null");
-            resourceManager = resourceMgr ?? String.Resource.ResourceManager;
-            //resourceManager.GetString(string.Empty);
-            names = resourceManager.GetResourceSet(new CultureInfo("en"), true, true)
+            var asm = typeof(I18NExtension).Assembly;
+
+            resource = asm.GetManifestResourceNames()
+                .Select(i => new ResourceManager(i.Replace(".resources", string.Empty), asm))
+                .ToDictionary(i => i.BaseName.Split('.').Last());
+
+            foreach (var item in resource)
+            {
+                var set = item.Value.GetResourceSet(new CultureInfo("en"), true, true)
                                ?.Cast<DictionaryEntry>()
-                                .Select(item => item.Key as string);
+                                .Select(i => i.Key as string);
+
+                if (item.Key != DEFAULT)
+                    set = set.Select(i => item.Key + "/" + i);
+
+                names.AddRange(set);
+            }
+        }
+
+        /// <summary>
+        /// 获取对应的本地化资源
+        /// </summary>
+        /// <param name="key"> 资源键 </param>
+        /// <returns> 本地化字符串 </returns>
+        public static string I18N(this string key)
+        {
+            if (key.Contains("/"))
+            {
+                var vs = key.Split('/');
+                return resource[vs[0]].GetString(vs[1]);
+            }
+            else
+            {
+                return resource[DEFAULT].GetString(key);
+            }
         }
 
         /// <summary>
         /// 对控件进行初始化
         /// </summary>
-        /// <param name="element">控件</param>
+        /// <param name="element"> 控件 </param>
         public static void I18NInitialize(this DependencyObject element)
         {
-            if (element is null) return;
+            if (element is null)
+                return;
             // 获取子元素
             foreach (var child in LogicalTreeHelper.GetChildren(element))
                 (child as DependencyObject).I18NInitialize();
@@ -57,14 +87,17 @@ namespace BDLauncherCSharp.Extensions
 
                     if (propertyInfo is null || string.IsNullOrWhiteSpace(i18nStr)) continue;
 
-
                     if (propertyInfo.PropertyType == typeof(string))
+                    {
                         propertyInfo.SetValue(element, i18nStr);
+                    }
                     else
                     {
                         var constructor = propertyInfo.PropertyType.GetConstructor(new[] { typeof(string) });
                         if (constructor is ConstructorInfo)
+                        {
                             propertyInfo.SetValue(element, constructor.Invoke(new object[] { i18nStr }));
+                        }
                         else
                         {
                             var method = propertyInfo.PropertyType.GetMethod("Parse",
@@ -80,12 +113,5 @@ namespace BDLauncherCSharp.Extensions
                 }
             }
         }
-
-        /// <summary>
-        /// 获取对应的本地化资源
-        /// </summary>
-        /// <param name="key">资源键</param>
-        /// <returns>本地化字符串</returns>
-        public static string I18N(this string key) => resourceManager.GetString(key);
     }
 }

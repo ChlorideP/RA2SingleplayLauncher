@@ -4,9 +4,9 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
-
 
 namespace BDLauncherCSharp.Controls
 {
@@ -20,75 +20,17 @@ namespace BDLauncherCSharp.Controls
     {
         private ManualResetEvent notify;
 
-        // Using a DependencyProperty as the backing store for CloseButtonContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CloseButtonContentProperty =
-            DependencyProperty.Register("CloseButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata("Cancel"));
-
-        // Using a DependencyProperty as the backing store for Content.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(object), typeof(GDialog), new PropertyMetadata(null));
-
-        // Using a DependencyProperty as the backing store for PrimaryButtonContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PrimaryButtonContentProperty =
-            DependencyProperty.Register("PrimaryButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata(string.Empty));
-
-        // Using a DependencyProperty as the backing store for SecondButtonContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SecondButtonContentProperty =
-            DependencyProperty.Register("SecondButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata(string.Empty));
-
-        // Using a DependencyProperty as the backing store for TitleForeground.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleForegroundProperty =
-            DependencyProperty.Register("TitleForeground", typeof(SolidColorBrush), typeof(GDialog), new PropertyMetadata(Brushes.White));
-
-        // Using a DependencyProperty as the backing store for Title.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(GDialog), new PropertyMetadata(string.Empty));
-
-        public object CloseButtonContent
+        private class DialogButtonVisiblityConverter : IValueConverter
         {
-            get => this.GetValue(CloseButtonContentProperty);
-            set => this.SetValue(CloseButtonContentProperty, value);
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is null || value is string s && string.IsNullOrEmpty(s)) return Visibility.Collapsed;
+                else return Visibility.Visible;
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
         }
 
-        public object Content
-        {
-            get => this.GetValue(ContentProperty);
-            set { this.SetValue(ContentProperty, value); }
-        }
-
-        public object PrimaryButtonContent
-        {
-            get => this.GetValue(PrimaryButtonContentProperty);
-            set => this.SetValue(PrimaryButtonContentProperty, value);
-        }
-
-        public GDialogResult Result { get; private set; }
-
-        public object SecondButtonContent
-        {
-            get => this.GetValue(SecondButtonContentProperty);
-            set => this.SetValue(SecondButtonContentProperty, value);
-        }
-
-        public string Title
-        {
-            get => (string)this.GetValue(TitleProperty);
-            set => this.SetValue(TitleProperty, value);
-        }
-
-        public SolidColorBrush TitleForeground
-        {
-            get { return (SolidColorBrush)GetValue(TitleForegroundProperty); }
-            set { SetValue(TitleForegroundProperty, value); }
-        }
-
-        public delegate void DialogButtonRoutedEventHandler(Button sender, RoutedEventArgs e);
-
-        public event DialogButtonRoutedEventHandler CloseButtonClick;
-
-        public event DialogButtonRoutedEventHandler PrimaryButtonClick;
-
-        public event DialogButtonRoutedEventHandler SecondButtonClick;
         protected virtual void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
@@ -96,29 +38,12 @@ namespace BDLauncherCSharp.Controls
             CloseButtonClick?.Invoke(sender as Button, e);
         }
 
-        protected virtual void PrimaryButton_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            Result = GDialogResult.PrimaryButton;
-            PrimaryButtonClick?.Invoke(sender as Button, e);
-        }
-
-        protected virtual void SecondButton_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            Result = GDialogResult.SecondButton;
-            SecondButtonClick?.Invoke(sender as Button, e);
-        }
-
-        protected void Hide() => notify.Set();
-
         protected override void OnInitialized(EventArgs e)
         {
-
-            this.MinHeight = 300;
-            this.MinWidth = 460;
-            this.HorizontalAlignment = HorizontalAlignment.Center;
-            this.VerticalAlignment = VerticalAlignment.Center;
+            MinHeight = 300;
+            MinWidth = 460;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            VerticalAlignment = VerticalAlignment.Center;
             //this.Background = new SolidColorBrush(Color.FromArgb(0x50, 0, 0, 0));
             //this.BorderBrush = Brushes.Gray;
             //this.BorderThickness = new Thickness(2);
@@ -137,9 +62,8 @@ namespace BDLauncherCSharp.Controls
                         FontWeight = FontWeights.Bold,
                     };
                     title.FontSize *= 2;
-                    title.SetBinding(TextBlock.TextProperty, new Binding(nameof(this.Title)) { Source = this });
-                    title.SetBinding(TextBlock.ForegroundProperty, new Binding(nameof(this.TitleForeground)) { Source = this });
-
+                    title.SetBinding(TextBlock.TextProperty, new Binding(nameof(Title)) { Source = this });
+                    title.SetBinding(TextBlock.ForegroundProperty, new Binding(nameof(TitleForeground)) { Source = this });
 
                     var content = new ContentControl
                     {
@@ -147,7 +71,7 @@ namespace BDLauncherCSharp.Controls
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Stretch
                     };
-                    content.SetBinding(ContentControl.ContentProperty, new Binding(nameof(this.Content)) { Source = this });
+                    content.SetBinding(ContentControl.ContentProperty, new Binding(nameof(Content)) { Source = this });
                     Grid.SetRow(content, 1);
 
                     var buttonPanel = new StackPanel
@@ -163,7 +87,11 @@ namespace BDLauncherCSharp.Controls
                             MinWidth = 120
                         };
                         primaryButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(primaryButton.Content)) { Source = primaryButton, Converter = cvtr });
-                        primaryButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.PrimaryButtonContent)) { Source = this });
+                        primaryButton.SetBinding(Button.ContentProperty, new Binding(nameof(PrimaryButtonContent)) { Source = this });
+                        primaryButton.SetBinding(Button.CommandProperty, new Binding(nameof(PrimaryButtonCommand)) { Source = this });
+                        primaryButton.SetBinding(Button.CommandParameterProperty, new Binding(nameof(PrimaryButtonCommandParameter)) { Source = this });
+                        primaryButton.SetBinding(Button.CommandTargetProperty, new Binding(nameof(PrimaryButtonCommandTarget)) { Source = this });
+                        primaryButton.CommandTarget = this;
                         primaryButton.Click += PrimaryButton_Click;
 
                         var secondButton = new Button
@@ -172,7 +100,11 @@ namespace BDLauncherCSharp.Controls
                             Margin = new Thickness(10, 0, 10, 0)
                         };
                         secondButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(secondButton.Content)) { Source = secondButton, Converter = cvtr });
-                        secondButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.SecondButtonContent)) { Source = this });
+                        secondButton.SetBinding(Button.ContentProperty, new Binding(nameof(SecondButtonContent)) { Source = this });
+                        secondButton.SetBinding(Button.CommandProperty, new Binding(nameof(SecondButtonCommand)) { Source = this });
+                        secondButton.SetBinding(Button.CommandParameterProperty, new Binding(nameof(SecondButtonCommandParameter)) { Source = this });
+                        secondButton.SetBinding(Button.CommandTargetProperty, new Binding(nameof(SecondButtonCommandTarget)) { Source = this });
+                        secondButton.CommandTarget = this;
                         secondButton.Click += SecondButton_Click;
 
                         var closeButton = new Button
@@ -180,7 +112,11 @@ namespace BDLauncherCSharp.Controls
                             MinWidth = 120
                         };
                         closeButton.SetBinding(Button.VisibilityProperty, new Binding(nameof(closeButton.Content)) { Source = closeButton, Converter = cvtr });
-                        closeButton.SetBinding(Button.ContentProperty, new Binding(nameof(this.CloseButtonContent)) { Source = this });
+                        closeButton.SetBinding(Button.ContentProperty, new Binding(nameof(CloseButtonContent)) { Source = this });
+                        closeButton.SetBinding(Button.CommandProperty, new Binding(nameof(CloseButtonCommand)) { Source = this });
+                        closeButton.SetBinding(Button.CommandParameterProperty, new Binding(nameof(CloseButtonCommandParameter)) { Source = this });
+                        closeButton.SetBinding(Button.CommandTargetProperty, new Binding(nameof(CloseButtonCommandTarget)) { Source = this });
+                        closeButton.CommandTarget = this;
                         closeButton.Click += CloseButton_Click;
 
                         buttonPanel.Children.Add(primaryButton);
@@ -191,20 +127,171 @@ namespace BDLauncherCSharp.Controls
                     root.Children.Add(content);
                     root.Children.Add(buttonPanel);
                 }
-                this.Child = root;
+                Child = root;
             }
             base.OnInitialized(e);
         }
-        public void Show(ManualResetEvent notify) => (this.notify = notify).Reset();
-        private class DialogButtonVisiblityConverter : IValueConverter
+
+        protected virtual void PrimaryButton_Click(object sender, RoutedEventArgs e)
         {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                if (value is null || value is string s && string.IsNullOrEmpty(s)) return Visibility.Collapsed;
-                else return Visibility.Visible;
-            }
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
+            Hide();
+            Result = GDialogResult.PrimaryButton;
+            PrimaryButtonClick?.Invoke(sender as Button, e);
         }
+
+        protected virtual void SecondButton_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Result = GDialogResult.SecondButton;
+            SecondButtonClick?.Invoke(sender as Button, e);
+        }
+
+        public static readonly DependencyProperty CloseButtonCommandParameterProperty =
+            DependencyProperty.Register("CloseButtonCommandParameter", typeof(object), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty CloseButtonCommandProperty =
+            DependencyProperty.Register("CloseButtonCommand", typeof(ICommand), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty CloseButtonCommandTargetProperty =
+            DependencyProperty.Register("CloseButtonCommandTarget", typeof(IInputElement), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty CloseButtonContentProperty =
+            DependencyProperty.Register("CloseButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata("Cancel"));
+
+        public static readonly DependencyProperty ContentProperty =
+            DependencyProperty.Register("Content", typeof(object), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PrimaryButtonCommandParameterProperty =
+            DependencyProperty.Register("PrimaryButtonCommandParameter", typeof(object), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PrimaryButtonCommandProperty =
+            DependencyProperty.Register("PrimaryButtonCommand", typeof(ICommand), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PrimaryButtonCommandTargetProperty =
+            DependencyProperty.Register("PrimaryButtonCommandTarget", typeof(IInputElement), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PrimaryButtonContentProperty =
+            DependencyProperty.Register("PrimaryButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata(string.Empty));
+
+        public static readonly DependencyProperty SecondButtonCommandParameterProperty =
+            DependencyProperty.Register("SecondButtonCommandParameter", typeof(object), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SecondButtonCommandProperty =
+            DependencyProperty.Register("SecondButtonCommand", typeof(ICommand), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SecondButtonCommandTargetProperty =
+            DependencyProperty.Register("SecondButtonCommandTarget", typeof(IInputElement), typeof(GDialog), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SecondButtonContentProperty =
+            DependencyProperty.Register("SecondButtonContent", typeof(object), typeof(GDialog), new PropertyMetadata(string.Empty));
+
+        public static readonly DependencyProperty TitleForegroundProperty =
+            DependencyProperty.Register("TitleForeground", typeof(SolidColorBrush), typeof(GDialog), new PropertyMetadata(Brushes.White));
+
+        public static readonly DependencyProperty TitleProperty =
+            DependencyProperty.Register("Title", typeof(string), typeof(GDialog), new PropertyMetadata(string.Empty));
+
+        public ICommand CloseButtonCommand
+        {
+            get => (ICommand)GetValue(CloseButtonCommandProperty);
+            set => SetValue(CloseButtonCommandProperty, value);
+        }
+
+        public object CloseButtonCommandParameter
+        {
+            get => GetValue(CloseButtonCommandParameterProperty);
+            set => SetValue(CloseButtonCommandParameterProperty, value);
+        }
+
+        public IInputElement CloseButtonCommandTarget
+        {
+            get => (IInputElement)GetValue(CloseButtonCommandTargetProperty);
+            set => SetValue(CloseButtonCommandTargetProperty, value);
+        }
+
+        public object CloseButtonContent
+        {
+            get => GetValue(CloseButtonContentProperty);
+            set => SetValue(CloseButtonContentProperty, value);
+        }
+
+        public object Content
+        {
+            get => GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
+        }
+
+        public ICommand PrimaryButtonCommand
+        {
+            get => (ICommand)GetValue(PrimaryButtonCommandProperty);
+            set => SetValue(PrimaryButtonCommandProperty, value);
+        }
+
+        public object PrimaryButtonCommandParameter
+        {
+            get => GetValue(PrimaryButtonCommandParameterProperty);
+            set => SetValue(PrimaryButtonCommandParameterProperty, value);
+        }
+
+        public IInputElement PrimaryButtonCommandTarget
+        {
+            get => (IInputElement)GetValue(PrimaryButtonCommandTargetProperty);
+            set => SetValue(PrimaryButtonCommandTargetProperty, value);
+        }
+
+        public object PrimaryButtonContent
+        {
+            get => GetValue(PrimaryButtonContentProperty);
+            set => SetValue(PrimaryButtonContentProperty, value);
+        }
+
+        public GDialogResult Result { get; private set; }
+
+        public ICommand SecondButtonCommand
+        {
+            get => (ICommand)GetValue(SecondButtonCommandProperty);
+            set => SetValue(SecondButtonCommandProperty, value);
+        }
+
+        public object SecondButtonCommandParameter
+        {
+            get => GetValue(SecondButtonCommandParameterProperty);
+            set => SetValue(SecondButtonCommandParameterProperty, value);
+        }
+
+        public IInputElement SecondButtonCommandTarget
+        {
+            get => (IInputElement)GetValue(SecondButtonCommandTargetProperty);
+            set => SetValue(SecondButtonCommandTargetProperty, value);
+        }
+
+        public object SecondButtonContent
+        {
+            get => GetValue(SecondButtonContentProperty);
+            set => SetValue(SecondButtonContentProperty, value);
+        }
+
+        public string Title
+        {
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
+        }
+
+        public SolidColorBrush TitleForeground
+        {
+            get => (SolidColorBrush)GetValue(TitleForegroundProperty);
+            set => SetValue(TitleForegroundProperty, value);
+        }
+
+        public delegate void DialogButtonRoutedEventHandler(Button sender, RoutedEventArgs e);
+
+        public event DialogButtonRoutedEventHandler CloseButtonClick;
+
+        public event DialogButtonRoutedEventHandler PrimaryButtonClick;
+
+        public event DialogButtonRoutedEventHandler SecondButtonClick;
+
+        public void Hide() => notify.Set();
+        public void Show(ManualResetEvent notify) => (this.notify = notify).Reset();
     }
 }
-

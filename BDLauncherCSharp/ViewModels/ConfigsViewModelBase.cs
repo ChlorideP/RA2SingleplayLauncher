@@ -8,22 +8,17 @@ namespace BDLauncherCSharp.ViewModels
 {
     public abstract class ConfigsViewModelBase : INotifyPropertyChanged
     {
-        private string _renderer;
+        protected string _renderer;
+        protected byte difficult;
+        protected bool noBorder;
+        protected string screenSize;
+        protected bool useBuffer;
+        protected bool windowed;
 
-        private byte difficult;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private bool noBorder;
-
-        private string screenSize;
-
-        private bool windowed;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-                    => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        public bool useBuffer;
-
-        public byte Difficult
+        public virtual byte Difficult
         {
             get => difficult; set
             {
@@ -35,7 +30,7 @@ namespace BDLauncherCSharp.ViewModels
             }
         }
 
-        public bool NoBorder
+        public virtual bool NoBorder
         {
             get => noBorder; set
             {
@@ -44,7 +39,7 @@ namespace BDLauncherCSharp.ViewModels
             }
         }
 
-        public string Renderer
+        public virtual string Renderer
         {
             get => _renderer ?? OverAll.CurRenderer; set
             {
@@ -53,9 +48,9 @@ namespace BDLauncherCSharp.ViewModels
             }
         }
 
-        public string[] Renderers_Source { get; protected set; }
+        public virtual string[] Renderers_Source { get; protected set; }
 
-        public string ScreenSize
+        public virtual string ScreenSize
         {
             get => screenSize;
             set
@@ -70,9 +65,9 @@ namespace BDLauncherCSharp.ViewModels
             }
         }
 
-        public HashSet<string> ScreeSize_Source { get; protected set; }
+        public virtual HashSet<string> ScreeSize_Source { get; protected set; }
 
-        public bool UseBuffer
+        public virtual bool UseBuffer
         {
             get => useBuffer; set
             {
@@ -81,7 +76,7 @@ namespace BDLauncherCSharp.ViewModels
             }
         }
 
-        public bool Windowed
+        public virtual bool Windowed
         {
             get => windowed; set
             {

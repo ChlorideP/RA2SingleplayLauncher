@@ -171,9 +171,9 @@ namespace BDLauncherCSharp.String {
         /// <summary>
         ///   查找类似 OK 的本地化字符串。
         /// </summary>
-        public static string dlgMsgbox_CloseButtonContent {
+        public static string dlgMessageBox_CloseButtonContent {
             get {
-                return ResourceManager.GetString("dlgMsgbox.CloseButtonContent", resourceCulture);
+                return ResourceManager.GetString("dlgMessageBox.CloseButtonContent", resourceCulture);
             }
         }
         
@@ -232,29 +232,11 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 Easy 的本地化字符串。
-        /// </summary>
-        public static string Easy {
-            get {
-                return ResourceManager.GetString("Easy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Display 的本地化字符串。
         /// </summary>
         public static string gbDisplay_Header {
             get {
                 return ResourceManager.GetString("gbDisplay.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Hard 的本地化字符串。
-        /// </summary>
-        public static string Hard {
-            get {
-                return ResourceManager.GetString("Hard", resourceCulture);
             }
         }
         
@@ -268,80 +250,20 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
-        ///   查找类似 This mission is ONLY supported with Ares platform.
-        ///
-        ///You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
-        ///
-        ///It is advised to download again if the files above cannot be found. 的本地化字符串。
-        /// </summary>
-        public static string msgAresNotFoundError {
-            get {
-                return ResourceManager.GetString("msgAresNotFoundError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Braindead Launcher 的本地化字符串。
-        /// </summary>
-        public static string msgCaptain {
-            get {
-                return ResourceManager.GetString("msgCaptain", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
-        /// </summary>
-        public static string msgGameWndCorruptionError {
-            get {
-                return ResourceManager.GetString("msgGameWndCorruptionError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Your screen size assigned isn&apos;t match the form this dialog given.
-        ///
-        ///It&apos;s advised to go to an oculist if you&apos;ve seen this message for several times. 的本地化字符串。
-        /// </summary>
-        public static string msgSizeFormInvalidError {
-            get {
-                return ResourceManager.GetString("msgSizeFormInvalidError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Missing or invalid map loader &apos;cncnet5.dll&apos; in your game directory! 的本地化字符串。
-        /// </summary>
-        public static string msgSpawnerInvalidError {
-            get {
-                return ResourceManager.GetString("msgSpawnerInvalidError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Normal 的本地化字符串。
-        /// </summary>
-        public static string Normal {
-            get {
-                return ResourceManager.GetString("Normal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Archive Name 的本地化字符串。
         /// </summary>
-        public static string SLArchiveName {
+        public static string SaveList_SLArchiveName {
             get {
-                return ResourceManager.GetString("SLArchiveName", resourceCulture);
+                return ResourceManager.GetString("SaveList.SLArchiveName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Archive Time 的本地化字符串。
         /// </summary>
-        public static string SLArchiveTime {
+        public static string SaveList_SLArchiveTime {
             get {
-                return ResourceManager.GetString("SLArchiveTime", resourceCulture);
+                return ResourceManager.GetString("SaveList.SLArchiveTime", resourceCulture);
             }
         }
         
@@ -351,6 +273,28 @@ namespace BDLauncherCSharp.String {
         public static string txtAppAuthor {
             get {
                 return ResourceManager.GetString("txtAppAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This mission is ONLY supported with Ares platform.
+        ///
+        ///You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+        ///
+        ///It is advised to download again if the files above cannot be found. 的本地化字符串。
+        /// </summary>
+        public static string txtAresNotFoundError {
+            get {
+                return ResourceManager.GetString("txtAresNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Braindead Launcher 的本地化字符串。
+        /// </summary>
+        public static string txtCaptain {
+            get {
+                return ResourceManager.GetString("txtCaptain", resourceCulture);
             }
         }
         
@@ -373,11 +317,47 @@ namespace BDLauncherCSharp.String {
         }
         
         /// <summary>
+        ///   查找类似 Easy 的本地化字符串。
+        /// </summary>
+        public static string txtEasy {
+            get {
+                return ResourceManager.GetString("txtEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ERROR 的本地化字符串。
         /// </summary>
         public static string txtError {
             get {
                 return ResourceManager.GetString("txtError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 FATAL ERROR 的本地化字符串。
+        /// </summary>
+        public static string txtFatal {
+            get {
+                return ResourceManager.GetString("txtFatal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
+        /// </summary>
+        public static string txtGameWndCorruptionError {
+            get {
+                return ResourceManager.GetString("txtGameWndCorruptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hard 的本地化字符串。
+        /// </summary>
+        public static string txtHard {
+            get {
+                return ResourceManager.GetString("txtHard", resourceCulture);
             }
         }
         
@@ -396,6 +376,15 @@ namespace BDLauncherCSharp.String {
         public static string txtMisName {
             get {
                 return ResourceManager.GetString("txtMisName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Normal 的本地化字符串。
+        /// </summary>
+        public static string txtNormal {
+            get {
+                return ResourceManager.GetString("txtNormal", resourceCulture);
             }
         }
         
@@ -423,6 +412,26 @@ namespace BDLauncherCSharp.String {
         public static string txtSettingTip_Text {
             get {
                 return ResourceManager.GetString("txtSettingTip.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Your screen size assigned isn&apos;t match the form this dialog given.
+        ///
+        ///It&apos;s advised to go to an oculist if you&apos;ve seen this message for several times. 的本地化字符串。
+        /// </summary>
+        public static string txtSizeFormInvalidError {
+            get {
+                return ResourceManager.GetString("txtSizeFormInvalidError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Missing or invalid map loader &apos;cncnet5.dll&apos; in your game directory! 的本地化字符串。
+        /// </summary>
+        public static string txtSpawnerInvalidError {
+            get {
+                return ResourceManager.GetString("txtSpawnerInvalidError", resourceCulture);
             }
         }
         

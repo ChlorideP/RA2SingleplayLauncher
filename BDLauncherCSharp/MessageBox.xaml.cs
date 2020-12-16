@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Threading.Tasks;
 
 using BDLauncherCSharp.Extensions;
 
@@ -32,13 +19,8 @@ namespace BDLauncherCSharp
             this.I18NInitialize();
         }
         private MessageBox(string msg) : this()
-        {
-            _message.Text = msg;
-        }
+            => _message.Text = msg;
 
-        public static Task Show(string message,string title = null)
-        {
-             return MainWindow.ShowMessageDialog(new MessageBox(message) { Title = title });
-        }
+        public static Task Show(string message, string title = null) => MainWindow.ShowMessageDialog(new MessageBox(message) { Title = title });
     }
 }

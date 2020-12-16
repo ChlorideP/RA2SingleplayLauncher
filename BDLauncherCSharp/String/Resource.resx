@@ -153,7 +153,7 @@
   <data name="cbWindowed.Content" xml:space="preserve">
     <value>Windowed</value>
   </data>
-  <data name="dlgMsgbox.CloseButtonContent" xml:space="preserve">
+  <data name="dlgMessageBox.CloseButtonContent" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="dlgSaveLoader.CloseButtonContent" xml:space="preserve">
@@ -174,50 +174,30 @@
   <data name="dlgSetting.Title" xml:space="preserve">
     <value>User Settings</value>
   </data>
-  <data name="Easy" xml:space="preserve">
-    <value>Easy</value>
-  </data>
   <data name="gbDisplay.Header" xml:space="preserve">
     <value>Display</value>
-  </data>
-  <data name="Hard" xml:space="preserve">
-    <value>Hard</value>
   </data>
   <data name="MainWindow.Title" xml:space="preserve">
     <value>Singleplayer Campaign Launcher for Braindead RL</value>
   </data>
-  <data name="msgAresNotFoundError" xml:space="preserve">
+  <data name="SaveList.SLArchiveName" xml:space="preserve">
+    <value>Archive Name</value>
+  </data>
+  <data name="SaveList.SLArchiveTime" xml:space="preserve">
+    <value>Archive Time</value>
+  </data>
+  <data name="txtAppAuthor" xml:space="preserve">
+    <value>Launcher Created By:</value>
+  </data>
+  <data name="txtAresNotFoundError" xml:space="preserve">
     <value>This mission is ONLY supported with Ares platform.
 
 You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
 
 It is advised to download again if the files above cannot be found.</value>
   </data>
-  <data name="msgCaptain" xml:space="preserve">
+  <data name="txtCaptain" xml:space="preserve">
     <value>Braindead Launcher</value>
-  </data>
-  <data name="msgGameWndCorruptionError" xml:space="preserve">
-    <value>Is your game screen shot with a door lock?</value>
-  </data>
-  <data name="msgSizeFormInvalidError" xml:space="preserve">
-    <value>Your screen size assigned isn't match the form this dialog given.
-
-It's advised to go to an oculist if you've seen this message for several times.</value>
-  </data>
-  <data name="msgSpawnerInvalidError" xml:space="preserve">
-    <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="SLArchiveName" xml:space="preserve">
-    <value>Archive Name</value>
-  </data>
-  <data name="SLArchiveTime" xml:space="preserve">
-    <value>Archive Time</value>
-  </data>
-  <data name="txtAppAuthor" xml:space="preserve">
-    <value>Launcher Created By:</value>
   </data>
   <data name="txtCommandLineTip.Text" xml:space="preserve">
     <value>Command line arguments: </value>
@@ -225,14 +205,29 @@ It's advised to go to an oculist if you've seen this message for several times.<
   <data name="txtDifficulty.Text" xml:space="preserve">
     <value>Difficulty:</value>
   </data>
+  <data name="txtEasy" xml:space="preserve">
+    <value>Easy</value>
+  </data>
   <data name="txtError" xml:space="preserve">
     <value>ERROR</value>
+  </data>
+  <data name="txtFatal" xml:space="preserve">
+    <value>FATAL ERROR</value>
+  </data>
+  <data name="txtGameWndCorruptionError" xml:space="preserve">
+    <value>Is your game screen shot with a door lock?</value>
+  </data>
+  <data name="txtHard" xml:space="preserve">
+    <value>Hard</value>
   </data>
   <data name="txtMisAuthor" xml:space="preserve">
     <value>Presented by CacoNyan Studio</value>
   </data>
   <data name="txtMisName" xml:space="preserve">
     <value>Operation: Braindead</value>
+  </data>
+  <data name="txtNormal" xml:space="preserve">
+    <value>Normal</value>
   </data>
   <data name="txtRenderer.Text" xml:space="preserve">
     <value>Renderer:</value>
@@ -242,6 +237,14 @@ It's advised to go to an oculist if you've seen this message for several times.<
   </data>
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>CAUTION: Some of the settings may not be available.</value>
+  </data>
+  <data name="txtSizeFormInvalidError" xml:space="preserve">
+    <value>Your screen size assigned isn't match the form this dialog given.
+
+It's advised to go to an oculist if you've seen this message for several times.</value>
+  </data>
+  <data name="txtSpawnerInvalidError" xml:space="preserve">
+    <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>
   </data>
   <data name="txtThanks" xml:space="preserve">
     <value>Special Thanks:</value>
