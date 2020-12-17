@@ -6,6 +6,7 @@ using System.Windows;
 using BattleLauncher.Data.Model;
 
 using Shimakaze.Struct.Ini;
+using Shimakaze.Struct.Ini.Utils;
 
 namespace BattleLauncher.Data.Configures
 {
@@ -39,18 +40,18 @@ namespace BattleLauncher.Data.Configures
             }
             else
             {
-                var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
+                var doc = await IniDocumentUtils.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
 
                 return new GameConfigure
                 {
-                    ScreenWidth = (ushort)iniDocuments.TryGet("Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth),
-                    ScreenHeight = (ushort)iniDocuments.TryGet("Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight),
+                    ScreenWidth = (ushort)doc["Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth],
+                    ScreenHeight = (ushort)doc["Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight],
 
-                    IsWindowed = (bool)iniDocuments.TryGet("Video", "Video.Windowed"),
-                    NoBorder = (bool)iniDocuments.TryGet("Video", "NoWindowFrame"),
-                    BackBuffer = (bool)iniDocuments.TryGet("Video", "VideoBackBuffer"),
+                    IsWindowed = (bool)doc["Video", "Video.Windowed"],
+                    NoBorder = (bool)doc["Video", "NoWindowFrame"],
+                    BackBuffer = (bool)doc["Video", "VideoBackBuffer"],
 
-                    Difficult = (Difficult)Enum.Parse(typeof(Difficult), iniDocuments.TryGet("Options", "Difficulty", 0), true)
+                    Difficult = (Difficult)Enum.Parse(typeof(Difficult), doc["Options", "Difficulty", 0], true)
                 };
             }
         }
@@ -61,15 +62,15 @@ namespace BattleLauncher.Data.Configures
         {
             IIniDocument iniDocuments;
             using (var fs = file.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
-                iniDocuments = await IniDocumentHelper.ParseAsync(fs);
-            iniDocuments.Put("Video", "ScreenWidth", configure.ScreenWidth);
-            iniDocuments.Put("Video", "ScreenHeight", configure.ScreenHeight);
+                iniDocuments = await IniDocumentUtils.ParseAsync(fs);
+            iniDocuments["Video", "ScreenWidth"] = configure.ScreenWidth;
+            iniDocuments["Video", "ScreenHeight"] = configure.ScreenHeight;
 
-            iniDocuments.Put("Video", "Video.Windowed", configure.IsWindowed);
-            iniDocuments.Put("Video", "NoWindowFrame", configure.NoBorder);
-            iniDocuments.Put("Video", "VideoBackBuffer", configure.BackBuffer);
+            iniDocuments["Video", "Video.Windowed"] = configure.IsWindowed;
+            iniDocuments["Video", "NoWindowFrame"] = configure.NoBorder;
+            iniDocuments["Video", "VideoBackBuffer"] = configure.BackBuffer;
 
-            iniDocuments.Put("Options", "Difficulty", (byte)configure.Difficult);
+            iniDocuments["Options", "Difficulty"] = (byte)configure.Difficult;
 
             file.Delete();
             using (var fs = file.Open(FileMode.Create, FileAccess.Write, FileShare.Read))

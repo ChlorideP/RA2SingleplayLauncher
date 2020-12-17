@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BattleLauncher.Data.Model;
 
 using Shimakaze.Struct.Ini;
+using Shimakaze.Struct.Ini.Utils;
 
 namespace BattleLauncher.Data.Configures
 {
@@ -28,12 +29,12 @@ namespace BattleLauncher.Data.Configures
             }
             else
             {
-                var iniDocuments = await IniDocumentHelper.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
+                var doc = await IniDocumentUtils.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
                 return new GameConfigure
                 {
-                    IsFullScreen = (bool)iniDocuments.TryGet("ddraw", "fullscreen"),
-                    IsWindowed = (bool)iniDocuments.TryGet("ddraw", "windowed"),
-                    NoBorder = (bool)iniDocuments.TryGet("ddraw", "border"),
+                    IsFullScreen = (bool)doc["ddraw", "fullscreen"],
+                    IsWindowed = (bool)doc["ddraw", "windowed"],
+                    NoBorder = (bool)doc["ddraw", "border"],
                 };
             }
         }
@@ -42,16 +43,16 @@ namespace BattleLauncher.Data.Configures
         /// </summary>
         public async Task SetConfigure(GameConfigure configure)
         {
-            IIniDocument iniDocuments;
+            IIniDocument doc;
             using (var fs = file.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
-                iniDocuments = await IniDocumentHelper.ParseAsync(fs);
-            iniDocuments.Put("ddraw", "fullscreen", !configure.IsWindowed);
-            iniDocuments.Put("ddraw", "windowed", configure.IsWindowed);
-            iniDocuments.Put("ddraw", "border", configure.NoBorder);
+                doc = await IniDocumentUtils.ParseAsync(fs);
+            doc["ddraw", "fullscreen"] = !configure.IsWindowed;
+            doc["ddraw", "windowed"] = configure.IsWindowed;
+            doc["ddraw", "border"] = configure.NoBorder;
 
             file.Delete();//so why need to generate a new one(
             using (var fs = file.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
-                await iniDocuments.DeparseAsync(fs);
+                await doc.DeparseAsync(fs);
         }
     }
 }
