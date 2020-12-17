@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 
+using BattleLauncher.Extensions;
+
 namespace BattleLauncher
 {
     /// <summary>
