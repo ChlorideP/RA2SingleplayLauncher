@@ -88,8 +88,6 @@ namespace BattleLauncher
 
         private void RunGame(object sender, ExecutedRoutedEventArgs e)
         {
-            CNCNET5DLL.Refresh();
-
             if (!SHA512Verify(CNCNET5DLL, CNCNET5))
                 throw new SpawnerInvalidException();
             if (!AresExistence)

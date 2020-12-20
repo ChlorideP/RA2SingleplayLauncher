@@ -12,7 +12,6 @@
     BorderBrush="#000" BorderThickness="2"
     CloseButtonCommand="{x:Static cmds:DialogRoutedCommands.CloseCommand}"
     PrimaryButtonCommand="{x:Static cmds:GameLoaderRoutedCommands.LoadGameCommand}"
-    PrimaryButtonCommandParameter="{Binding SelectedItem, ElementName=SaveList}"
     mc:Ignorable="d">
     <Grid HorizontalAlignment="Center">
         <DataGrid x:Name="SaveList"
@@ -33,4 +32,7 @@
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
+    <ctrls:GDialog.PrimaryButtonCommandParameter>
+        <Binding ElementName="SaveList" Path="SelectedItem" />
+    </ctrls:GDialog.PrimaryButtonCommandParameter>
 </ctrls:GDialog>
