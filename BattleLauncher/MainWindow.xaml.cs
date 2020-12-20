@@ -76,13 +76,10 @@ namespace BattleLauncher
 
         private async void LoadGame(object sender, ExecutedRoutedEventArgs e)
         {
-            if (e.Parameter is ViewModels.SavedGameViewModel vm)
-            {
-                await vm.WriteSpawnAsync();
-                Commands.MainWindowRoutedCommands.RunGameCommand.Execute(null, this);
-            }
-            else
+            if (!(e.Parameter is ViewModels.SavedGameViewModel vm))
                 throw new NoSaveLoadedException();
+            await vm.WriteSpawnAsync();
+            Commands.MainWindowRoutedCommands.RunGameCommand.Execute(null, this);
         }
 
         private async void OpenArchiveLoader(object sender, ExecutedRoutedEventArgs e) => await ShowDialog(new SaveLoaderDialog());
@@ -91,6 +88,8 @@ namespace BattleLauncher
 
         private void RunGame(object sender, ExecutedRoutedEventArgs e)
         {
+            CNCNET5DLL.Refresh();
+
             if (!SHA512Verify(CNCNET5DLL, CNCNET5))
                 throw new SpawnerInvalidException();
             if (!AresExistence)

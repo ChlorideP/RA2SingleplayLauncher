@@ -16,7 +16,7 @@ namespace BattleLauncher.Extensions
         {
             var list = new List<string>
             {
-                $"\"{GameMD}\"",
+                $"\"GAMEMD.EXE\"", //Syringe自己会在工作目录下遍历，无需全路径
                 "-SPAWN"
             };
 

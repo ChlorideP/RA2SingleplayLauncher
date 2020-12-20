@@ -15,14 +15,12 @@ namespace BattleLauncher.Data
     {
         public const string CNCD = "4F6B722C4800815A6E5D3BADB625FD1A4EB4068BFD67C6761EF7435E5EBF7FE317A240503719ECBB3BA57B30F8F3F7BB4EC369C8C8BD2B53224E9A3084916E4B";
         public const string CNCNET5 = "77BAAAB986A05D9E81A662EC98384C3F57BB0765911E4DB0FC1689EA22B619D912BB10D36CF31F17B71C4A9F3B89A6D277F93F349AD93FAC8D41D13815F49E8A";
+        
         public static FileInfo AresInjector { get; }
-
         public static FileInfo AresMainFunc { get; }
 
         public static DDrawIO DDrawIO { get; }
         public static ConfigureIO ConfigureIO { get; }
-
-        public static FileInfo GameMD { get; }
 
         public static DirectoryInfo SavedGameDirectory { get; }
         public static DirectoryInfo WorkDir { get; }
@@ -53,7 +51,6 @@ namespace BattleLauncher.Data
             CNCNET5DLL = new FileInfo(Path.Combine(WorkDir.FullName, "cncnet5.dll"));
             DDRAWDLL = new FileInfo(Path.Combine(WorkDir.FullName, "ddraw.dll"));
 
-            GameMD = new FileInfo(Path.Combine(WorkDir.FullName, "GAMEMD.EXE"));
             AresMainFunc = new FileInfo(Path.Combine(WorkDir.FullName, "Ares.DLL"));
             AresInjector = new FileInfo(Path.Combine(WorkDir.FullName, "Syringe.EXE"));
 

@@ -12,8 +12,18 @@
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>Assets\clienticon.ico</ApplicationIcon>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyName>BattleLauncher</AssemblyName>
+    <Authors>CaconCaco</Authors>
+    <Company>CacoNyan Studio</Company>
+    <Product>BattleLauncher for Ares</Product>
+    <Description>Ares singleplayer mission launcher, aided by cncnet-spawner</Description>
+    <Copyright>Copyright(L) 2019-2021 CacoNyan Studio. All Rights Reserved.</Copyright>
+    <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
+    <PackageIcon>Yuri.png</PackageIcon>
+    <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
+    <AssemblyVersion>2.16.59.14514</AssemblyVersion>
+    <FileVersion>2.0.0.15935</FileVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
   <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
@@ -25,6 +35,10 @@
     <None Remove="Assets\SegMDL2.ttf" />
     <None Remove="Assets\Soviet.png" />
     <None Remove="Assets\Yuri.png" />
+    <None Include="Assets\Yuri.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Allied.png" />
