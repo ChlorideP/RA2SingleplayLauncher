@@ -9,8 +9,10 @@
 
 # Battle Launcher
 **Battle Launcher** 是由 [**Caco**](https://github.com/CaconCaco) 做**整体构架**，[岛风](https://github.com/frg2089)协助的红色警戒2单关战役启动器
+
 目前已适配咱的「脑死」<del>任务</del>mod。
-采用了最新版的 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) 框架
+
+采用了最新版的 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) 框架，
 特点是
 - 小, 编译出来的程序不到1MB
 - 异步, 通过异步编程进一步提高用户体验
