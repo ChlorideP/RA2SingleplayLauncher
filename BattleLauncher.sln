@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleLauncher", "BattleLauncher\BattleLauncher.csproj", "{AC043080-69E6-42CE-8017-AC1916924DE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A31E1E5E-AD28-47EF-A543-2AA9CB80FA9B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Debug|x86.ActiveCfg = Debug|x86
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Debug|x86.Build.0 = Debug|x86
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Release|x86.ActiveCfg = Release|x86
+		{AC043080-69E6-42CE-8017-AC1916924DE2}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E332B52C-C0F3-4EE8-8092-0D16AFD54239}
+	EndGlobalSection
+EndGlobal

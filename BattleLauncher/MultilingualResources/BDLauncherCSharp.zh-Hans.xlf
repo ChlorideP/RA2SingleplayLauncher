@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="zh-Hans" original="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="BDLAUNCHERCSHARP/STRING/RESOURCE.RESX">
+        <trans-unit id="btnArchive.Content" translate="yes" xml:space="preserve">
+          <source>Load Archive</source>
+          <target state="final">载入存档</target>
+        </trans-unit>
+        <trans-unit id="btnCmdClr.Content" translate="yes" xml:space="preserve">
+          <source>Clear Command Line</source>
+          <target state="final">清除命令行</target>
+        </trans-unit>
+        <trans-unit id="btnRun.Content" translate="yes" xml:space="preserve">
+          <source>RUN!</source>
+          <target state="final">开始游戏</target>
+        </trans-unit>
+        <trans-unit id="btnSettings.Content" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="final" state-qualifier="tm-suggestion">设置</target>
+        </trans-unit>
+        <trans-unit id="cbLog.Content" translate="yes" xml:space="preserve">
+          <source>Use Log</source>
+          <target state="final">记录日志</target>
+        </trans-unit>
+        <trans-unit id="cbRunAs.Content" translate="yes" xml:space="preserve">
+          <source>Run As Administrator</source>
+          <target state="final">以管理员身份运行</target>
+        </trans-unit>
+        <trans-unit id="MainWindow.Title" translate="yes" xml:space="preserve">
+          <source>Singleplayer Campaign Launcher for Braindead RL</source>
+          <target state="final">单人战役启动器 - 脑死 (Release v1.14)</target>
+        </trans-unit>
+        <trans-unit id="txtCommandLineTip.Text" translate="yes" xml:space="preserve">
+          <source>Command line arguments: </source>
+          <target state="final">输入英文命令行参数:</target>
+        </trans-unit>
+        <trans-unit id="cbBackBuffer.Content" translate="yes" xml:space="preserve">
+          <source>Back Buffer</source>
+          <target state="final" state-qualifier="tm-suggestion">后台缓存优化 (慎用)</target>
+        </trans-unit>
+        <trans-unit id="cbBorderLess.Content" translate="yes" xml:space="preserve">
+          <source>Borderless</source>
+          <target state="final" state-qualifier="tm-suggestion">无边框窗口化</target>
+        </trans-unit>
+        <trans-unit id="cbWindowed.Content" translate="yes" xml:space="preserve">
+          <source>Windowed</source>
+          <target state="final" state-qualifier="tm-suggestion">窗口化</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.Title" translate="yes" xml:space="preserve">
+          <source>User Settings</source>
+          <target state="final" state-qualifier="tm-suggestion">用户设置</target>
+        </trans-unit>
+        <trans-unit id="txtDifficulty.Text" translate="yes" xml:space="preserve">
+          <source>Difficulty:</source>
+          <target state="final">难度:</target>
+        </trans-unit>
+        <trans-unit id="txtRenderer.Text" translate="yes" xml:space="preserve">
+          <source>Renderer:</source>
+          <target state="final">渲染器:</target>
+        </trans-unit>
+        <trans-unit id="txtScreenSize.Text" translate="yes" xml:space="preserve">
+          <source>Screen Size (W*H):</source>
+          <target state="final">屏幕分辨率 (W*H):</target>
+        </trans-unit>
+        <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
+          <source>CAUTION: Some of the settings may not be available.</source>
+          <target state="final">警告：部分设置可能因渲染补丁的使用而无法起效。</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Load</source>
+          <target state="final">载入</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.Title" translate="yes" xml:space="preserve">
+          <source>Archive Loader</source>
+          <target state="final">载入存档</target>
+        </trans-unit>
+        <trans-unit id="gbDisplay.Header" translate="yes" xml:space="preserve">
+          <source>Display</source>
+          <target state="final" state-qualifier="tm-suggestion">显示</target>
+        </trans-unit>
+        <trans-unit id="txtEasy" translate="yes" xml:space="preserve">
+          <source>Easy</source>
+          <target state="final" state-qualifier="tm-suggestion">简单</target>
+        </trans-unit>
+        <trans-unit id="txtHard" translate="yes" xml:space="preserve">
+          <source>Hard</source>
+          <target state="final">困难</target>
+        </trans-unit>
+        <trans-unit id="txtNormal" translate="yes" xml:space="preserve">
+          <source>Normal</source>
+          <target state="final" state-qualifier="tm-suggestion">正常</target>
+        </trans-unit>
+        <trans-unit id="dlgSaveLoader.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="final">取消</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="final">取消</target>
+        </trans-unit>
+        <trans-unit id="txtAppAuthor" translate="yes" xml:space="preserve">
+          <source>Launcher Created By:</source>
+          <target state="final">启动器贡献者:</target>
+        </trans-unit>
+        <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
+          <source>Special Thanks:</source>
+          <target state="final">鸣谢:</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveName" translate="yes" xml:space="preserve">
+          <source>Archive Name</source>
+          <target state="final">存档名</target>
+        </trans-unit>
+        <trans-unit id="SLArchiveTime" translate="yes" xml:space="preserve">
+          <source>Archive Time</source>
+          <target state="final">存档时间</target>
+        </trans-unit>
+        <trans-unit id="txtMisAuthor" translate="yes" xml:space="preserve">
+          <source>Presented by CacoNyan Studio</source>
+          <target state="final">由 CacoNyan Studio 出品.</target>
+        </trans-unit>
+        <trans-unit id="txtMisName" translate="yes" xml:space="preserve">
+          <source>Operation: Braindead</source>
+          <target state="final">军事行动：脑死</target>
+        </trans-unit>
+        <trans-unit id="txtCaptain" translate="yes" xml:space="preserve">
+          <source>Braindead Launcher</source>
+          <target state="final">「脑死」启动器</target>
+        </trans-unit>
+        <trans-unit id="cbRenderer.CNCDDraw" translate="yes" xml:space="preserve">
+          <source>CNC-DDraw (recommended)</source>
+          <target state="final">CNC-DDraw (推荐)</target>
+        </trans-unit>
+        <trans-unit id="cbRenderer.None" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="final">不使用</target>
+        </trans-unit>
+        <trans-unit id="txtAresNotFoundError" translate="yes" xml:space="preserve">
+          <source>This mission is ONLY supported with Ares platform.
+
+You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+
+It is advised to download again if the files above cannot be found.</source>
+          <target state="final">此任务需要 Ares 扩展平台支持。
+
+请检查你的游戏目录是否含 Ares.dll 和 Syringe.exe，
+
+若找不到，建议重新下载安装。</target>
+        </trans-unit>
+        <trans-unit id="txtSpawnerInvalidError" translate="yes" xml:space="preserve">
+          <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>
+          <target state="translated">找不到或并非「脑死」读图器 (cncnet5.dll)！</target>
+        </trans-unit>
+        <trans-unit id="btnExit.Content" translate="yes" xml:space="preserve">
+          <source>Quit</source>
+          <target state="final">退出游戏</target>
+        </trans-unit>
+        <trans-unit id="dlgSetting.PrimaryButtonContent" translate="yes" xml:space="preserve">
+          <source>Apply</source>
+          <target state="final">应用</target>
+        </trans-unit>
+        <trans-unit id="txtGameWndCorruptionError" translate="yes" xml:space="preserve">
+          <source>Is your game screen shot with a door lock?</source>
+          <target state="final">你的游戏画面是用门锁拍的吗？</target>
+        </trans-unit>
+        <trans-unit id="txtSizeFormInvalidError" translate="yes" xml:space="preserve">
+          <source>Your screen size assigned isn't match the form this dialog given.
+
+It's advised to go to an oculist if you've seen this message for several times.</source>
+          <target state="final">所填游戏尺寸不符合对话框所给的格式。
+          
+如多次见到这个提示，建议去看看眼科。</target>
+        </trans-unit>
+        <trans-unit id="txtError" translate="yes" xml:space="preserve">
+          <source>ERROR</source>
+          <target state="final">错误</target>
+        </trans-unit>
+        <trans-unit id="dlgMsgbox.CloseButtonContent" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="final">确认</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
