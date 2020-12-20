@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
-//using System.Windows.Shapes;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -88,9 +86,9 @@ namespace BattleLauncher
 
         private void RunGame(object sender, ExecutedRoutedEventArgs e)
         {
-            if (!SHA512Verify(CNCNET5DLL, CNCNET5))
+            if (!CNCNET5DLL.SHA512Verify(CNCNET5))
                 throw new SpawnerInvalidException();
-            if (!AresExistence)
+            if (!AresExistence())
                 throw new AresNotFoundException();
 
             new GameExecuteOptions

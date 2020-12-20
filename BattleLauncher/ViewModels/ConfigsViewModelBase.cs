@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using BattleLauncher.Data;
+using BattleLauncher.Extensions;
+
+using static BattleLauncher.Data.OverAll;
 
 namespace BattleLauncher.ViewModels
 {
@@ -41,7 +43,7 @@ namespace BattleLauncher.ViewModels
 
         public virtual string Renderer
         {
-            get => _renderer ?? OverAll.CurRenderer; set
+            get => _renderer ?? (DDRAWDLL.SHA512Verify(CNCD) ? "cbRenderer.CNCDDraw".I18N() : "cbRenderer.None".I18N()); set
             {
                 _renderer = value;
                 OnPropertyChanged();
