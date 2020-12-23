@@ -37,7 +37,12 @@ namespace BattleLauncher.Data
         static OverAll()
         {
             WorkDir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+#if DEBUG
+            SavedGameDirectory = WorkDir.CreateSubdirectory("Saved Games");
+#endif
+#if RELEASE
             SavedGameDirectory = WorkDir.CreateSubdirectory("SaveData");
+#endif
             SpawnIni = new FileInfo(Path.Combine(WorkDir.FullName, "spawn.ini"));
 
             CNCNET5DLL = new FileInfo(Path.Combine(WorkDir.FullName, "cncnet5.dll"));

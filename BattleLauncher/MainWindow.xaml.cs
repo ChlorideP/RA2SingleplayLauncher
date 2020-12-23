@@ -93,8 +93,14 @@ namespace BattleLauncher
 
         private void RunGame(object sender, ExecutedRoutedEventArgs e)
         {
+#if RELEASE
             if (!CNCNET5DLL.SHA512Verify(CNCNET5))
+#endif
+#if DEBUG
+            if (!CNCNET5DLL.Exists)
+#endif
                 throw new SpawnerInvalidException();
+
             if (!AresExistence())
                 throw new AresNotFoundException();
 
