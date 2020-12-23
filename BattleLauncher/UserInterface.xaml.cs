@@ -25,9 +25,16 @@ namespace BattleLauncher
 
         private async Task InitView()
         {
-            var vm = new ViewModels.ConfigsViewModel(await ConfigureIO.GetConfigure());
-            DataContext = vm;
-            cbRenderer.SelectedIndex = 0;
+            var Global = await ConfigureIO.GetConfigure();
+            if (DDRAWDLL.SHA512Verify(CNCD))
+            {
+                var Delta = await DDrawIO.GetConfigure();
+                var rvm = new ViewModels.RendererViewModel(Global, Delta);
+                DataContext = rvm;
+                return;
+            }
+            var cvm = new ViewModels.ConfigsViewModel(Global);
+            DataContext = cvm;
         }
 
         private void Difficulty_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => (sender as Slider).Value = Math.Ceiling((sender as Slider).Value);

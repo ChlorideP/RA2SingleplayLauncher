@@ -67,7 +67,7 @@ namespace BattleLauncher.ViewModels
             }
         }
 
-        public virtual HashSet<string> ScreeSize_Source { get; protected set; }
+        public virtual HashSet<string> ScreenSize_Source { get; protected set; }
 
         public virtual bool UseBuffer
         {

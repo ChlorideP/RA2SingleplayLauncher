@@ -138,10 +138,6 @@ It is advised to download again if the files above cannot be found.</source>
           <source>FATAL ERROR</source>
           <target state="translated">严重错误</target>
         </trans-unit>
-        <trans-unit id="txtGameWndCorruptionError" translate="yes" xml:space="preserve">
-          <source>Is your game screen shot with a door lock?</source>
-          <target state="translated">你的游戏画面是用门锁拍的吗？</target>
-        </trans-unit>
         <trans-unit id="txtHard" translate="yes" xml:space="preserve">
           <source>Hard</source>
           <target state="translated">困难</target>
@@ -170,14 +166,6 @@ It is advised to download again if the files above cannot be found.</source>
           <source>CAUTION: Some of the settings may not be available.</source>
           <target state="translated">警告：部分设置可能不会起作用。</target>
         </trans-unit>
-        <trans-unit id="txtSizeFormInvalidError" translate="yes" xml:space="preserve">
-          <source>Your screen size assigned isn't match the form this dialog given.
-
-It's advised to go to an oculist if you've seen this message for several times.</source>
-          <target state="translated">所填游戏尺寸不符合对话框所给的格式。
-          
-如多次见到这个提示，建议去看看眼科。</target>
-        </trans-unit>
         <trans-unit id="txtSpawnerInvalidError" translate="yes" xml:space="preserve">
           <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>
           <target state="translated">找不到或并非「脑死」读图器 (cncnet5.dll)！</target>
@@ -185,6 +173,20 @@ It's advised to go to an oculist if you've seen this message for several times.<
         <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
           <source>Special Thanks:</source>
           <target state="translated">特别鸣谢</target>
+        </trans-unit>
+        <trans-unit id="cbSizeDrag.ToolTip" translate="yes" xml:space="preserve">
+          <source>CAUTION:
+Make sure your size is in the range below!
+Upper limit - 2560*1440
+Lower limit - 400*300
+Too LARGE screen will cause corrupt sidebar viewing,
+while too SMALL one will cause FATAL ERROR!</source>
+          <target state="translated">注意：
+请确保您提供的分辨率是在以下范围之内！
+上限 - 2560*1440
+下限 - 400*300
+过大的尺寸会引发建造栏显示问题，
+而过小的尺寸会直接导致游戏弹框报错！</target>
         </trans-unit>
       </group>
     </body>

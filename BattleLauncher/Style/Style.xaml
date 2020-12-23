@@ -700,7 +700,7 @@
                             </Border.Effect>
                         </Border>
                         <TextBlock
-                            Margin="23 6" FontSize="13"
+                            Margin="6" FontSize="13"
                             Text="{TemplateBinding ContentControl.Content}" />
                     </Grid>
                 </ControlTemplate>

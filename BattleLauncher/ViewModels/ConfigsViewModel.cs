@@ -13,15 +13,15 @@ namespace BattleLauncher.ViewModels
         {
             Difficult = (byte)configure.Difficult;
             UseBuffer = configure.BackBuffer;
-            NoBorder = configure.NoBorder;
-            Windowed = configure.IsWindowed;
+            NoBorder = configure.Borderless;
+            Windowed = configure.IsWindowMode;
 
             ScreenSize = string.Join("*", configure.ScreenWidth, configure.ScreenHeight);
 
 
-            ScreeSize_Source = new HashSet<string>();
+            ScreenSize_Source = new HashSet<string>();
             for (var i = 0; User32.EnumDisplaySettings(null, i, out var vDevMode); i++)
-                ScreeSize_Source.Add(string.Join("*", vDevMode.dmPelsWidth, vDevMode.dmPelsHeight));
+                ScreenSize_Source.Add(string.Join("*", vDevMode.dmPelsWidth, vDevMode.dmPelsHeight));
 
             Renderers_Source = new[] {
                 I18NExtension.I18N("cbRenderer.None"),
@@ -33,8 +33,9 @@ namespace BattleLauncher.ViewModels
             var result = new GameConfigure
             {
                 BackBuffer = UseBuffer,
-                NoBorder = NoBorder,
-                IsWindowed = Windowed,
+                Borderless = NoBorder,
+                IsFull = !Windowed,
+                IsWindowMode = Windowed,
                 Difficult = (Difficult)Enum.Parse(typeof(Difficult), Difficult.ToString())
             };
 

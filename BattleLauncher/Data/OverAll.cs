@@ -11,7 +11,7 @@ namespace BattleLauncher.Data
     /// </summary>
     public static class OverAll
     {
-        public const string CNCD = "4F6B722C4800815A6E5D3BADB625FD1A4EB4068BFD67C6761EF7435E5EBF7FE317A240503719ECBB3BA57B30F8F3F7BB4EC369C8C8BD2B53224E9A3084916E4B";
+        public const string CNCD = "41A62990D4EE78D57C8AB192127A4442F0C196D4EF6E094ECC9A1184101D522A2B9AAA1E3264C940015167BCC35AEF68496E180A94622E8ED07A4A01E434D550";
         public const string CNCNET5 = "77BAAAB986A05D9E81A662EC98384C3F57BB0765911E4DB0FC1689EA22B619D912BB10D36CF31F17B71C4A9F3B89A6D277F93F349AD93FAC8D41D13815F49E8A";
 
         public static FileInfo AresInjector { get; }
@@ -46,7 +46,7 @@ namespace BattleLauncher.Data
             AresMainFunc = new FileInfo(Path.Combine(WorkDir.FullName, "Ares.DLL"));
             AresInjector = new FileInfo(Path.Combine(WorkDir.FullName, "Syringe.EXE"));
 
-            DDrawIO = new DDrawIO(DDRAWDLL);
+            DDrawIO = new DDrawIO(new FileInfo(Path.Combine(WorkDir.FullName, "ddraw.ini")));
             ConfigureIO = new ConfigureIO(new FileInfo(Path.Combine(WorkDir.FullName, "ra2md.ini")));
         }
 

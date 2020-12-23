@@ -25,7 +25,7 @@
         <CommandBinding Command="{x:Static cmds:DialogRoutedCommands.CloseCommand}" Executed="CloseDialog" />
     </Window.CommandBindings>
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="20" ResizeBorderThickness="4" />
+        <WindowChrome CaptionHeight="14" ResizeBorderThickness="4" />
     </WindowChrome.WindowChrome>
     <Grid>
         <!--  背景 图像笔刷  -->
@@ -61,16 +61,16 @@
 
             <!--  右边的文字  -->
             <StackPanel
-                Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="40 0"
+                Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="40 10"
                 HorizontalAlignment="Right">
                 <TextBlock
                     HorizontalAlignment="Center" Block.LineHeight="24"
                     Block.TextAlignment="Center" FontSize="16"
-                    Foreground="#FF969696">
+                    Foreground="#FF909090">
                     <!--  用一个 TextBlock 节省内存  -->
                     <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak />
                     <!--  Launcher Created By:  -->
-                    <Run Text="Caco" /><LineBreak />
+                    <Run Text="CaconCaco" /><LineBreak />
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
                     <LineBreak />

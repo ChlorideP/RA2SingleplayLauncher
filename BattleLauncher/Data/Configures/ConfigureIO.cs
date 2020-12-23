@@ -32,8 +32,8 @@ namespace BattleLauncher.Data.Configures
                 {
                     ScreenWidth = (ushort)SystemParameters.PrimaryScreenWidth,
                     ScreenHeight = (ushort)SystemParameters.PrimaryScreenHeight,
-                    IsWindowed = false,
-                    NoBorder = false,
+                    IsWindowMode = false,
+                    Borderless = false,
                     BackBuffer = false,
                     Difficult = Difficult.NORMAL
                 };
@@ -47,8 +47,8 @@ namespace BattleLauncher.Data.Configures
                     ScreenWidth = (ushort)doc["Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth],
                     ScreenHeight = (ushort)doc["Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight],
 
-                    IsWindowed = (bool)doc["Video", "Video.Windowed"],
-                    NoBorder = (bool)doc["Video", "NoWindowFrame"],
+                    IsWindowMode = (bool)doc["Video", "Video.Windowed"],
+                    Borderless = (bool)doc["Video", "NoWindowFrame"],
                     BackBuffer = (bool)doc["Video", "VideoBackBuffer"],
 
                     Difficult = (Difficult)Enum.Parse(typeof(Difficult), doc["Options", "Difficulty", 0], true)
@@ -66,8 +66,8 @@ namespace BattleLauncher.Data.Configures
             iniDocuments["Video", "ScreenWidth"] = configure.ScreenWidth;
             iniDocuments["Video", "ScreenHeight"] = configure.ScreenHeight;
 
-            iniDocuments["Video", "Video.Windowed"] = configure.IsWindowed;
-            iniDocuments["Video", "NoWindowFrame"] = configure.NoBorder;
+            iniDocuments["Video", "Video.Windowed"] = configure.IsWindowMode;
+            iniDocuments["Video", "NoWindowFrame"] = configure.Borderless;
             iniDocuments["Video", "VideoBackBuffer"] = configure.BackBuffer;
 
             iniDocuments["Options", "Difficulty"] = (byte)configure.Difficult;

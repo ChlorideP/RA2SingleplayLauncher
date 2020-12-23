@@ -150,6 +150,14 @@
   <data name="cbRunAs.Content" xml:space="preserve">
     <value>Run As Administrator</value>
   </data>
+  <data name="cbSizeDrag.ToolTip" xml:space="preserve">
+    <value>CAUTION:
+Make sure your size is in the range below!
+Upper limit - 2560*1440
+Lower limit - 400*300
+Too LARGE screen will cause corrupt sidebar viewing,
+while too SMALL one will cause FATAL ERROR!</value>
+  </data>
   <data name="cbWindowed.Content" xml:space="preserve">
     <value>Windowed</value>
   </data>
@@ -214,9 +222,6 @@ It is advised to download again if the files above cannot be found.</value>
   <data name="txtFatal" xml:space="preserve">
     <value>FATAL ERROR</value>
   </data>
-  <data name="txtGameWndCorruptionError" xml:space="preserve">
-    <value>Is your game screen shot with a door lock?</value>
-  </data>
   <data name="txtHard" xml:space="preserve">
     <value>Hard</value>
   </data>
@@ -237,11 +242,6 @@ It is advised to download again if the files above cannot be found.</value>
   </data>
   <data name="txtSettingTip.Text" xml:space="preserve">
     <value>CAUTION: Some of the settings may not be available.</value>
-  </data>
-  <data name="txtSizeFormInvalidError" xml:space="preserve">
-    <value>Your screen size assigned isn't match the form this dialog given.
-
-It's advised to go to an oculist if you've seen this message for several times.</value>
   </data>
   <data name="txtSpawnerInvalidError" xml:space="preserve">
     <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>

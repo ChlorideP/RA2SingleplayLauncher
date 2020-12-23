@@ -47,11 +47,11 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Uid="txtScreenSize"
                         Margin="10 2" HorizontalAlignment="Left" TextWrapping="Wrap" />
-                    <ComboBox x:Name="cbSize"
+                    <ComboBox x:Name="cbSize" x:Uid="cbSizeDrag"
                         Grid.Column="1" Margin="2" Foreground="#ffffff"
                         IsEditable="True"
-                        ItemsSource="{Binding ScreeSize_Source}"
-                        Text="{Binding ScreenSize}" />
+                        ItemsSource="{Binding ScreenSize_Source}"
+                        Text="{Binding ScreenSize}"/>
 
                     <TextBlock x:Uid="txtRenderer"
                         Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" />

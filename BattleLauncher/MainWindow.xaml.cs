@@ -27,6 +27,13 @@ namespace BattleLauncher
         {
             switch (e.Parameter)
             {
+                case ViewModels.RendererViewModel rvm:
+                    var (rc,gc) = rvm.ToModel();
+                    await DDrawIO.SetConfigure(rc);
+                    gc.IsWindowMode = false;
+                    gc.Borderless = false;
+                    await ConfigureIO.SetConfigure(gc);
+                    break;
                 case ViewModels.ConfigsViewModel cvm:
                     await ConfigureIO.SetConfigure(cvm.ToModel());
                     break;

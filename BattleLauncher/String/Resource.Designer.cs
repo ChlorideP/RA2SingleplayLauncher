@@ -160,6 +160,20 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
+        ///   查找类似 CAUTION:
+        ///Make sure your size is in the range below!
+        ///Upper limit - 2560*1440
+        ///Lower limit - 400*300
+        ///Too LARGE screen will cause corrupt sidebar viewing,
+        ///while too SMALL one will cause FATAL ERROR! 的本地化字符串。
+        /// </summary>
+        public static string cbSizeDrag_ToolTip {
+            get {
+                return ResourceManager.GetString("cbSizeDrag.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Windowed 的本地化字符串。
         /// </summary>
         public static string cbWindowed_Content {
@@ -344,15 +358,6 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 Is your game screen shot with a door lock? 的本地化字符串。
-        /// </summary>
-        public static string txtGameWndCorruptionError {
-            get {
-                return ResourceManager.GetString("txtGameWndCorruptionError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Hard 的本地化字符串。
         /// </summary>
         public static string txtHard {
@@ -412,17 +417,6 @@ namespace BattleLauncher.String {
         public static string txtSettingTip_Text {
             get {
                 return ResourceManager.GetString("txtSettingTip.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Your screen size assigned isn&apos;t match the form this dialog given.
-        ///
-        ///It&apos;s advised to go to an oculist if you&apos;ve seen this message for several times. 的本地化字符串。
-        /// </summary>
-        public static string txtSizeFormInvalidError {
-            get {
-                return ResourceManager.GetString("txtSizeFormInvalidError", resourceCulture);
             }
         }
         
