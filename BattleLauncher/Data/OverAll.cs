@@ -39,8 +39,7 @@ namespace BattleLauncher.Data
             WorkDir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 #if DEBUG
             SavedGameDirectory = WorkDir.CreateSubdirectory("Saved Games");
-#endif
-#if RELEASE
+#elif RELEASE
             SavedGameDirectory = WorkDir.CreateSubdirectory("SaveData");
 #endif
             SpawnIni = new FileInfo(Path.Combine(WorkDir.FullName, "spawn.ini"));

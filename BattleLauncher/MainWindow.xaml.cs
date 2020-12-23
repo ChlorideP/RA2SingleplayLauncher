@@ -25,14 +25,13 @@ namespace BattleLauncher
 
         private async void ApplySetting(object sender, ExecutedRoutedEventArgs e)
         {
+
             switch (e.Parameter)
             {
                 case ViewModels.RendererViewModel rvm:
-                    var (rc,gc) = rvm.ToModel();
+                    var rc = rvm.ToModel();
                     await DDrawIO.SetConfigure(rc);
-                    gc.IsWindowMode = false;
-                    gc.Borderless = false;
-                    await ConfigureIO.SetConfigure(gc);
+                    await ConfigureIO.SetConfigure((rvm as ViewModels.ConfigsViewModel).ToModel());
                     break;
                 case ViewModels.ConfigsViewModel cvm:
                     await ConfigureIO.SetConfigure(cvm.ToModel());
@@ -95,8 +94,7 @@ namespace BattleLauncher
         {
 #if RELEASE
             if (!CNCNET5DLL.SHA512Verify(CNCNET5))
-#endif
-#if DEBUG
+#elif DEBUG
             if (!CNCNET5DLL.Exists)
 #endif
                 throw new SpawnerInvalidException();

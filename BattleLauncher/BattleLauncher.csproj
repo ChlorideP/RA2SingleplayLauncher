@@ -18,12 +18,13 @@
     <Company>CacoNyan Studio</Company>
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner</Description>
-    <Copyright>Copyright(L) 2019-2021 CacoNyan Studio. All Rights Reserved.</Copyright>
+    <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non Rights Reserved.</Copyright>
     <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
     <PackageIcon>Yuri.png</PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
     <AssemblyVersion>2.16.59.14514</AssemblyVersion>
     <FileVersion>2.0.0.15935</FileVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
   <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
@@ -33,8 +34,11 @@
     <None Remove="Assets\Allied.png" />
     <None Remove="Assets\bg.png" />
     <None Remove="Assets\SegMDL2.ttf" />
-    <None Remove="Assets\Soviet.png" />
     <None Remove="Assets\Yuri.png" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="Assets\Yuri.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -44,8 +48,6 @@
     <Resource Include="Assets\Allied.png" />
     <Resource Include="Assets\bg.png" />
     <Resource Include="Assets\SegMDL2.ttf" />
-    <Resource Include="Assets\Soviet.png" />
-    <Resource Include="Assets\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.4" />
@@ -74,5 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MultilingualResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Renderer\cnc-ddraw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Renderer\cnc-ddraw.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
