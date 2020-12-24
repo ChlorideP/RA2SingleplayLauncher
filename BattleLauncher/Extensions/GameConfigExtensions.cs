@@ -3,32 +3,52 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 
+using BattleLauncher.Data;
 using BattleLauncher.Data.Model;
 
 using Shimakaze.Struct.Ini;
 using Shimakaze.Struct.Ini.Utils;
 
-namespace BattleLauncher.Data.Configures
+namespace BattleLauncher.Extensions
 {
     /// <summary>
     /// 负责游戏配置数据读写的类
     /// </summary>
-    public class ConfigureIO
+    public static class GameConfigExtensions
     {
-        private readonly FileInfo file;
-        public ConfigureIO(FileInfo file) => this.file = file;
+        private static readonly FileInfo ddraw = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ddraw.ini"));
+        private static readonly FileInfo file = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ra2md.ini"));
+
+        public static async Task<GameConfig> ReadCNCDDRAWConfig(this GameConfig configure)
+        {
+            if (ddraw.Exists)
+            {
+                var doc = await IniDocumentUtils.ParseAsync(ddraw.OpenRead());
+                configure.IsFullScreen = (bool)doc["ddraw", "fullscreen"];
+                configure.IsWindowMode = (bool)doc["ddraw", "windowed"];
+                configure.Borderless = !(bool)doc["ddraw", "border"];
+            }
+            else
+            {
+                configure.IsFullScreen = true;
+                configure.IsWindowMode = false;
+                configure.Borderless = false;
+            }
+
+            return configure;
+        }
 
         /// <summary>
         /// 从文件中加载所需配置到内存
         /// </summary>
         /// <exception cref="FileNotFoundException">当所需要的配置文件不存在时引发此异常</exception>
         /// <returns>不包含渲染器的游戏配置信息</returns>
-        public async Task<GameConfigure> GetConfigure()
+        public static async Task<GameConfig> ReadConfig()
         {
             if (!file.Exists)
             {
                 //default val
-                return new GameConfigure
+                return new GameConfig
                 {
                     ScreenWidth = (ushort)SystemParameters.PrimaryScreenWidth,
                     ScreenHeight = (ushort)SystemParameters.PrimaryScreenHeight,
@@ -40,9 +60,9 @@ namespace BattleLauncher.Data.Configures
             }
             else
             {
-                var doc = await IniDocumentUtils.ParseAsync(file.Open(FileMode.Open, FileAccess.Read, FileShare.Read));
+                var doc = await IniDocumentUtils.ParseAsync(file.OpenRead());
 
-                return new GameConfigure
+                return new GameConfig
                 {
                     ScreenWidth = (ushort)doc["Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth],
                     ScreenHeight = (ushort)doc["Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight],
@@ -55,10 +75,23 @@ namespace BattleLauncher.Data.Configures
                 };
             }
         }
+        public static async Task WriteCNCDDRAWConfig(this GameConfig configure)
+        {
+            IIniDocument doc;
+            using (var fs = ddraw.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
+                doc = await IniDocumentUtils.ParseAsync(fs);
+            doc["ddraw", "fullscreen"] = configure.IsFullScreen;
+            doc["ddraw", "windowed"] = configure.IsWindowMode;
+            doc["ddraw", "border"] = !configure.Borderless;
+
+            using (var fs = ddraw.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
+                await doc.DeparseAsync(fs);
+        }
+
         /// <summary>
         /// 将改动写入到文件
         /// </summary>
-        public async Task SetConfigure(GameConfigure configure)
+        public static async Task WriteConfig(this GameConfig configure)
         {
             IIniDocument iniDocuments;
             using (var fs = file.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
@@ -72,7 +105,6 @@ namespace BattleLauncher.Data.Configures
 
             iniDocuments["Options", "Difficulty"] = (byte)configure.Difficult;
 
-            file.Delete();
             using (var fs = file.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
                 await iniDocuments.DeparseAsync(fs);
         }

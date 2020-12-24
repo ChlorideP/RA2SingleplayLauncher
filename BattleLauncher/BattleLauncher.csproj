@@ -70,11 +70,11 @@
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Renderer\cnc-ddraw.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Assets\Renderers\CNCDDRAW\ddraw.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Renderer\cnc-ddraw.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Assets\Renderers\CNCDDRAW\ddraw.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

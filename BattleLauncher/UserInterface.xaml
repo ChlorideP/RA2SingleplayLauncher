@@ -15,7 +15,7 @@
     PrimaryButtonCommand="{x:Static cmds:GameSettingsRoutedCommands.ApplyCommand}"
     PrimaryButtonCommandParameter="{Binding}"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData Type={x:Type vm:ConfigsViewModel},
+    d:DataContext="{d:DesignData Type={x:Type vm:BattleLauncher.Extensions.ConfigsViewModel},
                                  IsDesignTimeCreatable=False}">
     <ctrls:GDialog.Resources>
         <cvtr:DifficultyValueToStringConverter x:Key="DifficultyToStringConverter" />
@@ -50,16 +50,14 @@
                     <ComboBox x:Name="cbSize" x:Uid="cbSizeDrag"
                         Grid.Column="1" Margin="2" Foreground="#ffffff"
                         IsEditable="True"
-                        ItemsSource="{Binding ScreenSize_Source}"
                         Text="{Binding ScreenSize}"/>
 
                     <TextBlock x:Uid="txtRenderer"
                         Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" />
                     <ComboBox x:Name="cbRenderer"
                         Grid.Row="1" Grid.Column="1" Margin="2" Foreground="#ffffff"
-                        ItemsSource="{Binding Renderers_Source}"
-                        LostFocus="cbRenderer_Apply"
-                        SelectedItem="{Binding Renderer}" />
+                        SelectedItem="{Binding Renderer}" >
+                    </ComboBox>
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
                         <CheckBox x:Name="cbWindowed" x:Uid="cbWindowed"
