@@ -15,7 +15,7 @@ namespace BattleLauncher
         {
             InitializeComponent();
             this.I18NInitialize();
-            SaveList.ItemsSource = OverAll.SavedGameDirectory.GetFiles("*.sav").Select(SavedGameHelper.GetSavedGameInfo);
+            SaveList.ItemsSource = OverAll.ArchiveFolder.GetFiles("*.sav").Select(ArchiveExtensions.GetSavedGameInfo);
         }
     }
 }

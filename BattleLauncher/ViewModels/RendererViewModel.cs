@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 using BattleLauncher.Data.Model;
 using BattleLauncher.Data.Native;
@@ -7,42 +8,14 @@ using BattleLauncher.Extensions;
 
 namespace BattleLauncher.ViewModels
 {
-    public class RendererViewModel : ConfigsViewModel
+    public class RendererViewModel
     {
-        private new bool noBorder;
-        private new bool windowed;
+        private string _name;
 
-        public new bool NoBorder
-        {
-            get => noBorder; set
-            {
-                noBorder = value;
-                OnPropertyChanged();
-            }
-        }
+        public string Name { get => _name; set => _name = value.ToUpper(); }
+        public string FriendlyName { get; set; }
+        public DirectoryInfo Directory { get; set; }
 
-        public new bool Windowed
-        {
-            get => windowed; set
-            {
-                if (!(windowed = value))
-                    NoBorder = false;
-                OnPropertyChanged();
-            }
-        }
-
-        public RendererViewModel(GameConfigure configure, RendererConfigure config) : base(configure)
-        {
-            base.NoBorder = false;
-            base.Windowed = false;
-            NoBorder = config.NoBorder;
-            Windowed = config.IsWindowed;
-        }
-        public new RendererConfigure ToModel() => new RendererConfigure
-        {
-            NoBorder = NoBorder,
-            IsFullScreen = !Windowed,
-            IsWindowed = Windowed
-        };
+        public override string ToString() => FriendlyName;
     }
 }

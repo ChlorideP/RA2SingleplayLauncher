@@ -14,13 +14,13 @@
     <ApplicationIcon>Assets\clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyName>BattleLauncher</AssemblyName>
-    <Authors>CaconCaco</Authors>
+    <Authors>CaconCaco, 舰队的偶像-岛风酱!</Authors>
     <Company>CacoNyan Studio</Company>
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner</Description>
-    <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non Rights Reserved.</Copyright>
+    <Copyright>Programming By CacoNyan Studio &amp; frg2089.</Copyright>
     <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
-    <PackageIcon>Yuri.png</PackageIcon>
+    <PackageIcon></PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
     <AssemblyVersion>2.16.59.14514</AssemblyVersion>
     <FileVersion>2.0.0.15935</FileVersion>
@@ -35,19 +35,13 @@
     <None Remove="Assets\bg.png" />
     <None Remove="Assets\SegMDL2.ttf" />
     <None Remove="Assets\Yuri.png" />
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="Assets\Yuri.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Allied.png" />
     <Resource Include="Assets\bg.png" />
-    <Resource Include="Assets\SegMDL2.ttf" />
+    <Content Include="Assets\SegMDL2.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.4" />
@@ -78,11 +72,11 @@
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Renderer\cnc-ddraw.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Assets\Renderers\CNCDDRAW\ddraw.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Renderer\cnc-ddraw.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Assets\Renderers\CNCDDRAW\ddraw.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

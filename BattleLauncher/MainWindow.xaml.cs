@@ -25,18 +25,22 @@ namespace BattleLauncher
 
         private async void ApplySetting(object sender, ExecutedRoutedEventArgs e)
         {
-
-            switch (e.Parameter)
+            var vm = e.Parameter as ViewModels.ConfigsViewModel;
+            var model = ConfigsViewModelExtension.ToModel(vm);
+            switch (vm.Renderer.Name)
             {
-                case ViewModels.RendererViewModel rvm:
-                    var rc = rvm.ToModel();
-                    await DDrawIO.SetConfigure(rc);
-                    await ConfigureIO.SetConfigure((rvm as ViewModels.ConfigsViewModel).ToModel());
-                    break;
-                case ViewModels.ConfigsViewModel cvm:
-                    await ConfigureIO.SetConfigure(cvm.ToModel());
-                    break;
+                case "NONE":
+                    // TODO: 此处移除DDRAW.dll
+                    Data.DDRAWUtils.Clear();
+                    goto default;
+                case "CNCDDRAW":
+                    // TODO: 此次添加DDRAW.dll
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
+                    await GameConfigExtensions.WriteCNCDDRAWConfig(model);
+                    model.Borderless = model.IsWindowMode = false;
+                    goto default;
                 default:
+                    await GameConfigExtensions.WriteConfig(model);
                     break;
             }
             Commands.DialogRoutedCommands.CloseCommand.Execute(null, e.Source as IInputElement);
@@ -82,7 +86,10 @@ namespace BattleLauncher
         {
             if (!(e.Parameter is ViewModels.SavedGameViewModel vm))
                 throw new NoSaveLoadedException();
-            await vm.WriteSpawnAsync();
+
+            using (var fs = SpawnIni.Open(FileMode.Create))
+                await vm.WriteSpawnAsync(new StreamWriter(fs));
+
             Commands.MainWindowRoutedCommands.RunGameCommand.Execute(null, this);
         }
 
@@ -92,16 +99,6 @@ namespace BattleLauncher
 
         private void RunGame(object sender, ExecutedRoutedEventArgs e)
         {
-#if RELEASE
-            if (!CNCNET5DLL.SHA512Verify(CNCNET5))
-#elif DEBUG
-            if (!CNCNET5DLL.Exists)
-#endif
-                throw new SpawnerInvalidException();
-
-            if (!AresExistence())
-                throw new AresNotFoundException();
-
             new GameExecuteOptions
             {
                 LogMode = cbDebug_Check.IsChecked ?? false,
@@ -122,7 +119,7 @@ namespace BattleLauncher
 
             App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
         }
-        public async Task<GDialogResult> ShowDialog(GDialog dialog)
+        private async Task<GDialogResult> ShowDialog(GDialog dialog)
         {
             var result = GDialogResult.FaildOpen;
             if (_dialogMutex.WaitOne(500))
