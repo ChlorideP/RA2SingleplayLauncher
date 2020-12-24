@@ -11,10 +11,10 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
-    <ApplicationIcon>Assets\clienticon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyName>BattleLauncher</AssemblyName>
-    <Authors>CaconCaco, 舰队的偶像-岛风酱!</Authors>
+    <Authors>CaconCaco, frg2089</Authors>
     <Company>CacoNyan Studio</Company>
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner</Description>
@@ -31,15 +31,15 @@
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
   <ItemGroup>
-    <None Remove="Assets\Allied.png" />
-    <None Remove="Assets\bg.png" />
-    <None Remove="Assets\SegMDL2.ttf" />
-    <None Remove="Assets\Yuri.png" />
+    <None Remove="Resources\Allied.png" />
+    <None Remove="Resources\bg.png" />
+    <None Remove="Resources\SegMDL2.ttf" />
+    <None Remove="Resources\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Allied.png" />
-    <Resource Include="Assets\bg.png" />
-    <Content Include="Assets\SegMDL2.ttf">
+    <Resource Include="Resources\Allied.png" />
+    <Resource Include="Resources\bg.png" />
+    <Content Include="Resources\SegMDL2.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -72,10 +72,10 @@
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Assets\Renderers\CNCDDRAW\ddraw.dll">
+    <None Update="Resources\Renderers\cnc-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Assets\Renderers\CNCDDRAW\ddraw.ini">
+    <None Update="Resources\Renderers\cnc-ddraw\ddraw.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

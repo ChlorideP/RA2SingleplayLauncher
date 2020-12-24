@@ -30,11 +30,9 @@ namespace BattleLauncher
             switch (vm.Renderer.Name)
             {
                 case "NONE":
-                    // TODO: 此处移除DDRAW.dll
                     Data.DDRAWUtils.Clear();
                     goto default;
                 case "CNCDDRAW":
-                    // TODO: 此次添加DDRAW.dll
                     Data.DDRAWUtils.Apply(vm.Renderer.Directory);
                     await GameConfigExtensions.WriteCNCDDRAWConfig(model);
                     model.Borderless = model.IsWindowMode = false;

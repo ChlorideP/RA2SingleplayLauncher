@@ -19,6 +19,7 @@ namespace BattleLauncher.Data
         public static void Apply(DirectoryInfo ddrawFolder)
         {
             foreach (var file in ddrawFolder.GetFiles())
+                //可 扩 展 序 列
                 file.CopyTo(Path.Combine(MainFolder.FullName, file.Name), true);
         }
     }

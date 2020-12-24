@@ -4,7 +4,7 @@
     xmlns:ctrls="clr-namespace:BattleLauncher.Controls"
     xmlns:local="clr-namespace:BattleLauncher">
 
-    <FontFamily x:Key="FontIcon">Segoe MDL2 Assets, Assets/#Segoe MDL2 Assets</FontFamily>
+    <FontFamily x:Key="FontIcon">Segoe MDL2 Assets, Resources/#Segoe MDL2 Assets</FontFamily>
 
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="White" />

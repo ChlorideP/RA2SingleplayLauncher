@@ -30,7 +30,7 @@ namespace BattleLauncher
                 new ViewModels.RendererViewModel{
                     Name="CNCDDRAW",
                     FriendlyName= I18NExtension.I18N("cbRenderer.CNCDDraw") ,
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Assets","Renderers","CNCDDRAW"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "cnc-ddraw"))
                 }
             };
             return _renderers;
@@ -48,7 +48,7 @@ namespace BattleLauncher
 
         private async Task InitView()
         {
-            var varify = Task.Run(() => new FileInfo(Path.Combine(MainFolder.FullName, "ddraw.dll")).SHA512Verify(Data.Hash.CNCD));
+            var verify = Task.Run(() => new FileInfo(Path.Combine(MainFolder.FullName, "ddraw.dll")).SHA512Verify(Data.Hash.CNCD));
             var model = GameConfigExtensions.ReadConfig();
 
             var resolutions = _resolutions ?? GetResolutions();
@@ -56,12 +56,12 @@ namespace BattleLauncher
             cbSize.ItemsSource = resolutions;
             cbRenderer.ItemsSource = renderers;
 
-            if (await varify)
+            if (await verify)
                 model = GameConfigExtensions.ReadCNCDDRAWConfig(await model);
 
             var vm = ConfigsViewModelExtension.GetViewModel(await model);
 
-            vm.Renderer = await varify ? renderers[1] : renderers[0];
+            vm.Renderer = await verify ? renderers[1] : renderers[0];
 
             DataContext = vm;
         }
