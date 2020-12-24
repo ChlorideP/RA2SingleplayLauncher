@@ -39,7 +39,9 @@
   <ItemGroup>
     <Resource Include="Assets\Allied.png" />
     <Resource Include="Assets\bg.png" />
-    <Resource Include="Assets\SegMDL2.ttf" />
+    <Content Include="Assets\SegMDL2.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.4" />
