@@ -17,6 +17,7 @@ namespace BattleLauncher.Extensions
     public static class GameConfigExtensions
     {
         private static readonly FileInfo ddraw = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ddraw.ini"));
+        private static readonly FileInfo dxwnd = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "dxwnd.ini"));
         private static readonly FileInfo file = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ra2md.ini"));
 
         public static async Task<GameConfig> ReadCNCDDRAWConfig(this GameConfig configure)
@@ -27,6 +28,25 @@ namespace BattleLauncher.Extensions
                 configure.IsFullScreen = (bool)doc["ddraw", "fullscreen"];
                 configure.IsWindowMode = (bool)doc["ddraw", "windowed"];
                 configure.Borderless = !(bool)doc["ddraw", "border"];
+            }
+            else
+            {
+                configure.IsFullScreen = true;
+                configure.IsWindowMode = false;
+                configure.Borderless = false;
+            }
+
+            return configure;
+        }
+
+        public static async Task<GameConfig> ReadDxWndConfig(this GameConfig configure)
+        {
+            if (dxwnd.Exists)
+            {
+                var doc = await IniDocumentUtils.ParseAsync(dxwnd.OpenRead());
+                configure.IsFullScreen = !(bool)doc["DxWnd", "RunInWindow"];
+                configure.IsWindowMode = (bool)doc["DxWnd", "RunInWindow"];
+                configure.Borderless = (bool)doc["DxWnd", "NoWindowFrame"];
             }
             else
             {
@@ -85,6 +105,18 @@ namespace BattleLauncher.Extensions
             doc["ddraw", "border"] = !configure.Borderless;
 
             using (var fs = ddraw.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
+                await doc.DeparseAsync(fs);
+        }
+
+        public static async Task WriteDxWndConfig(this GameConfig configure)
+        {
+            IIniDocument doc;
+            using (var fs = dxwnd.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
+                doc = await IniDocumentUtils.ParseAsync(fs);
+            doc["DxWnd", "RunInWindow"] = configure.IsWindowMode;
+            doc["DxWnd", "NoWindowFrame"] = configure.Borderless;
+
+            using (var fs = dxwnd.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
                 await doc.DeparseAsync(fs);
         }
 

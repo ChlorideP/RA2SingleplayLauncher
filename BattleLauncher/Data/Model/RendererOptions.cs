@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 
-using BattleLauncher.Data.Model;
 using BattleLauncher.Data.Native;
 using BattleLauncher.Extensions;
 
-namespace BattleLauncher.ViewModels
+namespace BattleLauncher.Data.Model
 {
-    public class RendererViewModel
+    public class RendererOptions
     {
         private string _name;
 

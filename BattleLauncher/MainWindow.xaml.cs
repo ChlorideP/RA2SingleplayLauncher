@@ -27,15 +27,33 @@ namespace BattleLauncher
         {
             var vm = e.Parameter as ViewModels.ConfigsViewModel;
             var model = ConfigsViewModelExtension.ToModel(vm);
+
+            Data.DDRAWUtils.CleanAll();//rm old ones.
             switch (vm.Renderer.Name)
             {
                 case "NONE":
-                    Data.DDRAWUtils.Clear();
                     goto default;
                 case "CNCDDRAW":
                     Data.DDRAWUtils.Apply(vm.Renderer.Directory);
                     await GameConfigExtensions.WriteCNCDDRAWConfig(model);
                     model.Borderless = model.IsWindowMode = false;
+                    goto default;
+                case "DDWRAPPER":
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
+                    goto default;
+                case "DXWND":
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
+                    await GameConfigExtensions.WriteDxWndConfig(model);
+                    model.Borderless = model.IsWindowMode = false;
+                    goto default;
+                case "TSDDRAW":
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
+                    goto default;
+                case "IEDDRAW":
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
+                    goto default;
+                case "COMPAT":
+                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
                     goto default;
                 default:
                     await GameConfigExtensions.WriteConfig(model);

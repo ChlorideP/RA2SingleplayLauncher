@@ -234,6 +234,9 @@ It is advised to download again if the files above cannot be found.</value>
   <data name="txtNormal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="txtNoSaveLoadedError" xml:space="preserve">
+    <value>Nobody selected. Cancel loading.</value>
+  </data>
   <data name="txtRenderer.Text" xml:space="preserve">
     <value>Renderer:</value>
   </data>

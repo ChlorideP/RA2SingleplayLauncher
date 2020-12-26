@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+using BattleLauncher.Data.Model;
 using BattleLauncher.Extensions;
 
 using static BattleLauncher.Data.OverAll;
@@ -10,7 +11,7 @@ namespace BattleLauncher.ViewModels
 {
     public class ConfigsViewModel : INotifyPropertyChanged
     {
-        protected ViewModels.RendererViewModel _renderer;
+        protected RendererOptions _renderer;
         protected byte difficult;
         protected bool noBorder;
         protected string screenSize;
@@ -41,7 +42,7 @@ namespace BattleLauncher.ViewModels
             }
         }
 
-        public ViewModels.RendererViewModel Renderer
+        public RendererOptions Renderer
         {
             get => _renderer; set
             {

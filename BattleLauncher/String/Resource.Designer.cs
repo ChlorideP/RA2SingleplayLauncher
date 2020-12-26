@@ -394,6 +394,15 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
+        ///   查找类似 Nobody selected. Cancel loading. 的本地化字符串。
+        /// </summary>
+        public static string txtNoSaveLoadedError {
+            get {
+                return ResourceManager.GetString("txtNoSaveLoadedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Renderer: 的本地化字符串。
         /// </summary>
         public static string txtRenderer_Text {

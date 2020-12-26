@@ -188,6 +188,10 @@ while too SMALL one will cause FATAL ERROR!</source>
 过大的尺寸会引发建造栏显示问题，
 而过小的尺寸会直接导致游戏弹框报错！</target>
         </trans-unit>
+        <trans-unit id="txtNoSaveLoadedError" translate="yes" xml:space="preserve">
+          <source>Nobody selected. Cancel loading.</source>
+          <target state="translated">未选中任何存档。取消载入。</target>
+        </trans-unit>
       </group>
     </body>
   </file>

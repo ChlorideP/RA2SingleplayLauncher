@@ -144,4 +144,7 @@
 过大的尺寸会引发建造栏显示问题，
 而过小的尺寸会直接导致游戏弹框报错！</value>
   </data>
+  <data name="txtNoSaveLoadedError" xml:space="preserve">
+    <value>未选中任何存档。取消载入。</value>
+  </data>
 </root>
