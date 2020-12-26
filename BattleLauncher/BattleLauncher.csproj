@@ -17,12 +17,12 @@
     <Authors>CaconCaco, frg2089</Authors>
     <Company>CacoNyan Studio</Company>
     <Product>BattleLauncher for Ares</Product>
-    <Description>Ares singleplayer mission launcher, aided by cncnet-spawner</Description>
+    <Description>Ares singleplayer mission launcher, aided by cncnet-spawner.</Description>
     <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non rights reserved.</Copyright>
     <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
     <PackageIcon></PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
-    <AssemblyVersion>2.16.59.14514</AssemblyVersion>
+    <AssemblyVersion>2.0.1.14514</AssemblyVersion>
     <FileVersion>2.0.0.15935</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
