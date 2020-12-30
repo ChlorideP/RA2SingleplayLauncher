@@ -22,8 +22,8 @@
     <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
     <PackageIcon></PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
-    <AssemblyVersion>2.0.1.14514</AssemblyVersion>
-    <FileVersion>2.0.0.15935</FileVersion>
+    <AssemblyVersion>2.0.1.15935</AssemblyVersion>
+    <FileVersion>2.0.1.14514</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
