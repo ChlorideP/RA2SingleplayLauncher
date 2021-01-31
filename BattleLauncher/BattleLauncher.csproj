@@ -19,12 +19,13 @@
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner.</Description>
     <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non rights reserved.</Copyright>
-    <PackageProjectUrl>caco_rin.gitee.io/bdreadme</PackageProjectUrl>
+    <PackageProjectUrl>braindeadyr.gitee.io/</PackageProjectUrl>
     <PackageIcon></PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
     <AssemblyVersion>2.0.1.15935</AssemblyVersion>
     <FileVersion>2.0.1.14514</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
   <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
