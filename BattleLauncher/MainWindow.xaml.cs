@@ -131,6 +131,10 @@ namespace BattleLauncher
             InitializeComponent();
             this.I18NInitialize();// I18N 初始化
 
+#if DEBUG
+            tbCommand.Text = "-speedcontrol";
+#endif
+
             cbAdmin_Check.IsEnabled = !(bool)(cbAdmin_Check.IsChecked = IsAdministrator());
 
             App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
