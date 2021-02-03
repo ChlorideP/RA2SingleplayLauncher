@@ -11,6 +11,7 @@ namespace BattleLauncher.Data
     {
         public static FileInfo Syringe { get; }
         public static FileInfo Ares_DLL { get; }
+        public static FileInfo Lobos_DLL { get; }
         public static FileInfo SpawnIni { get; }
         public static FileInfo CNCNET5_DLL { get; }
 
@@ -18,11 +19,12 @@ namespace BattleLauncher.Data
         public static DirectoryInfo MainFolder { get; }
 
 
-        public static bool AresExistence()
+        public static bool ExtExistence()
         {
             Ares_DLL.Refresh();
+            Lobos_DLL.Refresh();
             Syringe.Refresh();
-            return Ares_DLL.Exists & Syringe.Exists;
+            return Ares_DLL.Exists & Lobos_DLL.Exists & Syringe.Exists;
         }
 
         static OverAll()
@@ -38,9 +40,9 @@ namespace BattleLauncher.Data
 
             SpawnIni = new FileInfo(Path.Combine(MainFolder.FullName, "spawn.ini"));
 
-
-            Ares_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Ares.DLL"));
-            Syringe = new FileInfo(Path.Combine(MainFolder.FullName, "Syringe.EXE"));
+            Lobos_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Phobos.dll"));
+            Ares_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Ares.dll"));
+            Syringe = new FileInfo(Path.Combine(MainFolder.FullName, "Syringe.exe"));
         }
 
         public static bool IsAdministrator()

@@ -198,9 +198,9 @@ while too SMALL one will cause FATAL ERROR!</value>
     <value>Launcher Created By:</value>
   </data>
   <data name="txtAresNotFoundError" xml:space="preserve">
-    <value>This mission is ONLY supported with Ares platform.
+    <value>This mission is ONLY supported with Ares platform (within Phobos Extension).
 
-You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+You may need to check if Ares.dll, Phobos.dll and Syringe.exe are placed in your game directory.
 
 It is advised to download again if the files above cannot be found.</value>
   </data>
@@ -244,7 +244,7 @@ It is advised to download again if the files above cannot be found.</value>
     <value>Screen Size (W*H):</value>
   </data>
   <data name="txtSettingTip.Text" xml:space="preserve">
-    <value>CAUTION: Some of the settings may not be available.</value>
+    <value>PS: Sound volume could be adjusted in game.</value>
   </data>
   <data name="txtSpawnerInvalidError" xml:space="preserve">
     <value>Missing or invalid map loader 'cncnet5.dll' in your game directory!</value>

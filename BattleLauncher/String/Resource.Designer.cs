@@ -291,9 +291,9 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 This mission is ONLY supported with Ares platform.
+        ///   查找类似 This mission is ONLY supported with Ares platform (within Phobos Extension).
         ///
-        ///You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+        ///You may need to check if Ares.dll, Phobos.dll and Syringe.exe are placed in your game directory.
         ///
         ///It is advised to download again if the files above cannot be found. 的本地化字符串。
         /// </summary>
@@ -421,7 +421,7 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 CAUTION: Some of the settings may not be available. 的本地化字符串。
+        ///   查找类似 PS: Sound volume could be adjusted in game. 的本地化字符串。
         /// </summary>
         public static string txtSettingTip_Text {
             get {

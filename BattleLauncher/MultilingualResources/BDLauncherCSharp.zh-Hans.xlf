@@ -103,16 +103,17 @@
           <target state="translated">启动器贡献者</target>
         </trans-unit>
         <trans-unit id="txtAresNotFoundError" translate="yes" xml:space="preserve">
-          <source>This mission is ONLY supported with Ares platform.
+          <source>This mission is ONLY supported with Ares platform (within Phobos Extension).
 
-You may need to check if Ares.dll and Syringe.exe are placed in your game directory.
+You may need to check if Ares.dll, Phobos.dll and Syringe.exe are placed in your game directory.
 
 It is advised to download again if the files above cannot be found.</source>
-          <target state="translated">此任务没有 Ares 扩展平台无法运作。
+          <target state="needs-review-translation">此任务必须使用 Ares 扩展平台（含 Phobos 扩展）。
 
-请检查你的游戏目录是否含 Ares.dll 和 Syringe.exe，
+请检查你的游戏目录是否含 Ares.dll、Phobos.dll 和 Syringe.exe，
 
 若找不到，建议重新下载安装。</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="txtCaptain" translate="yes" xml:space="preserve">
           <source>Braindead Launcher</source>
@@ -163,8 +164,9 @@ It is advised to download again if the files above cannot be found.</source>
           <target state="translated">屏幕分辨率 (W*H):</target>
         </trans-unit>
         <trans-unit id="txtSettingTip.Text" translate="yes" xml:space="preserve">
-          <source>CAUTION: Some of the settings may not be available.</source>
-          <target state="translated">警告：部分设置可能不会起作用。</target>
+          <source>PS: Sound volume could be adjusted in game.</source>
+          <target state="needs-review-translation">警告：部分设置可能不会起作用。</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="txtSpawnerInvalidError" translate="yes" xml:space="preserve">
           <source>Missing or invalid map loader 'cncnet5.dll' in your game directory!</source>

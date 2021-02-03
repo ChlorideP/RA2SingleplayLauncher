@@ -24,14 +24,15 @@ namespace BattleLauncher.Extensions
 #endif
                 throw new SpawnerInvalidException();
 
-            if (!AresExistence())
+            if (!ExtExistence())
                 throw new AresNotFoundException();
 
             var list = new List<string>
             {
                 "\"GAMEMD.EXE\"",
                 "-SPAWN",
-                "-CD"
+                "-CD",
+                "-hidewarning"
             };
 
             var proc = new Process();
@@ -39,7 +40,7 @@ namespace BattleLauncher.Extensions
             if (options.RunAs)
                 proc.StartInfo.Verb = "runas";
             if (options.LogMode)
-                list.Add("-LOG");
+                list.Add("-log");
             list.AddRange(options.Others);
             proc.StartInfo.Arguments = string.Join(" ", list);
 
