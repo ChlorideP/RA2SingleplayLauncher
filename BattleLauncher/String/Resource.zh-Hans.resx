@@ -128,7 +128,7 @@
     <value>屏幕分辨率 (W*H):</value>
   </data>
   <data name="txtSettingTip.Text" xml:space="preserve">
-    <value>警告：部分设置可能不会起作用。</value>
+    <value>注：音量设置可以在游戏中自行调整。</value>
   </data>
   <data name="txtSpawnerInvalidError" xml:space="preserve">
     <value>找不到或并非「脑死」读图器 (cncnet5.dll)！</value>
