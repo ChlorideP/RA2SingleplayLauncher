@@ -31,12 +31,7 @@ namespace BattleLauncher.Data
         {
             MainFolder = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 
-            ArchiveFolder =
-#if DEBUG
-                MainFolder.CreateSubdirectory("Saved Games");
-#elif RELEASE
-                MainFolder.CreateSubdirectory("SaveData");
-#endif
+            ArchiveFolder = MainFolder.CreateSubdirectory("SaveData");
 
             SpawnIni = new FileInfo(Path.Combine(MainFolder.FullName, "spawn.ini"));
 
