@@ -121,9 +121,7 @@ namespace BattleLauncher
                 RunAs = cbAdmin_Check.IsChecked ?? false,
                 Others = tbCommand.Text.Split(' ')
             }.RunGame();
-#if RELEASE
             Close();
-#endif
         }
 
         public MainWindow()
