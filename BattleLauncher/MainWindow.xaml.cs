@@ -25,41 +25,15 @@ namespace BattleLauncher
 
         private async void ApplySetting(object sender, ExecutedRoutedEventArgs e)
         {
+            Commands.DialogRoutedCommands.CloseCommand.Execute(null, e.Source as IInputElement);
+
             var vm = e.Parameter as ViewModels.ConfigsViewModel;
             var model = ConfigsViewModelExtension.ToModel(vm);
 
-            Data.DDRAWUtils.CleanAll();//rm old ones.
-            switch (vm.Renderer.Name)
-            {
-                case "NONE":
-                    goto default;
-                case "CNCDDRAW":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    await GameConfigExtensions.WriteCNCDDRAWConfig(model);
-                    model.Borderless = model.IsWindowMode = false;
-                    goto default;
-                case "DDWRAPPER":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    goto default;
-                case "DXWND":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    await GameConfigExtensions.WriteDxWndConfig(model);
-                    model.Borderless = model.IsWindowMode = false;
-                    goto default;
-                case "TSDDRAW":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    goto default;
-                case "IEDDRAW":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    goto default;
-                case "COMPAT":
-                    Data.DDRAWUtils.Apply(vm.Renderer.Directory);
-                    goto default;
-                default:
-                    await GameConfigExtensions.WriteConfig(model);
-                    break;
-            }
-            Commands.DialogRoutedCommands.CloseCommand.Execute(null, e.Source as IInputElement);
+            Data.RenderersManager.Apply(vm.Renderer.Id);
+            await model.WriteConfig();
+            await model.WriteConfig(vm.Renderer.Id);
+            await SaveGlobalConfig().ConfigureAwait(false);
         }
 
         private void CanClearCommandLine(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = !string.IsNullOrEmpty((e.Source as TextBox)?.Text);

@@ -54,10 +54,9 @@
 
                     <TextBlock x:Uid="txtRenderer"
                         Grid.Row="1" Margin="10 2" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="cbRenderer"
-                        Grid.Row="1" Grid.Column="1" Margin="2" Foreground="#ffffff"
-                        SelectedItem="{Binding Renderer}" >
-                    </ComboBox>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="2" Foreground="#ffffff"
+                              SelectedItem="{Binding Renderer}"
+                              ItemsSource="{Binding Renderers}"/>
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
                         <CheckBox x:Name="cbWindowed" x:Uid="cbWindowed"

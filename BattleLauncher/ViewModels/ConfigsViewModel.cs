@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-
-using BattleLauncher.Data.Model;
-using BattleLauncher.Extensions;
-
-using static BattleLauncher.Data.OverAll;
 
 namespace BattleLauncher.ViewModels
 {
     public class ConfigsViewModel : INotifyPropertyChanged
     {
-        protected RendererOptions _renderer;
+        protected RendererViewModel _renderer;
         protected byte difficult;
         protected bool noBorder;
         protected string screenSize;
@@ -42,7 +38,7 @@ namespace BattleLauncher.ViewModels
             }
         }
 
-        public RendererOptions Renderer
+        public RendererViewModel Renderer
         {
             get => _renderer; set
             {
@@ -50,6 +46,7 @@ namespace BattleLauncher.ViewModels
                 OnPropertyChanged();
             }
         }
+        public ObservableCollection<RendererViewModel> Renderers { get; }
 
         public string ScreenSize
         {
@@ -86,5 +83,12 @@ namespace BattleLauncher.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ConfigsViewModel()
+        {
+            Renderers = new ObservableCollection<RendererViewModel>(Data.RenderersManager.Renderers.Keys.Select(RendererViewModel.CreateById));
+
+            Renderer = Renderers.Where(renderer => Data.RenderersManager.Current.Id.Equals(renderer.Id)).First();
+        }
     }
 }

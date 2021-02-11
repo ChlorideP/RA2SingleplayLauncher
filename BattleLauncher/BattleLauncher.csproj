@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.4" />
+    <PackageReference Include="YamlDotNet" Version="9.1.4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="String\Error.Designer.cs">
@@ -73,6 +74,9 @@
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Resources\Configs\Renderers.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Renderers\cnc-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

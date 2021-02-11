@@ -1,0 +1,52 @@
+﻿- id: cnc-ddraw
+  main: ddraw.dll
+  config: ddraw.ini
+  use-config: true
+  config-section: ddraw
+  config-key-maps:
+    full-screen:
+      key: fullscreen
+      reverse: false
+    window-mode:
+      key: windowed
+      reverse: false
+    borderless:
+      key: border
+      reverse: true
+
+- id: compat
+  main: ddraw.dll
+
+- id: ddwrapper
+  dir: DDWrapper
+  main: ddraw.dll
+  config: aqrit.cfg
+
+- id: dxwnd
+  dir: DxWnd
+  main: ddraw.dll
+  config: dxwnd.ini
+  files:
+  - dxwnd.dll
+  use-config: true
+  config-section: DxWnd
+  config-key-maps:
+    full-screen:
+      key: RunInWindow
+      reverse: true
+    window-mode:
+      key: RunInWindow
+      reverse: false
+    borderless:
+      key: NoWindowFrame
+      reverse: false
+
+- id: ie-ddraw
+  main: ddraw.dll
+  files:
+  - libwine.dll
+  - wined3d.dll
+  
+- id: ts-ddraw
+  main: ddraw.dll
+  config: ddraw.ini

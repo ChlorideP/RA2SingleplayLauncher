@@ -16,46 +16,66 @@ namespace BattleLauncher.Extensions
     /// </summary>
     public static class GameConfigExtensions
     {
-        private static readonly FileInfo ddraw = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ddraw.ini"));
-        private static readonly FileInfo dxwnd = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "dxwnd.ini"));
         private static readonly FileInfo file = new FileInfo(Path.Combine(OverAll.MainFolder.FullName, "ra2md.ini"));
 
-        public static async Task<GameConfig> ReadCNCDDRAWConfig(this GameConfig configure)
+        public static async Task<GameConfig> ReadConfig(this GameConfig configure, string renderer_id)
+            => RenderersManager.Renderers.TryGetValue(renderer_id, out var renderer) ? await configure.ReadConfig(renderer).ConfigureAwait(false) : configure;
+
+        public static async Task<GameConfig> ReadConfig(this GameConfig configure, Renderer renderer)
         {
-            if (ddraw.Exists)
-            {
-                var doc = await IniDocumentUtils.ParseAsync(ddraw.OpenRead());
-                configure.IsFullScreen = (bool)doc["ddraw", "fullscreen"];
-                configure.IsWindowMode = (bool)doc["ddraw", "windowed"];
-                configure.Borderless = !(bool)doc["ddraw", "border"];
-            }
-            else
-            {
-                configure.IsFullScreen = true;
-                configure.IsWindowMode = false;
-                configure.Borderless = false;
-            }
+            if (!renderer.UseConfig ||
+                !File.Exists(Path.Combine(OverAll.MainFolder.FullName, renderer.Config)))
+                return configure;
+
+            var fs = File.OpenRead(Path.Combine(OverAll.MainFolder.FullName, renderer.Config));
+            var doc = await IniDocumentUtils.ParseAsync(fs);
+            fs.Dispose();
+            configure.IsFullScreen = (bool)doc[renderer.ConfigSection, renderer.ConfigKeyMap["full-screen"].Key];
+            configure.IsWindowMode = (bool)doc[renderer.ConfigSection, renderer.ConfigKeyMap["window-mode"].Key];
+            configure.Borderless = (bool)doc[renderer.ConfigSection, renderer.ConfigKeyMap["borderless"].Key];
+
+            if (renderer.ConfigKeyMap["full-screen"].Reverse)
+                configure.IsFullScreen = !configure.IsFullScreen;
+            if (renderer.ConfigKeyMap["window-mode"].Reverse)
+                configure.IsWindowMode = !configure.IsWindowMode;
+            if (renderer.ConfigKeyMap["borderless"].Reverse)
+                configure.Borderless = !configure.Borderless;
 
             return configure;
         }
 
-        public static async Task<GameConfig> ReadDxWndConfig(this GameConfig configure)
+        public static async Task WriteConfig(this GameConfig configure, string renderer_id)
         {
-            if (dxwnd.Exists)
-            {
-                var doc = await IniDocumentUtils.ParseAsync(dxwnd.OpenRead());
-                configure.IsFullScreen = !(bool)doc["DxWnd", "RunInWindow"];
-                configure.IsWindowMode = (bool)doc["DxWnd", "RunInWindow"];
-                configure.Borderless = (bool)doc["DxWnd", "NoWindowFrame"];
-            }
+            if (RenderersManager.Renderers.TryGetValue(renderer_id, out var renderer))
+                await configure.WriteConfig(renderer).ConfigureAwait(false);
             else
-            {
-                configure.IsFullScreen = true;
-                configure.IsWindowMode = false;
-                configure.Borderless = false;
-            }
+                await configure.WriteConfig();
+        }
 
-            return configure;
+        public static async Task WriteConfig(this GameConfig configure, Renderer renderer)
+        {
+            await configure.WriteConfig();
+            if (!renderer.UseConfig)
+                return;
+
+            var fs = File.OpenRead(Path.Combine(OverAll.MainFolder.FullName, renderer.Config));
+            var doc = await IniDocumentUtils.ParseAsync(fs);
+            fs.Dispose();
+            doc[renderer.ConfigSection, renderer.ConfigKeyMap["full-screen"].Key]
+                = renderer.ConfigKeyMap["full-screen"].Reverse
+                ? !configure.IsFullScreen : configure.IsFullScreen;
+
+            doc[renderer.ConfigSection, renderer.ConfigKeyMap["window-mode"].Key]
+                = renderer.ConfigKeyMap["window-mode"].Reverse
+                ? !configure.Borderless : configure.IsWindowMode;
+
+            doc[renderer.ConfigSection, renderer.ConfigKeyMap["borderless"].Key]
+                = renderer.ConfigKeyMap["borderless"].Reverse
+                ? !configure.Borderless : configure.Borderless;
+
+            fs = File.Open(Path.Combine(OverAll.MainFolder.FullName, renderer.Config), FileMode.Create);
+            await doc.DeparseAsync(fs);
+            fs.Dispose();
         }
 
         /// <summary>
@@ -94,30 +114,6 @@ namespace BattleLauncher.Extensions
                     Difficult = (Difficult)Enum.Parse(typeof(Difficult), doc["Options", "Difficulty", 0], true)
                 };
             }
-        }
-        public static async Task WriteCNCDDRAWConfig(this GameConfig configure)
-        {
-            IIniDocument doc;
-            using (var fs = ddraw.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
-                doc = await IniDocumentUtils.ParseAsync(fs);
-            doc["ddraw", "fullscreen"] = configure.IsFullScreen;
-            doc["ddraw", "windowed"] = configure.IsWindowMode;
-            doc["ddraw", "border"] = !configure.Borderless;
-
-            using (var fs = ddraw.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
-                await doc.DeparseAsync(fs);
-        }
-
-        public static async Task WriteDxWndConfig(this GameConfig configure)
-        {
-            IIniDocument doc;
-            using (var fs = dxwnd.Open(FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
-                doc = await IniDocumentUtils.ParseAsync(fs);
-            doc["DxWnd", "RunInWindow"] = configure.IsWindowMode;
-            doc["DxWnd", "NoWindowFrame"] = configure.Borderless;
-
-            using (var fs = dxwnd.Open(FileMode.Create, FileAccess.Write, FileShare.Read))
-                await doc.DeparseAsync(fs);
         }
 
         /// <summary>
