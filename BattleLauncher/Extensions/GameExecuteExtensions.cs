@@ -32,7 +32,8 @@ namespace BattleLauncher.Extensions
                 "\"GAMEMD.EXE\"",
                 "-SPAWN",
                 "-CD",
-                "-hidewarning"
+                "-hidewarning",
+                "-name \"Braindead RL v1.14\""
             };
 
             var proc = new Process();
