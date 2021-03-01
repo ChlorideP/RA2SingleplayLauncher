@@ -70,7 +70,7 @@
                     <!--  用一个 TextBlock 节省内存  -->
                     <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak />
                     <!--  Launcher Created By:  -->
-                    <Run Text="CaconCaco" /><LineBreak />
+                    <Run Text="Caco" /><LineBreak />
                     <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
                     <LineBreak />

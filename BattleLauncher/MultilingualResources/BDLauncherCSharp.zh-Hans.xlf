@@ -144,7 +144,7 @@ It is advised to download again if the files above cannot be found.</source>
         </trans-unit>
         <trans-unit id="txtMisAuthor" translate="yes" xml:space="preserve">
           <source>Presented by CacoNyan Studio</source>
-          <target state="translated">由 CacoNyan Studio 出品.</target>
+          <target state="translated">由 CacoNyan Studio 挂名出品.</target>
         </trans-unit>
         <trans-unit id="txtMisName" translate="yes" xml:space="preserve">
           <source>Operation: Braindead</source>
