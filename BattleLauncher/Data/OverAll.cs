@@ -35,7 +35,7 @@ namespace BattleLauncher.Data
 
             SpawnIni = new FileInfo(Path.Combine(MainFolder.FullName, "spawn.ini"));
 
-            Lobos_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Phobos.dll"));
+            Lobos_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Lobos.dll"));
             Ares_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Ares.dll"));
             Syringe = new FileInfo(Path.Combine(MainFolder.FullName, "Syringe.exe"));
         }

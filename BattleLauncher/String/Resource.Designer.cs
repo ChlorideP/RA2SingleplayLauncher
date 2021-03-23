@@ -291,9 +291,9 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 This mission is ONLY supported with Ares platform (within Phobos Extension).
+        ///   查找类似 This mission is ONLY supported with Ares platform (within Lobos Extension).
         ///
-        ///You may need to check if Ares.dll, Phobos.dll and Syringe.exe are placed in your game directory.
+        ///You may need to check if Ares.dll, Lobos.dll and Syringe.exe are placed in your game directory.
         ///
         ///It is advised to download again if the files above cannot be found. 的本地化字符串。
         /// </summary>

@@ -85,9 +85,9 @@
     <value>启动器贡献者</value>
   </data>
   <data name="txtAresNotFoundError" xml:space="preserve">
-    <value>此任务必须使用 Ares 扩展平台（含 Phobos 扩展）。
+    <value>此任务必须使用 Ares 扩展平台（含 Lobos 扩展）。
 
-请检查你的游戏目录是否含 Ares.dll、Phobos.dll 和 Syringe.exe，
+请检查你的游戏目录是否含 Ares.dll、Lobos.dll 和 Syringe.exe，
 
 若找不到，建议重新下载安装。</value>
   </data>
