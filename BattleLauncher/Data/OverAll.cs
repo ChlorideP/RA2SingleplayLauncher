@@ -33,7 +33,11 @@ namespace BattleLauncher.Data
         {
             CnCNet5_DLL.Refresh();
             CacoNyan_DLL.Refresh();
+#if RELEASE
             return CnCNet5_DLL.Exists & CacoNyan_DLL.SHA512Verify(Hash.CACONYAN);
+#elif DEBUG
+            return CnCNet5_DLL.Exists & CacoNyan_DLL.Exists;
+#endif
         }
 
         static OverAll()
