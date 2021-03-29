@@ -16,12 +16,7 @@ namespace BattleLauncher.Extensions
     {
         public static void RunGame(this GameExecuteOptions options)
         {
-            var CNCNET5_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "cncnet5.dll"));
-#if RELEASE
-            if (!CNCNET5_DLL.SHA512Verify(Data.Hash.CNCNET5))
-#elif DEBUG
-            if (!CNCNET5_DLL.Exists)
-#endif
+            if (!SpawnerExists())
                 throw new SpawnerInvalidException();
 
             if (!ExtExistence())
@@ -30,8 +25,7 @@ namespace BattleLauncher.Extensions
             var list = new List<string>
             {
                 "\"GAMEMD.EXE\"",
-                "-SPAWN",
-                "-CD",
+                "-cd",
                 "-hidewarning",
                 "-name \"Braindead RL v1.14\""
             };

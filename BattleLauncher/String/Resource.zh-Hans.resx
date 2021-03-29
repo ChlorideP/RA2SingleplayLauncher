@@ -131,7 +131,9 @@
     <value>注：音量设置可以在游戏中自行调整。</value>
   </data>
   <data name="txtSpawnerInvalidError" xml:space="preserve">
-    <value>找不到或并非「脑死」读图器 (cncnet5.dll)！</value>
+    <value>游戏目录中找不到 cncnet5.dll 和 CacoNyan.dll，
+          
+或者并非是「脑死」所使用的。</value>
   </data>
   <data name="txtThanks" xml:space="preserve">
     <value>特别鸣谢</value>
