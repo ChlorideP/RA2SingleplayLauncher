@@ -291,9 +291,9 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 This mission is ONLY supported with Ares platform (within Lobos Extension).
+        ///   查找类似 This mission is ONLY supported with Ares platform (within Ladder Extension).
         ///
-        ///You may need to check if &apos;Ares.dll&apos;, &apos;Lobos.dll&apos; and &apos;Syringe.exe&apos; are placed in your game directory.
+        ///You may need to check if &apos;Ares.dll&apos;, &apos;LSP.dll&apos; and &apos;Syringe.exe&apos; are placed in your game directory.
         ///
         ///It is advised to download again if the files above cannot be found. 的本地化字符串。
         /// </summary>
@@ -430,7 +430,7 @@ namespace BattleLauncher.String {
         }
         
         /// <summary>
-        ///   查找类似 Missing or invalid &apos;cncnet5.dll&apos; or &apos;CacoNyan.dll&apos; in your game directory! 的本地化字符串。
+        ///   查找类似 Missing or invalid &apos;cncnet5.dll&apos; or &apos;CacoNyan.dll&apos; detected! 的本地化字符串。
         /// </summary>
         public static string txtSpawnerInvalidError {
             get {

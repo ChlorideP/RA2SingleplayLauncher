@@ -103,16 +103,17 @@
           <target state="translated">启动器贡献者</target>
         </trans-unit>
         <trans-unit id="txtAresNotFoundError" translate="yes" xml:space="preserve">
-          <source>This mission is ONLY supported with Ares platform (within Lobos Extension).
+          <source>This mission is ONLY supported with Ares platform (within Ladder Extension).
 
-You may need to check if 'Ares.dll', 'Lobos.dll' and 'Syringe.exe' are placed in your game directory.
+You may need to check if 'Ares.dll', 'LSP.dll' and 'Syringe.exe' are placed in your game directory.
 
 It is advised to download again if the files above cannot be found.</source>
-          <target state="translated">此任务必须使用 Ares 扩展平台（含 Lobos 扩展）。
+          <target state="translated">此任务必须使用 Ares 扩展平台（含 Ladder 扩展）。
 
-请检查你的游戏目录是否含 Ares.dll、Lobos.dll 和 Syringe.exe，
+请检查你的游戏目录是否含 Ares.dll、LSP.dll 和 Syringe.exe，
 
 若找不到，建议重新下载安装。</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="txtCaptain" translate="yes" xml:space="preserve">
           <source>Braindead Launcher</source>
@@ -167,11 +168,12 @@ It is advised to download again if the files above cannot be found.</source>
           <target state="translated">注：音量设置可以在游戏中自行调整。</target>
         </trans-unit>
         <trans-unit id="txtSpawnerInvalidError" translate="yes" xml:space="preserve">
-          <source>Missing or invalid 'cncnet5.dll' or 'CacoNyan.dll' in your game directory!</source>
-          <target state="translated">游戏目录中找不到 cncnet5.dll 和 CacoNyan.dll，
+          <source>Missing or invalid 'cncnet5.dll' or 'CacoNyan.dll' detected!</source>
+          <target state="translated">找不到 cncnet5.dll 和 CacoNyan.dll，
           
 或者并非是「脑死」所使用的。</target>
-          </trans-unit>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
         <trans-unit id="txtThanks" translate="yes" xml:space="preserve">
           <source>Special Thanks:</source>
           <target state="translated">特别鸣谢</target>
