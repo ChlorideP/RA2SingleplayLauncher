@@ -13,13 +13,13 @@
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>Resources\clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyName>BattleLauncher</AssemblyName>
+    <AssemblyName>Braindead</AssemblyName>
     <Authors>CaconCaco, frg2089</Authors>
     <Company>CacoNyan Studio</Company>
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner.</Description>
     <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non rights reserved.</Copyright>
-    <PackageProjectUrl>braindeadyr.gitee.io/</PackageProjectUrl>
+    <PackageProjectUrl>https://gitee.com/yrbdproj/bd_Release</PackageProjectUrl>
     <PackageIcon></PackageIcon>
     <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
     <AssemblyVersion>2.0.1.15935</AssemblyVersion>
