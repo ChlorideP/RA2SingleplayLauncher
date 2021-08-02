@@ -44,11 +44,11 @@ namespace BattleLauncher.Data
         {
             MainFolder = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 
-            ArchiveFolder = MainFolder.CreateSubdirectory("Saved Games");
+            ArchiveFolder = MainFolder.CreateSubdirectory("SaveData");
 
             SpawnIni = new FileInfo(Path.Combine(MainFolder.FullName, "spawn.ini"));
 
-            Lobos_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Lobos.dll"));
+            Lobos_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "LSP.dll"));
             Ares_DLL = new FileInfo(Path.Combine(MainFolder.FullName, "Ares.dll"));
             Syringe = new FileInfo(Path.Combine(MainFolder.FullName, "Syringe.exe"));
 

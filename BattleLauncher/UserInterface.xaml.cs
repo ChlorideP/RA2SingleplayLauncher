@@ -30,32 +30,32 @@ namespace BattleLauncher
                 new Data.Model.RendererOptions{
                     Name="CNCDDRAW",
                     FriendlyName= I18NExtension.I18N("cbRenderer.CNCDDraw") ,
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "cnc-ddraw"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "cnc-ddraw"))
                 },
                 new Data.Model.RendererOptions{
                     Name="DDWRAPPER",
                     FriendlyName="DDWrapper",
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "DDWrapper"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "DDWrapper"))
                 },
                 new Data.Model.RendererOptions{
                     Name="DXWND",
                     FriendlyName="DxWnd",
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "DxWnd"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "DxWnd"))
                 },
                 new Data.Model.RendererOptions{
                     Name="TSDDRAW",
                     FriendlyName="TS-DDraw",
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "ts-ddraw"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "ts-ddraw"))
                 },
                 new Data.Model.RendererOptions{
                     Name="IEDDRAW",
                     FriendlyName="IE-DDraw",
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "ie-ddraw"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "ie-ddraw"))
                 },
                 new Data.Model.RendererOptions{
                     Name="COMPAT",
                     FriendlyName="DDrawCompat",
-                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Resources","Renderers", "compat"))
+                    Directory = new DirectoryInfo(Path.Combine(MainFolder.FullName,"Res","Renderers", "compat"))
                 },
             };
             return _renderers;

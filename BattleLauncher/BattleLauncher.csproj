@@ -11,7 +11,7 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
-    <ApplicationIcon>Resources\clienticon.ico</ApplicationIcon>
+    <ApplicationIcon>Res\clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyName>Braindead</AssemblyName>
     <Authors>CaconCaco, frg2089</Authors>
@@ -32,15 +32,15 @@
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
   <ItemGroup>
-    <None Remove="Resources\Allied.png" />
-    <None Remove="Resources\bg.png" />
-    <None Remove="Resources\SegMDL2.ttf" />
-    <None Remove="Resources\Yuri.png" />
+    <None Remove="Res\Allied.png" />
+    <None Remove="Res\bg.png" />
+    <None Remove="Res\SegMDL2.ttf" />
+    <None Remove="Res\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Allied.png" />
-    <Resource Include="Resources\bg.png" />
-    <Content Include="Resources\SegMDL2.ttf">
+    <Resource Include="Res\Allied.png" />
+    <Resource Include="Res\bg.png" />
+    <Content Include="Res\SegMDL2.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -73,46 +73,43 @@
     <Folder Include="MultilingualResources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Resources\Renderers\cnc-ddraw\ddraw.dll">
+    <None Update="Res\Renderers\cnc-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\cnc-ddraw\ddraw.ini">
+    <None Update="Res\Renderers\cnc-ddraw\ddraw.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\compat\ddraw.dll">
+    <None Update="Res\Renderers\compat\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\DDWrapper\aqrit.cfg">
+    <None Update="Res\Renderers\DDWrapper\aqrit.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\DDWrapper\ddraw.dll">
+    <None Update="Res\Renderers\DDWrapper\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\DxWnd\ddraw.dll">
+    <None Update="Res\Renderers\DxWnd\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\DxWnd\dxwnd.dll">
+    <None Update="Res\Renderers\DxWnd\dxwnd.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\DxWnd\dxwnd.ini">
+    <None Update="Res\Renderers\DxWnd\dxwnd.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\ie-ddraw.dll">
+    <None Update="Res\Renderers\ie-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\ie-ddraw\ddraw.dll">
+    <None Update="Res\Renderers\ie-ddraw\libwine.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\ie-ddraw\libwine.dll">
+    <None Update="Res\Renderers\ie-ddraw\wined3d.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\ie-ddraw\wined3d.dll">
+    <None Update="Res\Renderers\ts-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Renderers\ts-ddraw\ddraw.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Renderers\ts-ddraw\ddraw.ini">
+    <None Update="Res\Renderers\ts-ddraw\ddraw.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

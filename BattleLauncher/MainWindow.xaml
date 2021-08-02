@@ -30,7 +30,7 @@
     <Grid>
         <!--  背景 图像笔刷  -->
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/bg.png" Stretch="UniformToFill" />
+            <ImageBrush ImageSource="Res/bg.png" Stretch="UniformToFill" />
         </Grid.Background>
         <!--  分行  -->
         <Grid.RowDefinitions>
@@ -48,7 +48,7 @@
         <Image
             Grid.RowSpan="3" Width="130" Height="82" Margin="25 82 0 0"
             HorizontalAlignment="Left" VerticalAlignment="Top"
-            Source="Resources/allied.png" Stretch="UniformToFill" />
+            Source="Res/allied.png" Stretch="UniformToFill" />
         <!--  主要文字位置  -->
         <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <!--  左边的文字  -->
