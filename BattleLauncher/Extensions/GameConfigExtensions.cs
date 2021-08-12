@@ -22,12 +22,15 @@ namespace BattleLauncher.Extensions
 
         public static async Task<GameConfig> ReadCNCDDRAWConfig(this GameConfig configure)
         {
+            ddraw.Refresh();
             if (ddraw.Exists)
             {
-                var doc = await IniDocumentUtils.ParseAsync(ddraw.OpenRead());
+                var stream = ddraw.OpenRead();
+                var doc = await IniDocumentUtils.ParseAsync(stream);
                 configure.IsFullScreen = (bool)doc["ddraw", "fullscreen"];
                 configure.IsWindowMode = (bool)doc["ddraw", "windowed"];
                 configure.Borderless = !(bool)doc["ddraw", "border"];
+                stream.Dispose();
             }
             else
             {
@@ -41,12 +44,15 @@ namespace BattleLauncher.Extensions
 
         public static async Task<GameConfig> ReadDxWndConfig(this GameConfig configure)
         {
+            dxwnd.Refresh();
             if (dxwnd.Exists)
             {
-                var doc = await IniDocumentUtils.ParseAsync(dxwnd.OpenRead());
+                var stream = dxwnd.OpenRead();
+                var doc = await IniDocumentUtils.ParseAsync(stream);
                 configure.IsFullScreen = !(bool)doc["DxWnd", "RunInWindow"];
                 configure.IsWindowMode = (bool)doc["DxWnd", "RunInWindow"];
                 configure.Borderless = (bool)doc["DxWnd", "NoWindowFrame"];
+                stream.Dispose();
             }
             else
             {
@@ -65,7 +71,28 @@ namespace BattleLauncher.Extensions
         /// <returns>不包含渲染器的游戏配置信息</returns>
         public static async Task<GameConfig> ReadConfig()
         {
-            if (!file.Exists)
+            file.Refresh();
+            if (file.Exists)
+            {
+                var stream = file.OpenRead();
+                var doc = await IniDocumentUtils.ParseAsync(stream);
+
+                var ret = new GameConfig
+                {
+                    ScreenWidth = (ushort)doc["Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth],
+                    ScreenHeight = (ushort)doc["Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight],
+
+                    IsWindowMode = (bool)doc["Video", "Video.Windowed"],
+                    Borderless = (bool)doc["Video", "NoWindowFrame"],
+                    BackBuffer = (bool)doc["Video", "VideoBackBuffer"],
+
+                    Difficult = (Difficult)Enum.Parse(typeof(Difficult), doc["Options", "Difficulty", 0], true)
+                };
+
+                stream.Dispose();
+                return ret;
+            }
+            else
             {
                 //default val
                 return new GameConfig
@@ -76,22 +103,6 @@ namespace BattleLauncher.Extensions
                     Borderless = false,
                     BackBuffer = false,
                     Difficult = Difficult.NORMAL
-                };
-            }
-            else
-            {
-                var doc = await IniDocumentUtils.ParseAsync(file.OpenRead());
-
-                return new GameConfig
-                {
-                    ScreenWidth = (ushort)doc["Video", "ScreenWidth", SystemParameters.PrimaryScreenWidth],
-                    ScreenHeight = (ushort)doc["Video", "ScreenHeight", SystemParameters.PrimaryScreenHeight],
-
-                    IsWindowMode = (bool)doc["Video", "Video.Windowed"],
-                    Borderless = (bool)doc["Video", "NoWindowFrame"],
-                    BackBuffer = (bool)doc["Video", "VideoBackBuffer"],
-
-                    Difficult = (Difficult)Enum.Parse(typeof(Difficult), doc["Options", "Difficulty", 0], true)
                 };
             }
         }
