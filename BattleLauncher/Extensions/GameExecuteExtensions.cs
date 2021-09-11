@@ -26,7 +26,6 @@ namespace BattleLauncher.Extensions
             {
                 "\"GAMEMD.EXE\"",
                 "-cd",
-                "-hidewarning",
                 "-name \"Braindead RL v1.14\""
             };
 
