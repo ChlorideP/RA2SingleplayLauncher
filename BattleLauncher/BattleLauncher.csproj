@@ -19,9 +19,9 @@
     <Product>BattleLauncher for Ares</Product>
     <Description>Ares singleplayer mission launcher, aided by cncnet-spawner.</Description>
     <Copyright>NoCopyright(L) 2019-2021 CacoNyan Studio. Non rights reserved.</Copyright>
-    <PackageProjectUrl>https://gitee.com/yrbdproj/bd_Release</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/YR-Braindead/Release</PackageProjectUrl>
     <PackageIcon></PackageIcon>
-    <RepositoryUrl>https://github.com/CaconCaco/BraindeadLauncher</RepositoryUrl>
+    <RepositoryUrl>https://github.com/YR-Braindead/RA2BattleLauncher</RepositoryUrl>
     <AssemblyVersion>2.0.1.15935</AssemblyVersion>
     <FileVersion>2.0.1.14514</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -43,9 +43,6 @@
     <Content Include="Res\SegMDL2.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6-preview3.4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="String\Error.Designer.cs">
@@ -71,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MultilingualResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="OpenMcdf" Version="2.2.1.9" />
+    <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Res\Renderers\cnc-ddraw\ddraw.dll">

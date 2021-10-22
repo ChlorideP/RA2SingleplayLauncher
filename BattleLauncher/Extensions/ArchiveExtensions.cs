@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-
+using OpenMcdf;
 using BattleLauncher.ViewModels;
 
 namespace BattleLauncher.Extensions
@@ -10,13 +10,11 @@ namespace BattleLauncher.Extensions
     {
         private static string GetGameSavedName(this Stream stream)
         {
-            var sb = new StringBuilder(0x40);
-            stream.Seek(0x09C0, SeekOrigin.Begin);
-            using (var sr = new StreamReader(stream, Encoding.Unicode, true, 0x40, false))
-                for (var i = 0; sr.Peek() > 0; i++)
-                    sb.Append((char)sr.Read());
-
-            return sb.ToString();
+            var cf = new CompoundFile(stream);
+            var archiveNameBytes = cf.RootStorage.GetStream("Scenario Description").GetData();
+            var archiveName = Encoding.Unicode.GetString(archiveNameBytes);
+            archiveName = archiveName.TrimEnd(new char[] { '\0' });
+            return archiveName;
         }
 
         public static SavedGameViewModel GetSavedGameInfo(this FileInfo file) => new SavedGameViewModel
