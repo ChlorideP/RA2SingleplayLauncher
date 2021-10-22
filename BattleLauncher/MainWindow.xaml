@@ -71,11 +71,11 @@
                     <Run Text="{i18n:L10N txtAppAuthor}" /><LineBreak />
                     <!--  Launcher Created By:  -->
                     <Run Text="Caco" /><LineBreak />
-                    <Run Text="=Star=" /><LineBreak />
                     <Run Text="frg2089" /><LineBreak />
                     <LineBreak />
                     <Run Text="{i18n:L10N txtThanks}" /><LineBreak />
-                    <Run Text="frg2089" />
+                    <Run Text="Viisas Susi" /><LineBreak />
+                    <Run Text="TwinkleStar" />
                 </TextBlock>
             </StackPanel>
         </Grid>
