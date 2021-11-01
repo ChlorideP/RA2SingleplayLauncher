@@ -11,7 +11,7 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
-    <ApplicationIcon>Res\clienticon.ico</ApplicationIcon>
+    <ApplicationIcon>Refs\clienticon.ico</ApplicationIcon>
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyName>Braindead</AssemblyName>
     <Authors>CaconCaco, frg2089</Authors>
@@ -32,15 +32,15 @@
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
   <ItemGroup>
-    <None Remove="Res\Allied.png" />
-    <None Remove="Res\bg.png" />
-    <None Remove="Res\SegMDL2.ttf" />
-    <None Remove="Res\Yuri.png" />
+    <None Remove="Refs\Allied.png" />
+    <None Remove="Refs\bg.png" />
+    <None Remove="Refs\SegMDL2.ttf" />
+    <None Remove="Refs\Yuri.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Res\Allied.png" />
-    <Resource Include="Res\bg.png" />
-    <Content Include="Res\SegMDL2.ttf">
+    <Resource Include="Refs\Allied.png" />
+    <Resource Include="Refs\bg.png" />
+    <Content Include="Refs\SegMDL2.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -74,43 +74,43 @@
     <PackageReference Include="Shimakaze.Struct.Ini" Version="1.0.6" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Res\Renderers\cnc-ddraw\ddraw.dll">
+    <None Update="Refs\Renderers\cnc-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\cnc-ddraw\ddraw.ini">
+    <None Update="Refs\Renderers\cnc-ddraw\ddraw.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\compat\ddraw.dll">
+    <None Update="Refs\Renderers\compat\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\DDWrapper\aqrit.cfg">
+    <None Update="Refs\Renderers\DDWrapper\aqrit.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\DDWrapper\ddraw.dll">
+    <None Update="Refs\Renderers\DDWrapper\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\DxWnd\ddraw.dll">
+    <None Update="Refs\Renderers\DxWnd\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\DxWnd\dxwnd.dll">
+    <None Update="Refs\Renderers\DxWnd\dxwnd.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\DxWnd\dxwnd.ini">
+    <None Update="Refs\Renderers\DxWnd\dxwnd.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\ie-ddraw\ddraw.dll">
+    <None Update="Refs\Renderers\ie-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\ie-ddraw\libwine.dll">
+    <None Update="Refs\Renderers\ie-ddraw\libwine.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\ie-ddraw\wined3d.dll">
+    <None Update="Refs\Renderers\ie-ddraw\wined3d.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\ts-ddraw\ddraw.dll">
+    <None Update="Refs\Renderers\ts-ddraw\ddraw.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Res\Renderers\ts-ddraw\ddraw.ini">
+    <None Update="Refs\Renderers\ts-ddraw\ddraw.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
